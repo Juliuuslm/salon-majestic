@@ -40,7 +40,7 @@ const seo = {
   </section>
 
   <!-- Member Content -->
-  <section class="py-20 md:py-28 bg-white">
+  <section class="py-20 md:py-28 bg-eventflow-black">
     <div class="container-custom">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
         <!-- Main Content -->
@@ -58,7 +58,7 @@ const seo = {
             {member.bio}
           </p>
 
-          <div class="mb-8 p-6 bg-eventflow-extra rounded-lg">
+          <div class="mb-8 p-6 bg-eventflow-black-dark rounded-lg">
             <h3 class="text-xl font-bold text-eventflow-black mb-4">Especialidades</h3>
             <ul class="space-y-2">
               <li class="flex items-center gap-2 text-eventflow-gray">
@@ -92,7 +92,7 @@ const seo = {
         <!-- Sidebar -->
         <div class="lg:col-span-1">
           <!-- Contact Card -->
-          <div class="mb-8 rounded-lg border border-eventflow-border bg-eventflow-extra p-6">
+          <div class="mb-8 rounded-lg border border-eventflow-border bg-eventflow-black-dark p-6">
             <h3 class="mb-4 font-semibold text-eventflow-black">Contacta a {member.name.split(' ')[0]}</h3>
             {member.email && (
               <div class="mb-4">
@@ -115,7 +115,7 @@ const seo = {
 
           <!-- Social Links -->
           {member.social && member.social.length > 0 && (
-            <div class="rounded-lg border border-eventflow-border bg-white p-6">
+            <div class="rounded-lg border border-eventflow-border bg-eventflow-black p-6">
               <h3 class="mb-4 font-semibold text-eventflow-black">Redes Sociales</h3>
               <div class="space-y-2">
                 {member.social.map((social) => (
@@ -140,7 +140,7 @@ const seo = {
   </section>
 
   <!-- More Team Members -->
-  <section class="py-20 md:py-28 bg-eventflow-extra">
+  <section class="py-20 md:py-28 bg-eventflow-black-dark">
     <div class="container-custom">
       <h2 class="text-3xl font-bold text-eventflow-black mb-12 text-center">Conoce al Resto del Equipo</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -151,7 +151,7 @@ const seo = {
             .map((teamMember) => (
               <a
                 href={`/team/${teamMember.id}`}
-                class="group overflow-hidden rounded-lg border border-eventflow-border bg-white transition-all duration-300 hover:shadow-lg text-center"
+                class="group overflow-hidden rounded-lg border border-eventflow-border bg-eventflow-black transition-all duration-300 hover:shadow-lg text-center"
               >
                 <div class="relative overflow-hidden bg-gray-200 h-40">
                   <img

@@ -13,15 +13,15 @@ const menuItems: NavItem[] = [
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-white shadow-md transition-all duration-300">
+<header class="sticky top-0 z-50 bg-eventflow-black border-b border-eventflow-border-dark shadow-lg shadow-eventflow-primary/10 transition-all duration-300">
   <div class="container-custom">
     <div class="flex items-center justify-between py-4">
       <!-- Logo -->
-      <a href="/" class="flex items-center space-x-2">
-        <div class="h-10 w-10 rounded-lg bg-eventflow-primary text-white flex items-center justify-center font-bold">
+      <a href="/" class="flex items-center space-x-2 group">
+        <div class="h-10 w-10 rounded-lg bg-gradient-to-br from-eventflow-primary to-eventflow-base text-white flex items-center justify-center font-bold transition-transform duration-300 group-hover:scale-110">
           E
         </div>
-        <span class="text-xl font-bold text-eventflow-black">EventFlow</span>
+        <span class="text-xl font-bold text-white transition-colors duration-300 group-hover:text-eventflow-primary">EventFlow</span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -30,7 +30,7 @@ const menuItems: NavItem[] = [
           menuItems.map((item) => (
             <a
               href={item.href}
-              class="px-4 py-2 rounded-md text-sm font-medium text-eventflow-gray transition-colors hover:text-eventflow-primary hover:bg-eventflow-extra"
+              class="px-4 py-2 rounded-md text-sm font-medium text-gray-300 transition-colors hover:text-eventflow-primary hover:bg-eventflow-black-dark"
             >
               {item.label}
             </a>
@@ -43,11 +43,11 @@ const menuItems: NavItem[] = [
         <!-- Search Button -->
         <button
           id="search-trigger"
-          class="p-2 rounded-lg hover:bg-eventflow-extra transition-colors"
+          class="p-2 rounded-lg hover:bg-eventflow-black-dark hover:text-eventflow-primary transition-colors duration-300"
           aria-label="Buscar"
         >
           <svg
-            class="h-5 w-5 text-eventflow-gray"
+            class="h-5 w-5 text-gray-300 transition-colors"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -72,11 +72,11 @@ const menuItems: NavItem[] = [
         <!-- Mobile Menu Button -->
         <button
           id="mobile-menu-trigger"
-          class="md:hidden p-2 rounded-lg hover:bg-eventflow-extra transition-colors"
+          class="md:hidden p-2 rounded-lg hover:bg-eventflow-black-dark hover:text-eventflow-primary transition-colors duration-300"
           aria-label="Menú"
         >
           <svg
-            class="h-6 w-6 text-eventflow-gray"
+            class="h-6 w-6 text-gray-300 transition-colors"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -125,13 +125,13 @@ const menuItems: NavItem[] = [
 </script>
 
 <!-- Mobile Navigation (Hidden by default) -->
-<nav id="mobile-nav" class="hidden md:hidden bg-white border-t border-eventflow-border">
+<nav id="mobile-nav" class="hidden md:hidden bg-eventflow-black-dark border-t border-eventflow-border-dark">
   <div class="container-custom py-4 space-y-2">
     {
       menuItems.map((item) => (
         <a
           href={item.href}
-          class="block px-4 py-2 rounded-md text-sm font-medium text-eventflow-gray transition-colors hover:text-eventflow-primary hover:bg-eventflow-extra"
+          class="block px-4 py-2 rounded-md text-sm font-medium text-gray-300 transition-colors hover:text-eventflow-primary hover:bg-eventflow-black"
         >
           {item.label}
         </a>

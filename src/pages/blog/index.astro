@@ -25,12 +25,12 @@ const seo = {
   </section>
 
   <!-- Blog Grid -->
-  <section class="py-20 md:py-28 bg-white">
+  <section class="py-20 md:py-28 bg-eventflow-black">
     <div class="container-custom">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {
           sortedPosts.map((post) => (
-            <article class="overflow-hidden rounded-lg border border-eventflow-border bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+            <article class="overflow-hidden rounded-lg border border-eventflow-border bg-eventflow-black transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div class="relative overflow-hidden bg-gray-200 h-48">
                 <img
                   src={post.data.image}
@@ -68,7 +68,7 @@ const seo = {
                 <div class="flex items-center justify-between">
                   <div class="flex gap-2 flex-wrap">
                     {post.data.tags.slice(0, 2).map((tag) => (
-                      <span class="inline-block bg-eventflow-extra text-eventflow-gray text-xs px-3 py-1 rounded-full">
+                      <span class="inline-block bg-eventflow-black-dark text-eventflow-gray text-xs px-3 py-1 rounded-full">
                         {tag}
                       </span>
                     ))}

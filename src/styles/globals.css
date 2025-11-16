@@ -12,8 +12,9 @@ html {
 }
 
 body {
-  @apply bg-white font-sans text-base text-eventflow-gray antialiased;
+  @apply bg-eventflow-black font-sans text-base text-white antialiased;
   scroll-padding-top: 80px;
+  color-scheme: dark;
 }
 
 /* Typography */
@@ -23,7 +24,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-heading font-bold text-eventflow-black;
+  @apply font-heading font-bold text-white;
 }
 
 h1,
@@ -50,12 +51,12 @@ img {
 input,
 textarea,
 select {
-  @apply w-full rounded border border-eventflow-border px-4 py-2 font-sans focus:border-eventflow-base focus:outline-none focus:ring-2 focus:ring-eventflow-base/20 transition-all duration-300;
+  @apply w-full rounded border border-eventflow-border-dark bg-eventflow-black-dark text-white px-4 py-2 font-sans focus:border-eventflow-primary focus:outline-none focus:ring-2 focus:ring-eventflow-primary/30 transition-all duration-300;
 }
 
 input::placeholder,
 textarea::placeholder {
-  @apply text-eventflow-gray/60;
+  @apply text-gray-400;
 }
 
 button {
@@ -150,7 +151,7 @@ button {
 
 /* Button styles */
 .btn-primary {
-  @apply inline-block rounded-full bg-eventflow-primary px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-eventflow-base hover:shadow-lg hover:-translate-y-1 active:scale-95;
+  @apply inline-block rounded-full bg-eventflow-primary px-8 py-4 font-semibold text-white transition-all duration-300 hover:bg-eventflow-base hover:shadow-lg hover:shadow-eventflow-base/40 hover:-translate-y-1 active:scale-95;
 }
 
 .btn-primary:disabled {
@@ -162,7 +163,7 @@ button {
 }
 
 .btn-outline {
-  @apply inline-block rounded-full border-2 border-eventflow-gray px-8 py-4 font-semibold text-eventflow-gray transition-all duration-300 hover:border-eventflow-primary hover:text-eventflow-primary active:scale-95;
+  @apply inline-block rounded-full border-2 border-eventflow-gray-dark px-8 py-4 font-semibold text-eventflow-gray-dark transition-all duration-300 hover:border-eventflow-primary hover:text-eventflow-primary active:scale-95;
 }
 
 /* Section title */
@@ -172,7 +173,7 @@ button {
 }
 
 .section-title__tagline {
-  @apply inline-block rounded-full bg-eventflow-base/20 px-6 py-2 text-sm font-medium text-eventflow-base transition-all duration-300;
+  @apply inline-block rounded-full bg-eventflow-base/30 px-6 py-2 text-sm font-medium text-eventflow-base transition-all duration-300;
   animation: fade-in 0.6s ease-out 0.1s both;
 }
 
@@ -188,11 +189,11 @@ button {
 
 /* Cards */
 .card-hover {
-  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  @apply transition-all duration-300 hover:shadow-lg hover:shadow-eventflow-primary/20 hover:-translate-y-1;
 }
 
 .card-base {
-  @apply overflow-hidden rounded-lg border border-eventflow-border bg-white;
+  @apply overflow-hidden rounded-lg border border-eventflow-border-dark bg-eventflow-black-dark;
 }
 
 /* Scroll reveal animations */
@@ -252,16 +253,16 @@ button {
 /* Input focus states */
 input:focus,
 textarea:focus {
-  @apply border-eventflow-primary ring-2 ring-eventflow-primary/20;
+  @apply border-eventflow-primary ring-2 ring-eventflow-primary/40;
 }
 
 /* Valid/Invalid states */
 input:valid:not(:placeholder-shown) {
-  @apply border-green-500;
+  @apply border-green-500 ring-2 ring-green-500/30;
 }
 
 input:invalid:not(:placeholder-shown) {
-  @apply border-red-500 ring-2 ring-red-500/20;
+  @apply border-red-500 ring-2 ring-red-500/30;
 }
 
 /* Badges */
@@ -270,15 +271,15 @@ input:invalid:not(:placeholder-shown) {
 }
 
 .badge-primary {
-  @apply bg-eventflow-primary/20 text-eventflow-primary;
+  @apply bg-eventflow-primary/30 text-eventflow-primary;
 }
 
 .badge-base {
-  @apply bg-eventflow-base/20 text-eventflow-base;
+  @apply bg-eventflow-base/30 text-eventflow-base;
 }
 
 .badge-success {
-  @apply bg-green-100 text-green-700;
+  @apply bg-green-900/40 text-green-400;
 }
 
 /* Backdrop blur */
@@ -334,14 +335,14 @@ input:invalid:not(:placeholder-shown) {
 
 /* Gallery card effects */
 .gallery-card {
-  @apply relative overflow-hidden rounded-lg transition-all duration-500;
-  border: 1px solid rgba(74, 10, 180, 0.2);
+  @apply relative overflow-hidden rounded-lg transition-all duration-500 bg-eventflow-black-dark;
+  border: 1px solid rgba(74, 10, 180, 0.3);
 }
 
 .gallery-card:hover {
   @apply shadow-2xl;
-  border-color: rgba(74, 10, 180, 0.5);
-  box-shadow: 0 20px 40px rgba(74, 10, 180, 0.15), 0 0 20px rgba(74, 10, 180, 0.1);
+  border-color: rgba(74, 10, 180, 0.7);
+  box-shadow: 0 20px 40px rgba(74, 10, 180, 0.25), 0 0 20px rgba(74, 10, 180, 0.2);
 }
 
 .gallery-card-overlay {
@@ -389,30 +390,31 @@ input:invalid:not(:placeholder-shown) {
 .pricing-premium {
   position: relative;
   border: 2px solid transparent;
-  background: linear-gradient(white, white) padding-box, linear-gradient(135deg, #4A0AB4, #B20D5D) border-box;
+  background: linear-gradient(#0F0F1E, #0F0F1E) padding-box, linear-gradient(135deg, #4A0AB4, #B20D5D) border-box;
   animation: glow-border 3s ease-in-out infinite;
 }
 
 /* Service card hover effect */
 .service-card {
-  @apply transition-all duration-500 cursor-pointer;
+  @apply transition-all duration-500 cursor-pointer bg-eventflow-black-dark border border-eventflow-border-dark;
 }
 
 .service-card:hover {
   @apply shadow-2xl -translate-y-2;
-  border-color: rgba(74, 10, 180, 0.5);
+  border-color: rgba(74, 10, 180, 0.6);
+  box-shadow: 0 20px 40px rgba(74, 10, 180, 0.2);
 }
 
 /* Testimonial card shine effect */
 .testimonial-card {
-  @apply relative overflow-hidden rounded-lg transition-all duration-300;
+  @apply relative overflow-hidden rounded-lg transition-all duration-300 bg-eventflow-black-dark border border-eventflow-border-dark;
   background: linear-gradient(
     90deg,
-    white 0%,
-    rgba(255, 255, 255, 0.8) 25%,
-    white 50%,
-    rgba(255, 255, 255, 0.8) 75%,
-    white 100%
+    #0F0F1E 0%,
+    rgba(15, 15, 30, 0.8) 25%,
+    #0F0F1E 50%,
+    rgba(15, 15, 30, 0.8) 75%,
+    #0F0F1E 100%
   );
   background-size: 200% 100%;
 }

@@ -32,7 +32,7 @@ const seo = {
   <section class="bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white py-12">
     <div class="container-custom">
       <div class="flex items-center gap-4 mb-6">
-        <span class="inline-block bg-white/20 text-white px-4 py-2 rounded-full text-sm font-semibold">
+        <span class="inline-block bg-eventflow-black/20 text-white px-4 py-2 rounded-full text-sm font-semibold">
           {post.data.category}
         </span>
         <span class="text-sm text-white/80">
@@ -49,7 +49,7 @@ const seo = {
   </section>
 
   <!-- Article Content -->
-  <section class="py-12 md:py-20 bg-white">
+  <section class="py-12 md:py-20 bg-eventflow-black">
     <div class="container-custom">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
         <!-- Main Content -->
@@ -73,7 +73,7 @@ const seo = {
               {post.data.tags.map((tag: string) => (
                 <a
                   href="#"
-                  class="inline-block bg-eventflow-extra hover:bg-eventflow-primary hover:text-white text-eventflow-gray px-4 py-2 rounded-full text-sm transition-all duration-300"
+                  class="inline-block bg-eventflow-black-dark hover:bg-eventflow-primary hover:text-white text-eventflow-gray px-4 py-2 rounded-full text-sm transition-all duration-300"
                 >
                   {tag}
                 </a>
@@ -85,7 +85,7 @@ const seo = {
         <!-- Sidebar -->
         <div class="lg:col-span-1">
           <!-- Author Info -->
-          <div class="mb-8 rounded-lg border border-eventflow-border bg-eventflow-extra p-6">
+          <div class="mb-8 rounded-lg border border-eventflow-border bg-eventflow-black-dark p-6">
             <h3 class="mb-4 font-semibold text-eventflow-black">Sobre el Autor</h3>
             <p class="text-sm text-eventflow-gray">
               {post.data.author} es un experto en gestión de eventos con años de experiencia
@@ -94,7 +94,7 @@ const seo = {
           </div>
 
           <!-- Related Posts (placeholder) -->
-          <div class="mb-8 rounded-lg border border-eventflow-border bg-eventflow-extra p-6">
+          <div class="mb-8 rounded-lg border border-eventflow-border bg-eventflow-black-dark p-6">
             <h3 class="mb-4 font-semibold text-eventflow-black">Artículos Relacionados</h3>
             <p class="text-sm text-eventflow-gray">
               Explora más artículos sobre eventos y gestión profesional.
@@ -112,11 +112,11 @@ const seo = {
               <input
                 type="email"
                 placeholder="Tu email"
-                class="w-full rounded-lg bg-white/20 px-4 py-2 text-white placeholder-white/60 border-0 focus:outline-none focus:ring-2 focus:ring-white"
+                class="w-full rounded-lg bg-eventflow-black/20 px-4 py-2 text-white placeholder-white/60 border-0 focus:outline-none focus:ring-2 focus:ring-white"
               />
               <button
                 type="submit"
-                class="w-full rounded-lg bg-white text-eventflow-primary px-4 py-2 font-semibold hover:bg-eventflow-extra transition-all duration-300"
+                class="w-full rounded-lg bg-eventflow-black text-eventflow-primary px-4 py-2 font-semibold hover:bg-eventflow-black-dark transition-all duration-300"
               >
                 Suscribirse
               </button>
