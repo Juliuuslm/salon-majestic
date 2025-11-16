@@ -1200,7 +1200,7 @@ input:invalid:not(:placeholder-shown) {
 }
 
 .stagger-in {
-  animation: stagger-in 0.6s ease-out;
+  animation: stagger-in 0.6s ease-out forwards;
 }
 
 .stagger-delay-1 { animation-delay: 0.1s; }
