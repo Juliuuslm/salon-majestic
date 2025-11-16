@@ -56,7 +56,12 @@ const seo = {
 
 <BaseLayout seo={seo}>
   <!-- Hero Slider -->
-  <HeroSlider slides={heroSlides} autoplay={true} delay={5000} client:load />
+  <div class="relative overflow-hidden">
+    <div class="slider__shape slider__shape-1 overflow-hidden"></div>
+    <div class="slider__shape slider__shape-2 overflow-hidden"></div>
+    <div class="slider__shape slider__shape-3 overflow-hidden"></div>
+    <HeroSlider slides={heroSlides} autoplay={true} delay={5000} client:load />
+  </div>
 
   <!-- Services Section -->
   <section class="py-20 md:py-28 lg:py-32 bg-eventflow-black relative overflow-hidden">

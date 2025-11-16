@@ -1,0 +1,19 @@
+---
+interface Props {
+  shape1?: boolean;
+  shape2?: boolean;
+  className?: string;
+}
+
+const { shape1 = true, shape2 = true, className = 'relative' } = Astro.props;
+---
+
+<div class={className}>
+  {shape1 && (
+    <div class="page-header__shape page-header__shape-1 overflow-hidden"></div>
+  )}
+  {shape2 && (
+    <div class="page-header__shape page-header__shape-2 overflow-hidden"></div>
+  )}
+  <slot />
+</div>

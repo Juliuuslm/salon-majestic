@@ -288,6 +288,185 @@ html:not(.dark) .shadow-lg {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
+/* ===== DECORATIVE SHAPES ===== */
+
+/* Page Header Shapes */
+.page-header__shape {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.page-header__shape-1 {
+  top: 30px;
+  left: -30px;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, rgba(74, 10, 180, 0.1), rgba(178, 13, 93, 0.1));
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  animation: float-bob-y 3s ease-in-out infinite;
+  filter: blur(40px);
+}
+
+.page-header__shape-2 {
+  bottom: 0;
+  right: -30px;
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(135deg, rgba(178, 13, 93, 0.08), rgba(74, 10, 180, 0.08));
+  border-radius: 20% 80% 30% 70% / 60% 40% 60% 40%;
+  animation: float-bob-x 3s ease-in-out infinite;
+  filter: blur(40px);
+}
+
+/* Slider Shapes */
+.slider__shape {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.slider__shape-1 {
+  bottom: -60px;
+  left: -56px;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, rgba(74, 10, 180, 0.15), rgba(178, 13, 93, 0.15));
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation: border-round 15s linear infinite;
+  filter: blur(50px);
+  opacity: 0.3;
+}
+
+.slider__shape-2 {
+  top: 0px;
+  right: 0px;
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(135deg, rgba(74, 10, 180, 0.2), rgba(178, 13, 93, 0.1));
+  border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
+  animation: topBottom 3s ease-in-out infinite;
+  filter: blur(45px);
+}
+
+.slider__shape-3 {
+  top: -10px;
+  right: -100px;
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(135deg, rgba(74, 10, 180, 0.2), rgba(178, 13, 93, 0.15));
+  border-radius: 40% 60% 50% 50% / 70% 30% 70% 30%;
+  filter: blur(50px);
+  opacity: 0.1;
+}
+
+/* Pricing Card Shapes */
+.pricing__shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.pricing__shape::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 70%, rgba(74, 10, 180, 0.08), transparent 50%);
+  animation: rotate-slow 20s linear infinite;
+}
+
+.pricing__shape::after {
+  content: '';
+  position: absolute;
+  bottom: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 70% 30%, rgba(178, 13, 93, 0.05), transparent 50%);
+  animation: rotate-slow-reverse 25s linear infinite;
+}
+
+/* Footer Shapes */
+.footer__shape {
+  position: absolute;
+  bottom: 25px;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(74, 10, 180, 0.05), rgba(178, 13, 93, 0.03));
+  border-radius: 40% 60% 50% 50% / 60% 40% 60% 40%;
+  filter: blur(40px);
+  animation: float-bob-y 4s ease-in-out infinite;
+}
+
+/* Section Shapes */
+.section__shape {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.section__shape-primary {
+  background: linear-gradient(135deg, rgba(74, 10, 180, 0.1), transparent);
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+}
+
+.section__shape-secondary {
+  background: linear-gradient(135deg, rgba(178, 13, 93, 0.08), transparent);
+  border-radius: 30% 70% 30% 70% / 60% 40% 60% 40%;
+}
+
+/* Gradient Circle Decorator (8px pequeño) */
+.shape-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #B20D5D 0%, #4A0AB4 100%);
+  margin: 0 6px;
+  vertical-align: middle;
+}
+
+/* Additional Animations */
+@keyframes rotate-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-slow-reverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes topBottom {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
 /* Typography */
 h1,
 h2,

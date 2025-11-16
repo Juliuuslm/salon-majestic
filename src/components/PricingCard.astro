@@ -27,7 +27,7 @@ const {
 ---
 
 <div
-  class={`overflow-hidden rounded-lg border transition-all duration-500 wow animate__animated animate__fadeInUp ${
+  class={`relative overflow-hidden rounded-lg border transition-all duration-500 wow animate__animated animate__fadeInUp ${
     highlighted
       ? 'pricing-premium shadow-2xl scale-105 bg-gradient-to-br from-eventflow-black-dark to-eventflow-black border-glow'
       : 'border-eventflow-border-dark bg-eventflow-black-dark hover:shadow-xl hover:shadow-eventflow-primary/30 hover:-translate-y-2'
@@ -35,6 +35,7 @@ const {
   data-wow-duration="0.8s"
   data-wow-delay={delay}
 >
+  {highlighted && <div class="pricing__shape"></div>}
   <div class="relative p-8">
     {highlighted && (
       <div class="absolute top-0 left-0 right-0 bg-eventflow-primary text-white text-center py-2 text-sm font-bold">
