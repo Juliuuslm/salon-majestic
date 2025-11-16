@@ -9,6 +9,7 @@ interface Props {
   highlighted?: boolean;
   ctaText: string;
   ctaLink: string;
+  delay?: string;
 }
 
 const {
@@ -21,17 +22,18 @@ const {
   highlighted = false,
   ctaText,
   ctaLink,
+  delay = '0s',
 } = Astro.props;
 ---
 
 <div
-  class={`overflow-hidden rounded-lg border transition-all duration-500 wow fade-in-up ${
+  class={`overflow-hidden rounded-lg border transition-all duration-500 wow animate__animated animate__fadeInUp ${
     highlighted
       ? 'pricing-premium shadow-2xl scale-105 bg-gradient-to-br from-eventflow-black-dark to-eventflow-black border-glow'
       : 'border-eventflow-border-dark bg-eventflow-black-dark hover:shadow-xl hover:shadow-eventflow-primary/30 hover:-translate-y-2'
   }`}
   data-wow-duration="0.8s"
-  data-wow-delay="0s"
+  data-wow-delay={delay}
 >
   <div class="relative p-8">
     {highlighted && (
@@ -45,7 +47,7 @@ const {
       <p class="mb-6 text-sm text-white/80">{description}</p>
 
       <div class="mb-6">
-        <span class="text-5xl font-bold text-eventflow-primary">{price}</span>
+        <span class="text-5xl font-bold text-eventflow-primary zoom-fade">{price}</span>
         <span class="text-white/70">
           {currency}
           <span class="text-sm"> / {period}</span>

@@ -59,8 +59,16 @@ const seo = {
   <HeroSlider slides={heroSlides} autoplay={true} delay={5000} client:load />
 
   <!-- Services Section -->
-  <section class="py-20 md:py-28 lg:py-32 bg-eventflow-black">
-    <div class="container-custom">
+  <section class="py-20 md:py-28 lg:py-32 bg-eventflow-black relative overflow-hidden">
+    <!-- Floating shapes -->
+    <div class="absolute top-20 right-10 opacity-20 pointer-events-none">
+      <div class="w-32 h-32 bg-eventflow-primary/30 rounded-full blur-3xl float-bob-y"></div>
+    </div>
+    <div class="absolute bottom-20 left-10 opacity-20 pointer-events-none">
+      <div class="w-40 h-40 bg-eventflow-base/20 rounded-full blur-3xl float-bob-x"></div>
+    </div>
+
+    <div class="container-custom relative z-10">
       <SectionTitle
         tagline="Nuestros Servicios"
         title="Soluciones Completas para tus Eventos"
@@ -70,13 +78,14 @@ const seo = {
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
         {
-          services.slice(0, 6).map((service) => (
+          services.slice(0, 6).map((service, index) => (
             <ServiceCard
               icon={service.icon}
               title={service.title}
               description={service.description}
               features={service.features}
               link={service.link}
+              delay={`${(index + 1) * 100}ms`}
             />
           ))
         }
@@ -138,7 +147,7 @@ const seo = {
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
         {
-          events.slice(0, 3).map((event) => (
+          events.slice(0, 3).map((event, index) => (
             <EventCard
               title={event.title}
               date={event.date}
@@ -147,6 +156,7 @@ const seo = {
               image={event.image}
               description={event.description}
               link={event.link || '/events'}
+              delay={`${(index + 1) * 100}ms`}
             />
           ))
         }
@@ -161,8 +171,16 @@ const seo = {
   </section>
 
   <!-- Testimonials -->
-  <section class="py-20 md:py-28 bg-eventflow-black-dark">
-    <div class="container-custom">
+  <section class="py-20 md:py-28 bg-eventflow-black-dark relative overflow-hidden">
+    <!-- Floating shapes -->
+    <div class="absolute top-40 left-20 opacity-15 pointer-events-none">
+      <div class="w-48 h-48 bg-eventflow-primary/30 rounded-full blur-3xl float-bob-x"></div>
+    </div>
+    <div class="absolute bottom-10 right-20 opacity-20 pointer-events-none">
+      <div class="w-36 h-36 bg-eventflow-base/20 rounded-full blur-3xl float-bob-y"></div>
+    </div>
+
+    <div class="container-custom relative z-10">
       <SectionTitle
         tagline="Testimonios"
         title="Lo que Dicen Nuestros Clientes"
@@ -172,7 +190,7 @@ const seo = {
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
         {
-          testimonials.slice(0, 4).map((testimonial) => (
+          testimonials.slice(0, 4).map((testimonial, index) => (
             <TestimonialCard
               name={testimonial.name}
               role={testimonial.role}
@@ -180,6 +198,7 @@ const seo = {
               avatar={testimonial.avatar}
               quote={testimonial.quote}
               rating={testimonial.rating}
+              delay={`${(index + 1) * 100}ms`}
             />
           ))
         }

@@ -7,6 +7,7 @@ interface Props {
   image: string;
   description: string;
   link: string;
+  delay?: string;
 }
 
 const {
@@ -17,10 +18,11 @@ const {
   image,
   description,
   link,
+  delay = '0s',
 } = Astro.props;
 ---
 
-<div class="overflow-hidden rounded-lg border border-eventflow-border-dark bg-eventflow-black transition-all duration-500 hover:shadow-2xl hover:shadow-eventflow-primary/30 wow fade-in-up" data-wow-duration="0.8s" data-wow-delay="0s">
+<div class="overflow-hidden rounded-lg border border-eventflow-border-dark bg-eventflow-black transition-all duration-500 hover:shadow-2xl hover:shadow-eventflow-primary/30 wow animate__animated animate__fadeInLeft" data-wow-duration="0.8s" data-wow-delay={delay}>
   <div class="relative overflow-hidden bg-gray-200 h-48">
     <img
       src={image}
