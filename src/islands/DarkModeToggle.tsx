@@ -1,64 +1,39 @@
 import React, { useState, useEffect } from 'react';
 
 export default function DarkModeToggle() {
-  const [isDark, setIsDark] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    // Check initial dark mode preference immediately
+    if (typeof window === 'undefined') return true; // Server-side default
+
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode !== null) {
+      return JSON.parse(savedMode);
+    }
+
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
 
   useEffect(() => {
-    // Only run on client side
-    setMounted(true);
-
-    // Check initial dark mode preference
-    const savedMode = localStorage.getItem('darkMode');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const shouldBeDark = savedMode ? JSON.parse(savedMode) : prefersDark;
-
-    setIsDark(shouldBeDark);
-
-    // Apply initial theme
-    if (shouldBeDark) {
+    // Apply theme on mount and whenever isDark changes
+    if (isDark) {
       document.documentElement.classList.add('dark');
       document.body.style.colorScheme = 'dark';
+      localStorage.setItem('darkMode', 'true');
     } else {
       document.documentElement.classList.remove('dark');
       document.body.style.colorScheme = 'light';
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !isDark;
-    setIsDark(newDarkMode);
-
-    // Save to localStorage
-    localStorage.setItem('darkMode', JSON.stringify(newDarkMode));
-
-    // Apply theme
-    if (newDarkMode) {
-      document.documentElement.classList.add('dark');
-      document.body.style.colorScheme = 'dark';
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.body.style.colorScheme = 'light';
+      localStorage.setItem('darkMode', 'false');
     }
 
     // Dispatch custom event for any listeners
     window.dispatchEvent(
-      new CustomEvent('darkModeChange', { detail: { isDark: newDarkMode } })
+      new CustomEvent('darkModeChange', { detail: { isDark } })
     );
-  };
+  }, [isDark]);
 
-  if (!mounted) {
-    return (
-      <button
-        className="p-2 rounded-lg hover:bg-eventflow-black-dark transition-colors duration-300"
-        aria-label="Dark mode toggle"
-      >
-        <svg className="h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-        </svg>
-      </button>
-    );
-  }
+  const toggleDarkMode = () => {
+    setIsDark(!isDark);
+  };
 
   return (
     <button
@@ -66,6 +41,7 @@ export default function DarkModeToggle() {
       className="p-2 rounded-lg hover:bg-eventflow-black-dark transition-colors duration-300 group"
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       title={isDark ? 'Light Mode' : 'Dark Mode'}
+      type="button"
     >
       {isDark ? (
         // Sun icon for light mode
