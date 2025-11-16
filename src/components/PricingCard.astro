@@ -25,11 +25,13 @@ const {
 ---
 
 <div
-  class={`overflow-hidden rounded-lg border transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 ${
+  class={`overflow-hidden rounded-lg border transition-all duration-500 wow fade-in-up ${
     highlighted
-      ? 'pricing-premium shadow-2xl scale-105 bg-gradient-to-br from-eventflow-black-dark to-eventflow-black'
-      : 'border-eventflow-border-dark bg-eventflow-black-dark hover:shadow-lg hover:shadow-eventflow-primary/20 hover:-translate-y-1'
+      ? 'pricing-premium shadow-2xl scale-105 bg-gradient-to-br from-eventflow-black-dark to-eventflow-black border-glow'
+      : 'border-eventflow-border-dark bg-eventflow-black-dark hover:shadow-xl hover:shadow-eventflow-primary/30 hover:-translate-y-2'
   }`}
+  data-wow-duration="0.8s"
+  data-wow-delay="0s"
 >
   <div class="relative p-8">
     {highlighted && (
@@ -52,10 +54,10 @@ const {
 
       <a
         href={ctaLink}
-        class={`mb-8 block rounded-full px-8 py-4 text-center font-semibold transition-all duration-300 ${
+        class={`ripple-btn mb-8 block rounded-full px-8 py-4 text-center font-semibold transition-all duration-300 ${
           highlighted
-            ? 'bg-eventflow-primary text-white hover:bg-eventflow-base'
-            : 'border-2 border-eventflow-primary text-eventflow-primary hover:bg-eventflow-primary hover:text-white'
+            ? 'bg-eventflow-primary text-white hover:bg-eventflow-base hover:shadow-lg'
+            : 'border-2 border-eventflow-primary text-eventflow-primary hover:bg-eventflow-primary hover:text-white hover:shadow-lg'
         }`}
       >
         {ctaText}

@@ -18,13 +18,13 @@ const {
 } = Astro.props;
 ---
 
-<div class="testimonial-card overflow-hidden rounded-lg border border-eventflow-border-dark p-6 transition-all duration-300 hover:shadow-lg hover:shadow-eventflow-primary/20 hover:-translate-y-1 animate-in fade-in slide-in-from-bottom-4">
+<div class="testimonial-card overflow-hidden rounded-lg border border-eventflow-border-dark p-6 transition-all duration-500 hover:shadow-xl hover:shadow-eventflow-primary/30 hover:-translate-y-2 wow fade-in-up" data-wow-duration="0.8s" data-wow-delay="0s">
   <div class="mb-4 flex items-start justify-between">
     <div class="flex items-center gap-4">
       <img
         src={avatar}
         alt={name}
-        class="h-12 w-12 rounded-full object-cover ring-2 ring-eventflow-primary/30 transition-transform duration-300 hover:scale-110"
+        class="h-12 w-12 rounded-full object-cover ring-2 ring-eventflow-primary/30 transition-all duration-500 hover:scale-125 hover:ring-eventflow-primary"
       />
       <div>
         <h4 class="font-semibold text-white">{name}</h4>
