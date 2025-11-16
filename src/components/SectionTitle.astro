@@ -30,7 +30,7 @@ const alignmentClass = {
     {title}
   </h2>
   {subtitle && (
-    <p class="mt-4 max-w-2xl text-lg text-white/90">
+    <p class={`mt-4 max-w-2xl text-lg text-white/90 ${alignment === 'center' ? 'mx-auto' : ''}`}>
       {subtitle}
     </p>
   )}

@@ -51,7 +51,7 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
     <div className="relative w-full">
       <Swiper
         ref={swiperRef}
-        modules={[Autoplay, Pagination]}
+        modules={[Autoplay, Navigation, Pagination]}
         spaceBetween={30}
         slidesPerView={1}
         breakpoints={{

@@ -26,13 +26,13 @@ body {
 /* Typography Hierarchy */
 h1, h2, h3, h4, h5, h6 {
   @apply font-bold;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
   line-height: 1.2;
 }
 
 h1 {
   @apply text-5xl md:text-6xl;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
 }
 
 h2 {
@@ -1286,19 +1286,6 @@ input:invalid:not(:placeholder-shown) {
   .container-custom {
     padding-left: 1rem;
     padding-right: 1rem;
-  }
-
-  /* Improve text readability on mobile */
-  h1 {
-    font-size: 1.875rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  h3 {
-    font-size: 1.25rem;
   }
 
   /* Adjust section padding */
