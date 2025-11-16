@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import SectionTitle from '@components/SectionTitle.astro';
+import TeamMemberCard from '@components/TeamMemberCard.astro';
 import team from '@data/team.json';
 
 export function getStaticPaths() {
@@ -40,63 +41,64 @@ const seo = {
   </section>
 
   <!-- Member Content -->
-  <section class="py-20 md:py-28 bg-eventflow-black">
+  <section class="py-20 md:py-28 bg-white dark:bg-eventflow-black">
     <div class="container-custom">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
         <!-- Main Content -->
-        <div class="lg:col-span-2">
-          <div class="overflow-hidden rounded-lg mb-8">
+        <div class="lg:col-span-2 reveal">
+          <!-- Member Image -->
+          <div class="overflow-hidden rounded-lg mb-12 aspect-video bg-gradient-to-br from-gray-200 to-gray-300 dark:from-eventflow-black-dark dark:to-eventflow-black-dark">
             <img
               src={member.image}
               alt={member.name}
-              class="w-full h-96 object-cover"
+              class="w-full h-full object-cover"
             />
           </div>
 
-          <h2 class="text-3xl font-bold text-white mb-4">Sobre {member.name}</h2>
-          <p class="text-lg text-gray-300 leading-relaxed mb-6">
-            {member.bio}
-          </p>
+          <!-- About Section -->
+          <div class="mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Sobre {member.name}
+            </h2>
+            <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+              {member.bio}
+            </p>
+            {member.yearsExperience && (
+              <div class="flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                <svg class="h-5 w-5 text-eventflow-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v2a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+                </svg>
+                <span>{member.yearsExperience}+ años de experiencia profesional</span>
+              </div>
+            )}
+          </div>
 
-          <div class="mb-8 p-6 bg-eventflow-black-dark rounded-lg">
-            <h3 class="text-xl font-bold text-white mb-4">Especialidades</h3>
-            <ul class="space-y-2">
-              <li class="flex items-center gap-2 text-gray-300">
-                <svg class="h-5 w-5 text-eventflow-primary" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                Gestión de Proyectos
-              </li>
-              <li class="flex items-center gap-2 text-gray-300">
-                <svg class="h-5 w-5 text-eventflow-primary" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                Liderazgo de Equipos
-              </li>
-              <li class="flex items-center gap-2 text-gray-300">
-                <svg class="h-5 w-5 text-eventflow-primary" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                Solución de Problemas
-              </li>
-              <li class="flex items-center gap-2 text-gray-300">
-                <svg class="h-5 w-5 text-eventflow-primary" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                Estrategia Empresarial
-              </li>
-            </ul>
+          <!-- Specialties Section -->
+          <div class="mb-12 p-8 bg-gray-50 dark:bg-eventflow-black-dark rounded-lg border border-gray-200 dark:border-eventflow-border-dark">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Áreas de Especialidad</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {['Gestión de Proyectos', 'Liderazgo de Equipos', 'Solución de Problemas', 'Estrategia Empresarial'].map((specialty) => (
+                <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-white dark:hover:bg-eventflow-black transition-colors">
+                  <svg class="h-5 w-5 text-eventflow-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-gray-700 dark:text-gray-300">{specialty}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
         <!-- Sidebar -->
-        <div class="lg:col-span-1">
+        <div class="lg:col-span-1 space-y-6">
           <!-- Contact Card -->
-          <div class="mb-8 rounded-lg border border-eventflow-border-dark bg-eventflow-black-dark p-6">
-            <h3 class="mb-4 font-semibold text-white">Contacta a {member.name.split(' ')[0]}</h3>
+          <div class="reveal reveal-delay-1 rounded-lg border border-gray-200 dark:border-eventflow-border-dark bg-white dark:bg-eventflow-black-dark p-8 shadow-sm dark:shadow-none">
+            <h3 class="mb-6 text-lg font-bold text-gray-900 dark:text-white">
+              Contacta a {member.name.split(' ')[0]}
+            </h3>
             {member.email && (
-              <div class="mb-4">
-                <p class="text-xs text-gray-300 mb-1">Email</p>
+              <div class="mb-6">
+                <p class="text-xs text-gray-600 dark:text-gray-400 mb-2 font-medium uppercase">Email</p>
                 <a
                   href={`mailto:${member.email}`}
                   class="text-sm font-medium text-eventflow-primary hover:text-eventflow-base transition-colors break-all"
@@ -107,26 +109,36 @@ const seo = {
             )}
             <a
               href="/contact"
-              class="btn-primary ripple-btn block text-center text-sm"
+              class="btn-primary ripple-btn block text-center text-sm w-full"
             >
               Enviar Mensaje
             </a>
           </div>
 
+          <!-- Department Badge -->
+          {member.department && (
+            <div class="reveal reveal-delay-2 rounded-lg border border-gray-200 dark:border-eventflow-border-dark bg-white dark:bg-eventflow-black-dark p-8 shadow-sm dark:shadow-none text-center">
+              <p class="text-xs text-gray-600 dark:text-gray-400 mb-3 font-medium uppercase">Departamento</p>
+              <div class="inline-block px-4 py-2 rounded-full bg-eventflow-primary/10 text-eventflow-primary font-semibold">
+                {member.department}
+              </div>
+            </div>
+          )}
+
           <!-- Social Links -->
           {member.social && member.social.length > 0 && (
-            <div class="rounded-lg border border-eventflow-border-dark bg-eventflow-black p-6">
-              <h3 class="mb-4 font-semibold text-white">Redes Sociales</h3>
-              <div class="space-y-2">
+            <div class="reveal reveal-delay-3 rounded-lg border border-gray-200 dark:border-eventflow-border-dark bg-white dark:bg-eventflow-black-dark p-8 shadow-sm dark:shadow-none">
+              <h3 class="mb-6 font-bold text-gray-900 dark:text-white">Redes Sociales</h3>
+              <div class="space-y-3">
                 {member.social.map((social) => (
                   <a
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="flex items-center gap-2 px-4 py-2 rounded-lg border border-eventflow-border-dark hover:bg-eventflow-primary hover:text-white hover:border-eventflow-primary transition-all duration-300"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg border border-gray-200 dark:border-eventflow-border-dark hover:border-eventflow-primary hover:bg-eventflow-primary/5 text-gray-700 dark:text-gray-300 hover:text-eventflow-primary transition-all duration-300"
                   >
-                    <span class="capitalize text-sm font-medium">{social.platform}</span>
-                    <svg class="h-4 w-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <span class="capitalize text-sm font-medium flex-grow">{social.platform}</span>
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
                   </a>
@@ -140,33 +152,28 @@ const seo = {
   </section>
 
   <!-- More Team Members -->
-  <section class="py-20 md:py-28 bg-eventflow-black-dark">
+  <section class="py-20 md:py-28 bg-gray-50 dark:bg-eventflow-black-dark border-t border-gray-200 dark:border-eventflow-border-dark">
     <div class="container-custom">
-      <h2 class="text-3xl font-bold text-white mb-12 text-center">Conoce al Resto del Equipo</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+          Conoce al Resto del Equipo
+        </h2>
+        <p class="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Explora los perfiles de nuestros otros miembros del equipo
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {
           team
             .filter((m) => m.id !== member.id)
-            .slice(0, 4)
-            .map((teamMember) => (
-              <a
-                href={`/team/${teamMember.id}`}
-                class="group overflow-hidden rounded-lg border border-eventflow-border-dark bg-eventflow-black transition-all duration-300 hover:shadow-lg text-center"
-              >
-                <div class="relative overflow-hidden bg-gray-200 h-40">
-                  <img
-                    src={teamMember.image}
-                    alt={teamMember.name}
-                    class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                </div>
-                <div class="p-4">
-                  <h4 class="font-bold text-white group-hover:text-eventflow-primary transition-colors">
-                    {teamMember.name}
-                  </h4>
-                  <p class="text-xs text-eventflow-primary">{teamMember.role}</p>
-                </div>
-              </a>
+            .map((teamMember, index) => (
+              <div class="reveal stagger-in" style={`animation-delay: ${index * 0.1}s`}>
+                <TeamMemberCard
+                  member={teamMember}
+                  href={`/team/${teamMember.id}`}
+                />
+              </div>
             ))
         }
       </div>

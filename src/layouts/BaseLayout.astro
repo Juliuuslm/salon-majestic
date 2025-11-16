@@ -136,6 +136,15 @@ const { seo } = Astro.props;
           opacity: 0;
         }
       }
+
+      /* Global overflow fix for horizontal scroll issue */
+      html {
+        overflow-x: hidden;
+      }
+
+      body {
+        overflow-x: hidden;
+      }
     </style>
   </body>
 </html>

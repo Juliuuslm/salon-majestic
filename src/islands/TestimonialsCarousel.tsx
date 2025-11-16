@@ -69,7 +69,7 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
       >
         {testimonials.map((testimonial, index) => (
           <SwiperSlide key={index}>
-            <div className="testimonial-card overflow-hidden rounded-lg border border-eventflow-border-dark p-6 transition-all duration-500 hover:shadow-xl hover:shadow-eventflow-primary/30 hover:-translate-y-2 bg-eventflow-black-dark h-full flex flex-col">
+            <div className="testimonial-card overflow-hidden rounded-lg border border-eventflow-border-dark p-6 transition-all duration-500 hover:shadow-xl hover:shadow-eventflow-primary/30 hover:-translate-y-2 bg-white dark:bg-eventflow-black-dark text-gray-900 dark:text-white h-full flex flex-col">
               <div className="mb-4 flex items-start justify-between">
                 <div className="flex items-center gap-4">
                   <img
@@ -78,8 +78,8 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
                     className="h-12 w-12 rounded-full object-cover ring-2 ring-eventflow-primary/30 transition-all duration-500 hover:scale-125 hover:ring-eventflow-primary float-bob-y"
                   />
                   <div>
-                    <h4 className="font-semibold text-white">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-300">
+                    <h4 className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
                       {testimonial.role} en <span className="font-medium">{testimonial.company}</span>
                     </p>
                   </div>
@@ -90,7 +90,7 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
                 <div className="mb-4 flex gap-1">{renderStars(testimonial.rating)}</div>
               )}
 
-              <p className="text-white/90 italic leading-relaxed flex-grow">
+              <p className="text-gray-700 dark:text-white/90 italic leading-relaxed flex-grow">
                 "{testimonial.quote}"
               </p>
             </div>
@@ -100,19 +100,19 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
 
       {/* Navigation buttons */}
       <button
-        className="testimonial-swiper-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 p-2 rounded-full hover:bg-eventflow-primary/20 transition-colors duration-300"
+        className="testimonial-swiper-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white dark:bg-eventflow-primary/20 hover:bg-eventflow-primary/30 dark:hover:bg-eventflow-primary/40 transition-colors duration-300"
         aria-label="Previous testimonial"
       >
-        <svg className="h-6 w-6 text-eventflow-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="h-6 w-6 text-eventflow-primary dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
 
       <button
-        className="testimonial-swiper-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 p-2 rounded-full hover:bg-eventflow-primary/20 transition-colors duration-300"
+        className="testimonial-swiper-next absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white dark:bg-eventflow-primary/20 hover:bg-eventflow-primary/30 dark:hover:bg-eventflow-primary/40 transition-colors duration-300"
         aria-label="Next testimonial"
       >
-        <svg className="h-6 w-6 text-eventflow-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="h-6 w-6 text-eventflow-primary dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>

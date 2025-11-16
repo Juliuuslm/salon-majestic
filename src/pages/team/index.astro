@@ -2,6 +2,7 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import SectionTitle from '@components/SectionTitle.astro';
 import PageHeaderShapes from '@components/PageHeaderShapes.astro';
+import TeamMemberCard from '@components/TeamMemberCard.astro';
 import team from '@data/team.json';
 
 const seo = {
@@ -9,91 +10,125 @@ const seo = {
   description: 'Conoce al equipo profesional de EventFlow, especialistas en gestión de eventos.',
   type: 'website',
 };
+
+// Calculate team stats
+const totalExperience = team.reduce((sum, member) => sum + (member.yearsExperience || 0), 0);
+const departments = new Set(team.map(member => member.department)).size;
 ---
 
 <BaseLayout seo={seo}>
   <!-- Page Header -->
-  <PageHeaderShapes className="relative">
-    <section class="bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white py-16">
+  <PageHeaderShapes className="relative overflow-hidden">
+    <section class="bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white py-20 md:py-28">
       <div class="container-custom">
-        <h1 class="text-4xl md:text-5xl font-bold">Nuestro Equipo</h1>
-        <p class="mt-4 text-lg text-white/90">Profesionales apasionados por los eventos</p>
+        <div class="max-w-2xl">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">
+            Nuestro Equipo
+          </h1>
+          <p class="text-xl text-white/90 animate-fade-in" style="animation-delay: 0.1s;">
+            Profesionales dedicados a crear experiencias de eventos excepcionales
+          </p>
+        </div>
       </div>
     </section>
   </PageHeaderShapes>
 
+  <!-- Team Stats -->
+  <section class="py-12 md:py-16 bg-white dark:bg-eventflow-black-dark border-b border-gray-200 dark:border-eventflow-border-dark">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="reveal reveal-delay-1">
+          <div class="text-3xl md:text-4xl font-bold text-eventflow-primary mb-2">
+            {team.length}
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 font-medium">
+            Miembros del Equipo
+          </p>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="text-3xl md:text-4xl font-bold text-eventflow-base mb-2">
+            {totalExperience}+
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 font-medium">
+            Años de Experiencia Combinada
+          </p>
+        </div>
+
+        <div class="reveal reveal-delay-3">
+          <div class="text-3xl md:text-4xl font-bold text-eventflow-primary mb-2">
+            {departments}
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 font-medium">
+            Departamentos Especializados
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Team Grid -->
-  <section class="py-20 md:py-28 bg-eventflow-black">
+  <section class="py-20 md:py-28 bg-white dark:bg-eventflow-black">
     <div class="container-custom">
       <SectionTitle
-        title="Expertos en Eventos"
-        subtitle="Cada miembro del equipo aporta experiencia y dedicación única"
+        title="Expertos Apasionados"
+        subtitle="Cada miembro aporta experiencia única y dedicación a cada evento"
         alignment="center"
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
         {
-          team.map((member) => (
-            <a
-              href={`/team/${member.id}`}
-              class="group overflow-hidden rounded-lg border border-eventflow-border-dark bg-eventflow-black transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-            >
-              <div class="relative overflow-hidden aspect-square bg-gradient-to-br from-eventflow-black-dark to-eventflow-black-dark/50 shimmer-bg">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-eventflow-black/80 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p class="text-sm text-white/90 leading-relaxed line-clamp-2">
-                    {member.bio}
-                  </p>
-                </div>
-              </div>
-
-              <div class="p-6">
-                <h3 class="text-lg font-bold text-white group-hover:text-eventflow-primary transition-colors">
-                  {member.name}
-                </h3>
-                <p class="mb-4 text-sm text-eventflow-primary font-semibold">
-                  {member.role}
-                </p>
-                <p class="text-xs text-gray-300 line-clamp-2">
-                  {member.bio}
-                </p>
-
-                {member.social && (
-                  <div class="mt-4 flex gap-2">
-                    {member.social.map((social) => (
-                      <a
-                        href={social.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-gray-300 hover:text-eventflow-primary transition-colors"
-                        title={social.platform}
-                      >
-                        <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                          <circle cx="12" cy="12" r="10" />
-                        </svg>
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </a>
+          team.map((member, index) => (
+            <div class="reveal stagger-in" style={`animation-delay: ${index * 0.1}s`}>
+              <TeamMemberCard
+                member={member}
+                href={`/team/${member.id}`}
+              />
+            </div>
           ))
         }
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-16 bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white text-center">
-    <div class="container-custom">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Quieres trabajar con nosotros?</h2>
-      <a href="/contact" class="inline-block bg-eventflow-black text-eventflow-primary px-8 py-4 rounded-full font-semibold hover:bg-eventflow-black-dark transition-all duration-300">
-        Contacta Nuestro Equipo
-      </a>
+  <!-- CTA Section -->
+  <section class="py-20 md:py-28 bg-gradient-to-r from-eventflow-primary via-eventflow-base to-eventflow-primary text-white relative overflow-hidden">
+    <!-- Decorative shapes -->
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+
+    <div class="container-custom relative z-10">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-6 animate-fade-in">
+          ¿Quieres Trabajar con Nosotros?
+        </h2>
+        <p class="text-lg text-white/90 mb-8 animate-fade-in" style="animation-delay: 0.1s;">
+          Somos una equipo dinámico siempre en búsqueda de talento apasionado por los eventos
+        </p>
+        <a
+          href="/contact"
+          class="inline-block btn-primary"
+        >
+          Contacta a Nuestro Equipo
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+</style>
