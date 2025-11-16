@@ -67,13 +67,13 @@ const seo = {
           </div>
 
           <!-- Tags -->
-          <div class="mt-8 border-t border-eventflow-border pt-8">
-            <p class="mb-4 font-semibold text-eventflow-black">Etiquetas:</p>
+          <div class="mt-8 border-t border-eventflow-border-dark pt-8">
+            <p class="mb-4 font-semibold text-white">Etiquetas:</p>
             <div class="flex flex-wrap gap-3">
               {post.data.tags.map((tag: string) => (
                 <a
                   href="#"
-                  class="inline-block bg-eventflow-black-dark hover:bg-eventflow-primary hover:text-white text-eventflow-gray px-4 py-2 rounded-full text-sm transition-all duration-300"
+                  class="inline-block bg-eventflow-black-dark hover:bg-eventflow-primary hover:text-white text-gray-300 px-4 py-2 rounded-full text-sm transition-all duration-300"
                 >
                   {tag}
                 </a>
@@ -85,18 +85,18 @@ const seo = {
         <!-- Sidebar -->
         <div class="lg:col-span-1">
           <!-- Author Info -->
-          <div class="mb-8 rounded-lg border border-eventflow-border bg-eventflow-black-dark p-6">
-            <h3 class="mb-4 font-semibold text-eventflow-black">Sobre el Autor</h3>
-            <p class="text-sm text-eventflow-gray">
+          <div class="mb-8 rounded-lg border border-eventflow-border-dark bg-eventflow-black-dark p-6">
+            <h3 class="mb-4 font-semibold text-white">Sobre el Autor</h3>
+            <p class="text-sm text-gray-300">
               {post.data.author} es un experto en gestión de eventos con años de experiencia
               en la industria.
             </p>
           </div>
 
           <!-- Related Posts (placeholder) -->
-          <div class="mb-8 rounded-lg border border-eventflow-border bg-eventflow-black-dark p-6">
-            <h3 class="mb-4 font-semibold text-eventflow-black">Artículos Relacionados</h3>
-            <p class="text-sm text-eventflow-gray">
+          <div class="mb-8 rounded-lg border border-eventflow-border-dark bg-eventflow-black-dark p-6">
+            <h3 class="mb-4 font-semibold text-white">Artículos Relacionados</h3>
+            <p class="text-sm text-gray-300">
               Explora más artículos sobre eventos y gestión profesional.
             </p>
             <a href="/blog" class="btn-primary mt-4 block text-center text-sm">
@@ -105,7 +105,7 @@ const seo = {
           </div>
 
           <!-- Newsletter -->
-          <div class="rounded-lg border border-eventflow-border bg-gradient-to-br from-eventflow-primary to-eventflow-base text-white p-6">
+          <div class="rounded-lg border border-eventflow-border-dark bg-gradient-to-br from-eventflow-primary to-eventflow-base text-white p-6">
             <h3 class="mb-4 font-semibold">Suscríbete</h3>
             <p class="mb-4 text-sm">Recibe noticias y tips sobre eventos directamente en tu email.</p>
             <form class="space-y-3">

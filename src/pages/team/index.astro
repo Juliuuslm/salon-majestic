@@ -33,7 +33,7 @@ const seo = {
           team.map((member) => (
             <a
               href={`/team/${member.id}`}
-              class="group overflow-hidden rounded-lg border border-eventflow-border bg-eventflow-black transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+              class="group overflow-hidden rounded-lg border border-eventflow-border-dark bg-eventflow-black transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
             >
               <div class="relative overflow-hidden bg-gray-200 h-64">
                 <img
@@ -49,13 +49,13 @@ const seo = {
               </div>
 
               <div class="p-6">
-                <h3 class="text-lg font-bold text-eventflow-black group-hover:text-eventflow-primary transition-colors">
+                <h3 class="text-lg font-bold text-white group-hover:text-eventflow-primary transition-colors">
                   {member.name}
                 </h3>
                 <p class="mb-4 text-sm text-eventflow-primary font-semibold">
                   {member.role}
                 </p>
-                <p class="text-xs text-eventflow-gray line-clamp-2">
+                <p class="text-xs text-gray-300 line-clamp-2">
                   {member.bio}
                 </p>
 
@@ -66,7 +66,7 @@ const seo = {
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="text-eventflow-gray hover:text-eventflow-primary transition-colors"
+                        class="text-gray-300 hover:text-eventflow-primary transition-colors"
                         title={social.platform}
                       >
                         <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">

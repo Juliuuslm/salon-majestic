@@ -18,7 +18,7 @@ const {
 } = Astro.props;
 ---
 
-<div class="testimonial-card overflow-hidden rounded-lg border border-eventflow-border p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-in fade-in slide-in-from-bottom-4">
+<div class="testimonial-card overflow-hidden rounded-lg border border-eventflow-border-dark p-6 transition-all duration-300 hover:shadow-lg hover:shadow-eventflow-primary/20 hover:-translate-y-1 animate-in fade-in slide-in-from-bottom-4">
   <div class="mb-4 flex items-start justify-between">
     <div class="flex items-center gap-4">
       <img
@@ -27,8 +27,8 @@ const {
         class="h-12 w-12 rounded-full object-cover ring-2 ring-eventflow-primary/30 transition-transform duration-300 hover:scale-110"
       />
       <div>
-        <h4 class="font-semibold text-eventflow-black">{name}</h4>
-        <p class="text-sm text-eventflow-gray">
+        <h4 class="font-semibold text-white">{name}</h4>
+        <p class="text-sm text-gray-300">
           {role} en <span class="font-medium">{company}</span>
         </p>
       </div>
@@ -43,7 +43,7 @@ const {
           class={`h-4 w-4 ${
             i < rating
               ? 'text-yellow-400'
-              : 'text-eventflow-border'
+              : 'text-gray-600'
           }`}
           fill="currentColor"
           viewBox="0 0 20 20"
@@ -54,7 +54,7 @@ const {
     </div>
   )}
 
-  <p class="text-eventflow-gray italic leading-relaxed">
+  <p class="text-white/90 italic leading-relaxed">
     "{quote}"
   </p>
 </div>

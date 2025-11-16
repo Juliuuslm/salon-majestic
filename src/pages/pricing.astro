@@ -77,14 +77,14 @@ const seo = {
             a: "Sí, ofrecemos descuentos especiales para contratos anuales. Contáctanos para más información.",
           },
         ].map((faq, idx) => (
-          <div class="overflow-hidden rounded-lg border border-eventflow-border bg-eventflow-black transition-all duration-300">
-            <button class="w-full px-6 py-4 text-left font-semibold text-eventflow-black hover:bg-gray-50 transition-colors flex items-center justify-between">
+          <div class="overflow-hidden rounded-lg border border-eventflow-border-dark bg-eventflow-black transition-all duration-300">
+            <button class="w-full px-6 py-4 text-left font-semibold text-white hover:bg-gray-50 transition-colors flex items-center justify-between">
               {faq.q}
               <svg class="h-5 w-5 text-eventflow-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </button>
-            <div class="px-6 py-4 bg-gray-50 border-t border-eventflow-border text-eventflow-gray text-sm">
+            <div class="px-6 py-4 bg-gray-50 border-t border-eventflow-border-dark text-gray-300 text-sm">
               {faq.a}
             </div>
           </div>
@@ -105,11 +105,11 @@ const seo = {
       <div class="mt-12 overflow-x-auto">
         <table class="w-full text-sm">
           <thead>
-            <tr class="border-b-2 border-eventflow-border">
-              <th class="py-4 px-6 text-left font-bold text-eventflow-black">Características</th>
-              <th class="py-4 px-6 text-center font-bold text-eventflow-black">Básico</th>
+            <tr class="border-b-2 border-eventflow-border-dark">
+              <th class="py-4 px-6 text-left font-bold text-white">Características</th>
+              <th class="py-4 px-6 text-center font-bold text-white">Básico</th>
               <th class="py-4 px-6 text-center font-bold text-eventflow-primary">Profesional</th>
-              <th class="py-4 px-6 text-center font-bold text-eventflow-black">Empresarial</th>
+              <th class="py-4 px-6 text-center font-bold text-white">Empresarial</th>
             </tr>
           </thead>
           <tbody>
@@ -122,8 +122,8 @@ const seo = {
               { feature: "Soporte 24/7", basic: false, pro: true, enterprise: true },
               { feature: "Análisis post-evento", basic: false, pro: false, enterprise: true },
             ].map((row) => (
-              <tr class="border-b border-eventflow-border hover:bg-eventflow-black-dark transition-colors">
-                <td class="py-4 px-6 font-medium text-eventflow-black">{row.feature}</td>
+              <tr class="border-b border-eventflow-border-dark hover:bg-eventflow-black-dark transition-colors">
+                <td class="py-4 px-6 font-medium text-white">{row.feature}</td>
                 <td class="py-4 px-6 text-center">
                   {row.basic ? (
                     <svg class="h-5 w-5 mx-auto text-green-500" fill="currentColor" viewBox="0 0 20 20">

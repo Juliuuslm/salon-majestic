@@ -56,17 +56,17 @@ const seo = {
           </span>
         </div>
 
-        <h1 class="mb-4 text-4xl font-bold text-eventflow-black">{item.title}</h1>
+        <h1 class="mb-4 text-4xl font-bold text-white">{item.title}</h1>
 
         {item.description && (
-          <p class="mb-6 text-lg text-eventflow-gray leading-relaxed">
+          <p class="mb-6 text-lg text-gray-300 leading-relaxed">
             {item.description}
           </p>
         )}
 
         <!-- Share Buttons -->
         <div class="flex gap-4 items-center">
-          <span class="text-sm font-medium text-eventflow-gray">Compartir:</span>
+          <span class="text-sm font-medium text-gray-300">Compartir:</span>
           <a
             href={`https://facebook.com/sharer/sharer.php?u=${Astro.url.href}`}
             target="_blank"
@@ -96,24 +96,24 @@ const seo = {
       <div class="grid grid-cols-2 gap-4">
         <a
           href={`/gallery/${previousItem.id}`}
-          class="flex items-center gap-3 rounded-lg border border-eventflow-border bg-eventflow-black p-4 transition-all duration-300 hover:bg-eventflow-black-dark hover:border-eventflow-primary"
+          class="flex items-center gap-3 rounded-lg border border-eventflow-border-dark bg-eventflow-black p-4 transition-all duration-300 hover:bg-eventflow-black-dark hover:border-eventflow-primary"
         >
           <svg class="h-5 w-5 text-eventflow-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
           <div>
-            <p class="text-xs text-eventflow-gray">Anterior</p>
-            <p class="font-semibold text-eventflow-black line-clamp-1">{previousItem.title}</p>
+            <p class="text-xs text-gray-300">Anterior</p>
+            <p class="font-semibold text-white line-clamp-1">{previousItem.title}</p>
           </div>
         </a>
 
         <a
           href={`/gallery/${nextItem.id}`}
-          class="flex items-center justify-end gap-3 rounded-lg border border-eventflow-border bg-eventflow-black p-4 transition-all duration-300 hover:bg-eventflow-black-dark hover:border-eventflow-primary text-right"
+          class="flex items-center justify-end gap-3 rounded-lg border border-eventflow-border-dark bg-eventflow-black p-4 transition-all duration-300 hover:bg-eventflow-black-dark hover:border-eventflow-primary text-right"
         >
           <div>
-            <p class="text-xs text-eventflow-gray">Siguiente</p>
-            <p class="font-semibold text-eventflow-black line-clamp-1">{nextItem.title}</p>
+            <p class="text-xs text-gray-300">Siguiente</p>
+            <p class="font-semibold text-white line-clamp-1">{nextItem.title}</p>
           </div>
           <svg class="h-5 w-5 text-eventflow-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />

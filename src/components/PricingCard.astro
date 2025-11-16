@@ -39,12 +39,12 @@ const {
     )}
 
     <div class={highlighted ? 'mt-8' : ''}>
-      <h3 class="mb-2 text-2xl font-bold text-eventflow-black">{name}</h3>
-      <p class="mb-6 text-sm text-eventflow-gray">{description}</p>
+      <h3 class="mb-2 text-2xl font-bold text-white">{name}</h3>
+      <p class="mb-6 text-sm text-white/80">{description}</p>
 
       <div class="mb-6">
         <span class="text-5xl font-bold text-eventflow-primary">{price}</span>
-        <span class="text-eventflow-gray">
+        <span class="text-white/70">
           {currency}
           <span class="text-sm"> / {period}</span>
         </span>
@@ -61,13 +61,13 @@ const {
         {ctaText}
       </a>
 
-      <div class="border-t border-eventflow-border pt-6">
-        <p class="mb-4 text-sm font-semibold text-eventflow-black">
+      <div class="border-t border-eventflow-border-dark pt-6">
+        <p class="mb-4 text-sm font-semibold text-white">
           Lo que incluye:
         </p>
         <ul class="space-y-3">
           {features.map((feature) => (
-            <li class="flex items-start gap-3 text-sm text-eventflow-gray">
+            <li class="flex items-start gap-3 text-sm text-gray-300">
               <svg
                 class="mt-0.5 h-4 w-4 flex-shrink-0 text-eventflow-primary"
                 fill="currentColor"

@@ -53,33 +53,33 @@ const seo = {
             />
           </div>
 
-          <h2 class="text-3xl font-bold text-eventflow-black mb-4">Sobre {member.name}</h2>
-          <p class="text-lg text-eventflow-gray leading-relaxed mb-6">
+          <h2 class="text-3xl font-bold text-white mb-4">Sobre {member.name}</h2>
+          <p class="text-lg text-gray-300 leading-relaxed mb-6">
             {member.bio}
           </p>
 
           <div class="mb-8 p-6 bg-eventflow-black-dark rounded-lg">
-            <h3 class="text-xl font-bold text-eventflow-black mb-4">Especialidades</h3>
+            <h3 class="text-xl font-bold text-white mb-4">Especialidades</h3>
             <ul class="space-y-2">
-              <li class="flex items-center gap-2 text-eventflow-gray">
+              <li class="flex items-center gap-2 text-gray-300">
                 <svg class="h-5 w-5 text-eventflow-primary" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 Gestión de Proyectos
               </li>
-              <li class="flex items-center gap-2 text-eventflow-gray">
+              <li class="flex items-center gap-2 text-gray-300">
                 <svg class="h-5 w-5 text-eventflow-primary" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 Liderazgo de Equipos
               </li>
-              <li class="flex items-center gap-2 text-eventflow-gray">
+              <li class="flex items-center gap-2 text-gray-300">
                 <svg class="h-5 w-5 text-eventflow-primary" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 Solución de Problemas
               </li>
-              <li class="flex items-center gap-2 text-eventflow-gray">
+              <li class="flex items-center gap-2 text-gray-300">
                 <svg class="h-5 w-5 text-eventflow-primary" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
@@ -92,11 +92,11 @@ const seo = {
         <!-- Sidebar -->
         <div class="lg:col-span-1">
           <!-- Contact Card -->
-          <div class="mb-8 rounded-lg border border-eventflow-border bg-eventflow-black-dark p-6">
-            <h3 class="mb-4 font-semibold text-eventflow-black">Contacta a {member.name.split(' ')[0]}</h3>
+          <div class="mb-8 rounded-lg border border-eventflow-border-dark bg-eventflow-black-dark p-6">
+            <h3 class="mb-4 font-semibold text-white">Contacta a {member.name.split(' ')[0]}</h3>
             {member.email && (
               <div class="mb-4">
-                <p class="text-xs text-eventflow-gray mb-1">Email</p>
+                <p class="text-xs text-gray-300 mb-1">Email</p>
                 <a
                   href={`mailto:${member.email}`}
                   class="text-sm font-medium text-eventflow-primary hover:text-eventflow-base transition-colors break-all"
@@ -115,15 +115,15 @@ const seo = {
 
           <!-- Social Links -->
           {member.social && member.social.length > 0 && (
-            <div class="rounded-lg border border-eventflow-border bg-eventflow-black p-6">
-              <h3 class="mb-4 font-semibold text-eventflow-black">Redes Sociales</h3>
+            <div class="rounded-lg border border-eventflow-border-dark bg-eventflow-black p-6">
+              <h3 class="mb-4 font-semibold text-white">Redes Sociales</h3>
               <div class="space-y-2">
                 {member.social.map((social) => (
                   <a
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="flex items-center gap-2 px-4 py-2 rounded-lg border border-eventflow-border hover:bg-eventflow-primary hover:text-white hover:border-eventflow-primary transition-all duration-300"
+                    class="flex items-center gap-2 px-4 py-2 rounded-lg border border-eventflow-border-dark hover:bg-eventflow-primary hover:text-white hover:border-eventflow-primary transition-all duration-300"
                   >
                     <span class="capitalize text-sm font-medium">{social.platform}</span>
                     <svg class="h-4 w-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -142,7 +142,7 @@ const seo = {
   <!-- More Team Members -->
   <section class="py-20 md:py-28 bg-eventflow-black-dark">
     <div class="container-custom">
-      <h2 class="text-3xl font-bold text-eventflow-black mb-12 text-center">Conoce al Resto del Equipo</h2>
+      <h2 class="text-3xl font-bold text-white mb-12 text-center">Conoce al Resto del Equipo</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {
           team
@@ -151,7 +151,7 @@ const seo = {
             .map((teamMember) => (
               <a
                 href={`/team/${teamMember.id}`}
-                class="group overflow-hidden rounded-lg border border-eventflow-border bg-eventflow-black transition-all duration-300 hover:shadow-lg text-center"
+                class="group overflow-hidden rounded-lg border border-eventflow-border-dark bg-eventflow-black transition-all duration-300 hover:shadow-lg text-center"
               >
                 <div class="relative overflow-hidden bg-gray-200 h-40">
                   <img
@@ -161,7 +161,7 @@ const seo = {
                   />
                 </div>
                 <div class="p-4">
-                  <h4 class="font-bold text-eventflow-black group-hover:text-eventflow-primary transition-colors">
+                  <h4 class="font-bold text-white group-hover:text-eventflow-primary transition-colors">
                     {teamMember.name}
                   </h4>
                   <p class="text-xs text-eventflow-primary">{teamMember.role}</p>

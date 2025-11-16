@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 ---
 
-<div class="overflow-hidden rounded-lg border border-eventflow-border bg-eventflow-black transition-all duration-300 hover:shadow-lg">
+<div class="overflow-hidden rounded-lg border border-eventflow-border-dark bg-eventflow-black transition-all duration-300 hover:shadow-lg hover:shadow-eventflow-primary/20">
   <div class="relative overflow-hidden bg-gray-200 h-48">
     <img
       src={image}
@@ -33,11 +33,11 @@ const {
   </div>
 
   <div class="p-6">
-    <h3 class="mb-3 text-lg font-bold text-eventflow-black line-clamp-2">
+    <h3 class="mb-3 text-lg font-bold text-white line-clamp-2">
       {title}
     </h3>
 
-    <div class="mb-4 space-y-2 text-sm text-eventflow-gray">
+    <div class="mb-4 space-y-2 text-sm text-gray-300">
       <div class="flex items-center gap-2">
         <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
@@ -52,7 +52,7 @@ const {
       </div>
     </div>
 
-    <p class="mb-6 line-clamp-2 text-sm text-eventflow-gray">
+    <p class="mb-6 line-clamp-2 text-sm text-white/90">
       {description}
     </p>
 

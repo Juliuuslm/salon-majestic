@@ -30,7 +30,7 @@ const seo = {
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {
           sortedPosts.map((post) => (
-            <article class="overflow-hidden rounded-lg border border-eventflow-border bg-eventflow-black transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+            <article class="overflow-hidden rounded-lg border border-eventflow-border-dark bg-eventflow-black transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div class="relative overflow-hidden bg-gray-200 h-48">
                 <img
                   src={post.data.image}
@@ -45,7 +45,7 @@ const seo = {
               </div>
 
               <div class="p-6">
-                <div class="mb-3 text-sm text-eventflow-gray">
+                <div class="mb-3 text-sm text-gray-300">
                   {post.data.date.toLocaleDateString('es-ES', {
                     year: 'numeric',
                     month: 'long',
@@ -55,20 +55,20 @@ const seo = {
                   Por {post.data.author}
                 </div>
 
-                <h3 class="mb-3 text-xl font-bold text-eventflow-black line-clamp-2 hover:text-eventflow-primary transition-colors">
+                <h3 class="mb-3 text-xl font-bold text-white line-clamp-2 hover:text-eventflow-primary transition-colors">
                   <a href={`/blog/${post.slug}`}>
                     {post.data.title}
                   </a>
                 </h3>
 
-                <p class="mb-6 line-clamp-2 text-sm text-eventflow-gray">
+                <p class="mb-6 line-clamp-2 text-sm text-gray-300">
                   {post.data.description}
                 </p>
 
                 <div class="flex items-center justify-between">
                   <div class="flex gap-2 flex-wrap">
                     {post.data.tags.slice(0, 2).map((tag) => (
-                      <span class="inline-block bg-eventflow-black-dark text-eventflow-gray text-xs px-3 py-1 rounded-full">
+                      <span class="inline-block bg-eventflow-black-dark text-gray-300 text-xs px-3 py-1 rounded-full">
                         {tag}
                       </span>
                     ))}
