@@ -1,0 +1,154 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import SectionTitle from '@components/SectionTitle.astro';
+import ServiceCard from '@components/ServiceCard.astro';
+import services from '@data/services.json';
+
+const seo = {
+  title: 'Servicios - EventFlow',
+  description: 'Descubre nuestros servicios completos de gestión de eventos profesionales.',
+  type: 'website',
+};
+---
+
+<BaseLayout seo={seo}>
+  <!-- Page Header -->
+  <section class="bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white py-16">
+    <div class="container-custom">
+      <h1 class="text-4xl md:text-5xl font-bold">Servicios</h1>
+      <p class="mt-4 text-lg text-white/90">Soluciones completas para todos tus necesidades de eventos</p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="container-custom">
+      <SectionTitle
+        title="Nuestros Servicios"
+        subtitle="Soluciones integrales diseñadas para el éxito de tu evento"
+        alignment="center"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+        {
+          services.map((service) => (
+            <ServiceCard
+              icon={service.icon}
+              title={service.title}
+              description={service.description}
+              features={service.features}
+              link={service.link}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-20 md:py-28 bg-eventflow-extra">
+    <div class="container-custom">
+      <SectionTitle
+        title="¿Por Qué Elegir EventFlow?"
+        subtitle="Razones para confiar en nuestro equipo"
+        alignment="center"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-eventflow-primary text-white">
+              ✓
+            </div>
+          </div>
+          <div>
+            <h3 class="font-bold text-eventflow-black mb-2">Experiencia Probada</h3>
+            <p class="text-eventflow-gray">
+              Más de 15 años organizando eventos exitosos con miles de clientes satisfechos.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-eventflow-primary text-white">
+              ✓
+            </div>
+          </div>
+          <div>
+            <h3 class="font-bold text-eventflow-black mb-2">Equipo Profesional</h3>
+            <p class="text-eventflow-gray">
+              Especialistas en cada área: logística, diseño, tecnología y marketing.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-eventflow-primary text-white">
+              ✓
+            </div>
+          </div>
+          <div>
+            <h3 class="font-bold text-eventflow-black mb-2">Soluciones Personalizadas</h3>
+            <p class="text-eventflow-gray">
+              Cada evento es único. Adaptamos nuestros servicios a tus necesidades específicas.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-eventflow-primary text-white">
+              ✓
+            </div>
+          </div>
+          <div>
+            <h3 class="font-bold text-eventflow-black mb-2">Soporte 24/7</h3>
+            <p class="text-eventflow-gray">
+              Disponible en todo momento para resolver cualquier imprevisto o pregunta.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-eventflow-primary text-white">
+              ✓
+            </div>
+          </div>
+          <div>
+            <h3 class="font-bold text-eventflow-black mb-2">Tecnología Última</h3>
+            <p class="text-eventflow-gray">
+              Usamos las mejores herramientas y plataformas para garantizar calidad.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-eventflow-primary text-white">
+              ✓
+            </div>
+          </div>
+          <div>
+            <h3 class="font-bold text-eventflow-black mb-2">Resultados Medibles</h3>
+            <p class="text-eventflow-gray">
+              Analizamos métricas y ROI para demostrar el valor de nuestro trabajo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white text-center">
+    <div class="container-custom">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para comenzar?</h2>
+      <a href="/contact" class="inline-block bg-white text-eventflow-primary px-8 py-4 rounded-full font-semibold hover:bg-eventflow-extra transition-all duration-300">
+        Solicitar Propuesta
+      </a>
+    </div>
+  </section>
+</BaseLayout>

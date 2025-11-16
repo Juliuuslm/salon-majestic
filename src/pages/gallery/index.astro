@@ -1,0 +1,80 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import SectionTitle from '@components/SectionTitle.astro';
+import gallery from '@data/gallery.json';
+
+const seo = {
+  title: 'Galería - EventFlow',
+  description: 'Visualiza nuestros eventos anteriores en fotos de alta calidad.',
+  type: 'website',
+};
+
+const categories = Array.from(new Set(gallery.map((item) => item.category)));
+---
+
+<BaseLayout seo={seo}>
+  <!-- Page Header -->
+  <section class="bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white py-16">
+    <div class="container-custom">
+      <h1 class="text-4xl md:text-5xl font-bold">Galería</h1>
+      <p class="mt-4 text-lg text-white/90">Momentos memorables de nuestros eventos</p>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="container-custom">
+      <SectionTitle
+        title="Nuestros Eventos"
+        subtitle="Explora la galería de fotos de eventos anteriores"
+        alignment="center"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+        {
+          gallery.map((item, index) => (
+            <a
+              href={`/gallery/${item.id}`}
+              class="gallery-card group relative overflow-hidden aspect-square bg-gray-200 animate-in fade-in slide-in-from-bottom-4"
+              style={{ animationDelay: `${index * 0.05}s` }}
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+
+              <!-- Overlay with enhanced animation -->
+              <div class="gallery-card-overlay flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="mb-2 inline-block w-fit rounded-full bg-eventflow-primary px-4 py-1 text-xs font-semibold text-white capitalize animate-in fade-in slide-in-from-bottom-2 group-hover:opacity-100" style="animation-delay: 0.05s;">
+                  {item.category}
+                </div>
+                <h3 class="text-xl font-bold text-white animate-in fade-in slide-in-from-bottom-2 group-hover:opacity-100" style="animation-delay: 0.1s;">
+                  {item.title}
+                </h3>
+                {item.description && (
+                  <p class="mt-2 text-sm text-white/90 line-clamp-2 animate-in fade-in slide-in-from-bottom-2 group-hover:opacity-100" style="animation-delay: 0.15s;">
+                    {item.description}
+                  </p>
+                )}
+              </div>
+
+              <!-- Decorative accent -->
+              <div class="absolute top-0 right-0 w-24 h-24 bg-eventflow-primary/10 rounded-full blur-3xl group-hover:bg-eventflow-primary/20 transition-all duration-500 -mr-12 -mt-12" />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white text-center">
+    <div class="container-custom">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para crear tu próximo evento?</h2>
+      <a href="/contact" class="inline-block bg-white text-eventflow-primary px-8 py-4 rounded-full font-semibold hover:bg-eventflow-extra transition-all duration-300">
+        Solicitar Información
+      </a>
+    </div>
+  </section>
+</BaseLayout>

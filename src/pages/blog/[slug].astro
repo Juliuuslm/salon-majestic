@@ -1,0 +1,136 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection('blog');
+  return blogPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: any;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const seo = {
+  title: `${post.data.title} - Blog EventFlow`,
+  description: post.data.description,
+  image: post.data.image,
+  type: 'article',
+  publishedTime: post.data.date.toISOString(),
+  author: post.data.author,
+};
+---
+
+<BaseLayout seo={seo}>
+  <!-- Article Header -->
+  <section class="bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white py-12">
+    <div class="container-custom">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="inline-block bg-white/20 text-white px-4 py-2 rounded-full text-sm font-semibold">
+          {post.data.category}
+        </span>
+        <span class="text-sm text-white/80">
+          {post.data.date.toLocaleDateString('es-ES', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">{post.data.title}</h1>
+      <p class="text-lg text-white/90">Por {post.data.author}</p>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <section class="py-12 md:py-20 bg-white">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <!-- Main Content -->
+        <div class="lg:col-span-2">
+          {post.data.image && (
+            <img
+              src={post.data.image}
+              alt={post.data.title}
+              class="mb-8 w-full rounded-lg object-cover"
+            />
+          )}
+
+          <div class="prose prose-lg max-w-none">
+            <Content />
+          </div>
+
+          <!-- Tags -->
+          <div class="mt-8 border-t border-eventflow-border pt-8">
+            <p class="mb-4 font-semibold text-eventflow-black">Etiquetas:</p>
+            <div class="flex flex-wrap gap-3">
+              {post.data.tags.map((tag: string) => (
+                <a
+                  href="#"
+                  class="inline-block bg-eventflow-extra hover:bg-eventflow-primary hover:text-white text-eventflow-gray px-4 py-2 rounded-full text-sm transition-all duration-300"
+                >
+                  {tag}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="lg:col-span-1">
+          <!-- Author Info -->
+          <div class="mb-8 rounded-lg border border-eventflow-border bg-eventflow-extra p-6">
+            <h3 class="mb-4 font-semibold text-eventflow-black">Sobre el Autor</h3>
+            <p class="text-sm text-eventflow-gray">
+              {post.data.author} es un experto en gestión de eventos con años de experiencia
+              en la industria.
+            </p>
+          </div>
+
+          <!-- Related Posts (placeholder) -->
+          <div class="mb-8 rounded-lg border border-eventflow-border bg-eventflow-extra p-6">
+            <h3 class="mb-4 font-semibold text-eventflow-black">Artículos Relacionados</h3>
+            <p class="text-sm text-eventflow-gray">
+              Explora más artículos sobre eventos y gestión profesional.
+            </p>
+            <a href="/blog" class="btn-primary mt-4 block text-center text-sm">
+              Ver Todos los Artículos
+            </a>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="rounded-lg border border-eventflow-border bg-gradient-to-br from-eventflow-primary to-eventflow-base text-white p-6">
+            <h3 class="mb-4 font-semibold">Suscríbete</h3>
+            <p class="mb-4 text-sm">Recibe noticias y tips sobre eventos directamente en tu email.</p>
+            <form class="space-y-3">
+              <input
+                type="email"
+                placeholder="Tu email"
+                class="w-full rounded-lg bg-white/20 px-4 py-2 text-white placeholder-white/60 border-0 focus:outline-none focus:ring-2 focus:ring-white"
+              />
+              <button
+                type="submit"
+                class="w-full rounded-lg bg-white text-eventflow-primary px-4 py-2 font-semibold hover:bg-eventflow-extra transition-all duration-300"
+              >
+                Suscribirse
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  :global(.prose) {
+    --tw-prose-headings: #04000A;
+    --tw-prose-links: #4A0AB4;
+  }
+</style>

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "1",
+    "title": "Planificación de Eventos",
+    "description": "Servicios completos de planificación desde conceptualización hasta ejecución de eventos profesionales",
+    "icon": "calendar",
+    "features": [
+      "Consultoría estratégica",
+      "Presupuesto personalizado",
+      "Coordinación logística",
+      "Gestión de proveedores"
+    ],
+    "link": "/services"
+  },
+  {
+    "id": "2",
+    "title": "Gestión de Conferencias",
+    "description": "Organización integral de conferencias con soporte técnico y experiencia de asistentes",
+    "icon": "microphone",
+    "features": [
+      "Reserva de sede",
+      "Streaming en vivo",
+      "Gestión de speakers",
+      "Soporte audiovisual completo"
+    ],
+    "link": "/services"
+  },
+  {
+    "id": "3",
+    "title": "Experiencias Corporativas",
+    "description": "Eventos corporativos diseñados para fortalecer vínculos y mejorar la cultura empresarial",
+    "icon": "handshake",
+    "features": [
+      "Team building",
+      "Actos corporativos",
+      "Lanzamientos de productos",
+      "Experiencias inmersivas"
+    ],
+    "link": "/services"
+  },
+  {
+    "id": "4",
+    "title": "Marketing de Eventos",
+    "description": "Estrategias de marketing integral para maximizar visibilidad y asistencia a tus eventos",
+    "icon": "trending-up",
+    "features": [
+      "Campañas digitales",
+      "Redes sociales",
+      "Email marketing",
+      "Relaciones públicas"
+    ],
+    "link": "/services"
+  },
+  {
+    "id": "5",
+    "title": "Producción Audiovisual",
+    "description": "Servicios de producción profesional para capturar y transmitir tu evento en múltiples canales",
+    "icon": "video",
+    "features": [
+      "Grabación profesional",
+      "Edición 4K",
+      "Streaming en vivo",
+      "Contenido post-evento"
+    ],
+    "link": "/services"
+  },
+  {
+    "id": "6",
+    "title": "Diseño e Interiorismo",
+    "description": "Creación de ambientes visuales espectaculares que dejan una impresión duradera",
+    "icon": "palette",
+    "features": [
+      "Diseño de espacios",
+      "Decoración temática",
+      "Instalaciones artísticas",
+      "Iluminación y sonido"
+    ],
+    "link": "/services"
+  }
+]

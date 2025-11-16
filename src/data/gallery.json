@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "title": "Conferencia Tech 2024",
+    "slug": "conferencia-tech-2024",
+    "category": "conferencias",
+    "image": "/images/gallery/gallery-1.jpg",
+    "description": "Momentos destacados de la conferencia tecnológica más grande del año"
+  },
+  {
+    "id": "2",
+    "title": "Gala de Premios",
+    "slug": "gala-premios",
+    "category": "corporativo",
+    "image": "/images/gallery/gallery-2.jpg",
+    "description": "Ceremonia de entrega de reconocimientos a líderes de la industria"
+  },
+  {
+    "id": "3",
+    "title": "Workshop de Innovación",
+    "slug": "workshop-innovacion",
+    "category": "workshops",
+    "image": "/images/gallery/gallery-3.jpg",
+    "description": "Sesión interactiva de innovación y creatividad empresarial"
+  },
+  {
+    "id": "4",
+    "title": "Networking Empresarial",
+    "slug": "networking-empresarial",
+    "category": "networking",
+    "image": "/images/gallery/gallery-4.jpg",
+    "description": "Encuentros profesionales y conexiones de negocios"
+  },
+  {
+    "id": "5",
+    "title": "Exposición de Productos",
+    "slug": "exposicion-productos",
+    "category": "exposicion",
+    "image": "/images/gallery/gallery-5.jpg",
+    "description": "Presentación de últimas innovaciones en tecnología"
+  },
+  {
+    "id": "6",
+    "title": "Team Building",
+    "slug": "team-building",
+    "category": "corporativo",
+    "image": "/images/gallery/gallery-6.jpg",
+    "description": "Actividades de integración y fortalecimiento de equipos"
+  },
+  {
+    "id": "7",
+    "title": "Panel de Discusión",
+    "slug": "panel-discusion",
+    "category": "conferencias",
+    "image": "/images/gallery/gallery-7.jpg",
+    "description": "Debate profesional con expertos de la industria"
+  },
+  {
+    "id": "8",
+    "title": "Cena de Gala",
+    "slug": "cena-gala",
+    "category": "corporativo",
+    "image": "/images/gallery/gallery-8.jpg",
+    "description": "Evento exclusivo de clausura con cena de celebración"
+  },
+  {
+    "id": "9",
+    "title": "Demostración en Vivo",
+    "slug": "demostracion-vivo",
+    "category": "exposicion",
+    "image": "/images/gallery/gallery-9.jpg",
+    "description": "Showcase de productos y soluciones en tiempo real"
+  }
+]

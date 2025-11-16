@@ -1,0 +1,175 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import SectionTitle from '@components/SectionTitle.astro';
+import team from '@data/team.json';
+
+export function getStaticPaths() {
+  return team.map((member) => ({
+    params: { id: member.id },
+    props: { member },
+  }));
+}
+
+interface Props {
+  member: any;
+}
+
+const { member } = Astro.props;
+
+const seo = {
+  title: `${member.name} - EventFlow`,
+  description: `${member.role} en EventFlow. ${member.bio}`,
+  image: member.image,
+  type: 'profile',
+};
+---
+
+<BaseLayout seo={seo}>
+  <!-- Page Header -->
+  <section class="bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white py-16">
+    <div class="container-custom">
+      <a href="/team" class="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Volver al Equipo
+      </a>
+      <h1 class="text-4xl md:text-5xl font-bold">{member.name}</h1>
+      <p class="mt-2 text-lg text-white/90">{member.role}</p>
+    </div>
+  </section>
+
+  <!-- Member Content -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <!-- Main Content -->
+        <div class="lg:col-span-2">
+          <div class="overflow-hidden rounded-lg mb-8">
+            <img
+              src={member.image}
+              alt={member.name}
+              class="w-full h-96 object-cover"
+            />
+          </div>
+
+          <h2 class="text-3xl font-bold text-eventflow-black mb-4">Sobre {member.name}</h2>
+          <p class="text-lg text-eventflow-gray leading-relaxed mb-6">
+            {member.bio}
+          </p>
+
+          <div class="mb-8 p-6 bg-eventflow-extra rounded-lg">
+            <h3 class="text-xl font-bold text-eventflow-black mb-4">Especialidades</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2 text-eventflow-gray">
+                <svg class="h-5 w-5 text-eventflow-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Gestión de Proyectos
+              </li>
+              <li class="flex items-center gap-2 text-eventflow-gray">
+                <svg class="h-5 w-5 text-eventflow-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Liderazgo de Equipos
+              </li>
+              <li class="flex items-center gap-2 text-eventflow-gray">
+                <svg class="h-5 w-5 text-eventflow-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Solución de Problemas
+              </li>
+              <li class="flex items-center gap-2 text-eventflow-gray">
+                <svg class="h-5 w-5 text-eventflow-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Estrategia Empresarial
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="lg:col-span-1">
+          <!-- Contact Card -->
+          <div class="mb-8 rounded-lg border border-eventflow-border bg-eventflow-extra p-6">
+            <h3 class="mb-4 font-semibold text-eventflow-black">Contacta a {member.name.split(' ')[0]}</h3>
+            {member.email && (
+              <div class="mb-4">
+                <p class="text-xs text-eventflow-gray mb-1">Email</p>
+                <a
+                  href={`mailto:${member.email}`}
+                  class="text-sm font-medium text-eventflow-primary hover:text-eventflow-base transition-colors break-all"
+                >
+                  {member.email}
+                </a>
+              </div>
+            )}
+            <a
+              href="/contact"
+              class="btn-primary block text-center text-sm"
+            >
+              Enviar Mensaje
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          {member.social && member.social.length > 0 && (
+            <div class="rounded-lg border border-eventflow-border bg-white p-6">
+              <h3 class="mb-4 font-semibold text-eventflow-black">Redes Sociales</h3>
+              <div class="space-y-2">
+                {member.social.map((social) => (
+                  <a
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center gap-2 px-4 py-2 rounded-lg border border-eventflow-border hover:bg-eventflow-primary hover:text-white hover:border-eventflow-primary transition-all duration-300"
+                  >
+                    <span class="capitalize text-sm font-medium">{social.platform}</span>
+                    <svg class="h-4 w-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- More Team Members -->
+  <section class="py-20 md:py-28 bg-eventflow-extra">
+    <div class="container-custom">
+      <h2 class="text-3xl font-bold text-eventflow-black mb-12 text-center">Conoce al Resto del Equipo</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          team
+            .filter((m) => m.id !== member.id)
+            .slice(0, 4)
+            .map((teamMember) => (
+              <a
+                href={`/team/${teamMember.id}`}
+                class="group overflow-hidden rounded-lg border border-eventflow-border bg-white transition-all duration-300 hover:shadow-lg text-center"
+              >
+                <div class="relative overflow-hidden bg-gray-200 h-40">
+                  <img
+                    src={teamMember.image}
+                    alt={teamMember.name}
+                    class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+                <div class="p-4">
+                  <h4 class="font-bold text-eventflow-black group-hover:text-eventflow-primary transition-colors">
+                    {teamMember.name}
+                  </h4>
+                  <p class="text-xs text-eventflow-primary">{teamMember.role}</p>
+                </div>
+              </a>
+            ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

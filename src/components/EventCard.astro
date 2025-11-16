@@ -1,0 +1,63 @@
+---
+interface Props {
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+  image: string;
+  description: string;
+  link: string;
+}
+
+const {
+  title,
+  date,
+  time,
+  location,
+  image,
+  description,
+  link,
+} = Astro.props;
+---
+
+<div class="overflow-hidden rounded-lg border border-eventflow-border bg-white transition-all duration-300 hover:shadow-lg">
+  <div class="relative overflow-hidden bg-gray-200 h-48">
+    <img
+      src={image}
+      alt={title}
+      class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+    />
+    <div class="absolute top-4 right-4 bg-eventflow-primary text-white px-4 py-2 rounded-full text-sm font-semibold">
+      {date}
+    </div>
+  </div>
+
+  <div class="p-6">
+    <h3 class="mb-3 text-lg font-bold text-eventflow-black line-clamp-2">
+      {title}
+    </h3>
+
+    <div class="mb-4 space-y-2 text-sm text-eventflow-gray">
+      <div class="flex items-center gap-2">
+        <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+        </svg>
+        <span>{time}</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+        </svg>
+        <span class="truncate">{location}</span>
+      </div>
+    </div>
+
+    <p class="mb-6 line-clamp-2 text-sm text-eventflow-gray">
+      {description}
+    </p>
+
+    <a href={link} class="btn-primary text-sm w-full text-center block">
+      Ver detalles
+    </a>
+  </div>
+</div>

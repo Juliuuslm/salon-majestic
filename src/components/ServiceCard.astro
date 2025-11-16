@@ -1,0 +1,74 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  features?: string[];
+  link?: string;
+}
+
+const {
+  icon,
+  title,
+  description,
+  features = [],
+  link = '#',
+} = Astro.props;
+---
+
+<div class="service-card card-base animate-in fade-in slide-in-from-bottom-4">
+  <div class="p-8">
+    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-eventflow-base/20 transition-all duration-300 group-hover:bg-eventflow-base/40">
+      <span class="text-3xl transition-transform duration-300 hover:scale-110">{icon}</span>
+    </div>
+
+    <h3 class="mb-3 text-xl font-bold text-eventflow-black">
+      {title}
+    </h3>
+
+    <p class="mb-6 text-sm text-eventflow-gray leading-relaxed">
+      {description}
+    </p>
+
+    {features.length > 0 && (
+      <ul class="mb-6 space-y-2">
+        {features.map((feature) => (
+          <li class="flex items-center gap-2 text-sm text-eventflow-gray">
+            <svg
+              class="h-4 w-4 text-eventflow-primary"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span>{feature}</span>
+          </li>
+        ))}
+      </ul>
+    )}
+
+    <a
+      href={link}
+      class="inline-flex items-center gap-2 text-sm font-semibold text-eventflow-primary transition-colors hover:text-eventflow-base"
+    >
+      Más información
+      <svg
+        class="h-4 w-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"
+        />
+      </svg>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,204 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import HeroSlider from '@islands/HeroSlider';
+import SectionTitle from '@components/SectionTitle.astro';
+import ServiceCard from '@components/ServiceCard.astro';
+import EventCard from '@components/EventCard.astro';
+import TestimonialCard from '@components/TestimonialCard.astro';
+import CounterBox from '@islands/CounterBox';
+import services from '@data/services.json';
+import events from '@data/events.json';
+import testimonials from '@data/testimonials.json';
+
+const heroSlides = [
+  {
+    id: '1',
+    title: 'Construyendo Conexiones a Través de Eventos',
+    subtitle: 'Desbloquea el Poder de la Conexión',
+    description:
+      'Experiencias de eventos profesionales que crean impacto duradero y conexiones significativas entre participantes.',
+    location: 'Centro de Convenciones, Madrid',
+    dateTime: '15 Junio 2025 - 09:00am - 05:00pm',
+    image: '/images/backgrounds/slider-1.jpg',
+    ctaText: 'Comprar Entrada',
+    ctaLink: '/contact',
+  },
+  {
+    id: '2',
+    title: 'Conferencias de Clase Mundial',
+    subtitle: 'Únete a Líderes de Industria',
+    description:
+      'Aprende de expertos internacionales en nuestras conferencias diseñadas para inspirar y transformar.',
+    location: 'Tech Hub, Barcelona',
+    dateTime: '20 Julio 2025 - 10:00am - 06:00pm',
+    image: '/images/backgrounds/slider-2.jpg',
+    ctaText: 'Registrarse Ahora',
+    ctaLink: '/contact',
+  },
+];
+
+const seo = {
+  title: 'EventFlow - Plataforma Profesional de Gestión de Eventos',
+  description:
+    'Organiza eventos memorables con EventFlow. Gestión completa, experiencias inmersivas y resultados excepcionales.',
+  image: '/og-home.jpg',
+  schema: {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'EventFlow',
+    url: 'https://eventflow.com',
+    logo: '/logo.png',
+    description:
+      'Plataforma profesional de gestión de eventos y conferencias',
+  },
+};
+---
+
+<BaseLayout seo={seo}>
+  <!-- Hero Slider -->
+  <HeroSlider slides={heroSlides} autoplay={true} delay={5000} client:load />
+
+  <!-- Services Section -->
+  <section class="py-20 md:py-28 lg:py-32 bg-white">
+    <div class="container-custom">
+      <SectionTitle
+        tagline="Nuestros Servicios"
+        title="Soluciones Completas para tus Eventos"
+        subtitle="Desde la planificación hasta la ejecución, cubrimos cada aspecto de tu evento"
+        alignment="center"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+        {
+          services.slice(0, 6).map((service) => (
+            <ServiceCard
+              icon={service.icon}
+              title={service.title}
+              description={service.description}
+              features={service.features}
+              link={service.link}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-20 md:py-28 bg-eventflow-black text-white">
+    <div class="container-custom">
+      <SectionTitle
+        tagline="Nuestro Impacto"
+        title="Números que Hablan por Sí Solos"
+        alignment="center"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mt-16">
+        <CounterBox
+          end={500}
+          suffix="+"
+          label="Eventos Organizados"
+          icon="🎯"
+          client:visible
+        />
+        <CounterBox
+          end={50000}
+          suffix="+"
+          label="Asistentes Satisfechos"
+          icon="👥"
+          client:visible
+        />
+        <CounterBox
+          end={100}
+          suffix="%"
+          label="Tasa de Satisfacción"
+          icon="⭐"
+          client:visible
+        />
+        <CounterBox
+          end={15}
+          suffix="+"
+          label="Años de Experiencia"
+          icon="🏆"
+          client:visible
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="container-custom">
+      <SectionTitle
+        tagline="Próximos Eventos"
+        title="Eventos Destacados"
+        subtitle="Únete a nuestros próximos eventos y sé parte de una comunidad vibrante"
+        alignment="center"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+        {
+          events.slice(0, 3).map((event) => (
+            <EventCard
+              title={event.title}
+              date={event.date}
+              time={event.time}
+              location={event.location}
+              image={event.image}
+              description={event.description}
+              link={event.link || '/events'}
+            />
+          ))
+        }
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="/events" class="btn-primary">
+          Ver Todos los Eventos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 md:py-28 bg-eventflow-extra">
+    <div class="container-custom">
+      <SectionTitle
+        tagline="Testimonios"
+        title="Lo que Dicen Nuestros Clientes"
+        subtitle="Voces reales de organizadores que han transformado sus eventos con EventFlow"
+        alignment="center"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+        {
+          testimonials.slice(0, 4).map((testimonial) => (
+            <TestimonialCard
+              name={testimonial.name}
+              role={testimonial.role}
+              company={testimonial.company}
+              avatar={testimonial.avatar}
+              quote={testimonial.quote}
+              rating={testimonial.rating}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 md:py-28 bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white">
+    <div class="container-custom text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">
+        ¿Listo para tu Próximo Evento?
+      </h2>
+      <p class="text-xl mb-10 max-w-2xl mx-auto">
+        Contáctanos hoy y descubre cómo EventFlow puede transformar tu visión en realidad.
+      </p>
+      <a href="/contact" class="inline-block bg-white text-eventflow-primary px-8 py-4 rounded-full font-semibold hover:bg-eventflow-extra transition-all duration-300">
+        Solicitar Consulta Gratis
+      </a>
+    </div>
+  </section>
+</BaseLayout>

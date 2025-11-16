@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "name": "Juan Pérez",
+    "role": "CEO",
+    "company": "TechCorp España",
+    "avatar": "/images/testimonial/avatar-1.jpg",
+    "quote": "EventFlow transformó completamente nuestro conferencia anual. Profesionalismo de clase mundial.",
+    "rating": 5
+  },
+  {
+    "id": "2",
+    "name": "Sofia García",
+    "role": "Directora de Marketing",
+    "company": "InnovateLabs",
+    "avatar": "/images/testimonial/avatar-2.jpg",
+    "quote": "El equipo fue increíblemente responsivo y creativo. Entregaron más de lo que esperaba.",
+    "rating": 5
+  },
+  {
+    "id": "3",
+    "name": "Carlos Fernández",
+    "role": "Director de Eventos",
+    "company": "Global Business Solutions",
+    "avatar": "/images/testimonial/avatar-3.jpg",
+    "quote": "Después de trabajar con EventFlow, no puedo imaginar organizar eventos sin ellos.",
+    "rating": 5
+  },
+  {
+    "id": "4",
+    "name": "María López",
+    "role": "Coordinadora de Proyectos",
+    "company": "Digital Ventures",
+    "avatar": "/images/testimonial/avatar-4.jpg",
+    "quote": "Excelente gestión de logística y un soporte impecable durante todo el evento.",
+    "rating": 5
+  },
+  {
+    "id": "5",
+    "name": "David Rodríguez",
+    "role": "Gerente General",
+    "company": "Premium Events",
+    "avatar": "/images/testimonial/avatar-5.jpg",
+    "quote": "EventFlow elevó nuestro evento a un nivel completamente diferente. Altamente recomendado.",
+    "rating": 5
+  },
+  {
+    "id": "6",
+    "name": "Elena Martínez",
+    "role": "Especialista en Comunicación",
+    "company": "BrandCo International",
+    "avatar": "/images/testimonial/avatar-6.jpg",
+    "quote": "Desde el concepto hasta la ejecución, EventFlow demostró una atención al detalle excepcional.",
+    "rating": 5
+  },
+  {
+    "id": "7",
+    "name": "Miguel Sánchez",
+    "role": "Presidente",
+    "company": "Enterprise Group",
+    "avatar": "/images/testimonial/avatar-7.jpg",
+    "quote": "Nuestro evento fue un éxito gracias a la experiencia y dedicación de todo el equipo.",
+    "rating": 5
+  },
+  {
+    "id": "8",
+    "name": "Laura González",
+    "role": "Directora Ejecutiva",
+    "company": "Innovation Hub",
+    "avatar": "/images/testimonial/avatar-8.jpg",
+    "quote": "EventFlow es sinónimo de calidad, innovación y servicio al cliente excepcional.",
+    "rating": 5
+  }
+]

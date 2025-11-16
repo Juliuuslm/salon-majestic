@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "name": "María García",
+    "role": "Directora General",
+    "image": "/images/team/member-1.jpg",
+    "bio": "Más de 15 años de experiencia en gestión de eventos internacionales. Especialista en conferencias corporativas.",
+    "email": "maria@eventflow.com",
+    "social": [
+      { "platform": "linkedin", "url": "https://linkedin.com" },
+      { "platform": "twitter", "url": "https://twitter.com" }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Carlos Rodríguez",
+    "role": "Director de Operaciones",
+    "image": "/images/team/member-2.jpg",
+    "bio": "Experto en logística de eventos con trayectoria en más de 500 eventos realizados exitosamente.",
+    "email": "carlos@eventflow.com",
+    "social": [
+      { "platform": "linkedin", "url": "https://linkedin.com" },
+      { "platform": "instagram", "url": "https://instagram.com" }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Ana Martínez",
+    "role": "Directora de Creatividad",
+    "image": "/images/team/member-3.jpg",
+    "bio": "Diseñadora gráfica y especialista en branding de eventos. Creadora de experiencias memorables.",
+    "email": "ana@eventflow.com",
+    "social": [
+      { "platform": "instagram", "url": "https://instagram.com" },
+      { "platform": "linkedin", "url": "https://linkedin.com" }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "David López",
+    "role": "Coordinador de Tecnología",
+    "image": "/images/team/member-4.jpg",
+    "bio": "Ingeniero de sistemas especializado en soluciones tecnológicas para eventos y conferencias virtuales.",
+    "email": "david@eventflow.com",
+    "social": [
+      { "platform": "linkedin", "url": "https://linkedin.com" },
+      { "platform": "github", "url": "https://github.com" }
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Laura Sánchez",
+    "role": "Especialista en Marketing",
+    "image": "/images/team/member-5.jpg",
+    "bio": "Estratega de marketing digital con enfoque en promoción y posicionamiento de eventos.",
+    "email": "laura@eventflow.com",
+    "social": [
+      { "platform": "instagram", "url": "https://instagram.com" },
+      { "platform": "twitter", "url": "https://twitter.com" }
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Javier Hernández",
+    "role": "Productor Audiovisual",
+    "image": "/images/team/member-6.jpg",
+    "bio": "Productor de contenido multimediacontalidoexperiencia en streaming y producción 4K de eventos.",
+    "email": "javier@eventflow.com",
+    "social": [
+      { "platform": "youtube", "url": "https://youtube.com" },
+      { "platform": "linkedin", "url": "https://linkedin.com" }
+    ]
+  }
+]

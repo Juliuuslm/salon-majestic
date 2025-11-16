@@ -1,0 +1,171 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import SectionTitle from '@components/SectionTitle.astro';
+import PricingCard from '@components/PricingCard.astro';
+import pricing from '@data/pricing.json';
+
+const seo = {
+  title: 'Precios - EventFlow',
+  description: 'Planes de precios transparentes y flexibles para tus eventos.',
+  type: 'website',
+};
+---
+
+<BaseLayout seo={seo}>
+  <!-- Page Header -->
+  <section class="bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white py-16">
+    <div class="container-custom">
+      <h1 class="text-4xl md:text-5xl font-bold">Planes de Precios</h1>
+      <p class="mt-4 text-lg text-white/90">Transparencia y flexibilidad en cada plan</p>
+    </div>
+  </section>
+
+  <!-- Pricing Plans -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="container-custom">
+      <SectionTitle
+        title="Planes Adaptados a ti"
+        subtitle="Desde eventos pequeños hasta grandes conferencias, tenemos un plan para ti"
+        alignment="center"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+        {
+          pricing.map((plan) => (
+            <PricingCard
+              name={plan.name}
+              price={plan.price}
+              currency={plan.currency}
+              period={plan.period}
+              description={plan.description}
+              features={plan.features}
+              highlighted={plan.highlighted}
+              ctaText={plan.cta.text}
+              ctaLink={plan.cta.href}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 md:py-28 bg-eventflow-extra">
+    <div class="container-custom">
+      <SectionTitle
+        title="Preguntas Frecuentes"
+        subtitle="Obtén respuestas sobre nuestros planes"
+        alignment="center"
+      />
+
+      <div class="mt-12 max-w-3xl mx-auto space-y-4">
+        {[
+          {
+            q: "¿Puedo cambiar de plan después de contratar?",
+            a: "Sí, puedes cambiar a un plan superior o inferior en cualquier momento. Los cambios se aplicarán en tu próximo ciclo de facturación.",
+          },
+          {
+            q: "¿Qué incluye el soporte?",
+            a: "Todos nuestros planes incluyen soporte por email y teléfono. Los planes Profesional y Empresarial incluyen soporte 24/7.",
+          },
+          {
+            q: "¿Hay costos ocultos?",
+            a: "No. Nuestros precios son totalmente transparentes. Lo que ves es lo que pagas, sin sorpresas.",
+          },
+          {
+            q: "¿Ofrecen descuentos para eventos anuales?",
+            a: "Sí, ofrecemos descuentos especiales para contratos anuales. Contáctanos para más información.",
+          },
+        ].map((faq, idx) => (
+          <div class="overflow-hidden rounded-lg border border-eventflow-border bg-white transition-all duration-300">
+            <button class="w-full px-6 py-4 text-left font-semibold text-eventflow-black hover:bg-gray-50 transition-colors flex items-center justify-between">
+              {faq.q}
+              <svg class="h-5 w-5 text-eventflow-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </button>
+            <div class="px-6 py-4 bg-gray-50 border-t border-eventflow-border text-eventflow-gray text-sm">
+              {faq.a}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Comparison -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="container-custom">
+      <SectionTitle
+        title="Comparación de Planes"
+        subtitle="Encuentra el plan perfecto para tus necesidades"
+        alignment="center"
+      />
+
+      <div class="mt-12 overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-eventflow-border">
+              <th class="py-4 px-6 text-left font-bold text-eventflow-black">Características</th>
+              <th class="py-4 px-6 text-center font-bold text-eventflow-black">Básico</th>
+              <th class="py-4 px-6 text-center font-bold text-eventflow-primary">Profesional</th>
+              <th class="py-4 px-6 text-center font-bold text-eventflow-black">Empresarial</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { feature: "Planificación de eventos", basic: true, pro: true, enterprise: true },
+              { feature: "Coordinador dedicado", basic: true, pro: true, enterprise: true },
+              { feature: "Diseño personalizado", basic: false, pro: true, enterprise: true },
+              { feature: "Streaming en vivo", basic: false, pro: true, enterprise: true },
+              { feature: "Equipo de 10+ profesionales", basic: false, pro: false, enterprise: true },
+              { feature: "Soporte 24/7", basic: false, pro: true, enterprise: true },
+              { feature: "Análisis post-evento", basic: false, pro: false, enterprise: true },
+            ].map((row) => (
+              <tr class="border-b border-eventflow-border hover:bg-eventflow-extra transition-colors">
+                <td class="py-4 px-6 font-medium text-eventflow-black">{row.feature}</td>
+                <td class="py-4 px-6 text-center">
+                  {row.basic ? (
+                    <svg class="h-5 w-5 mx-auto text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  ) : (
+                    <span class="text-gray-400">—</span>
+                  )}
+                </td>
+                <td class="py-4 px-6 text-center">
+                  {row.pro ? (
+                    <svg class="h-5 w-5 mx-auto text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  ) : (
+                    <span class="text-gray-400">—</span>
+                  )}
+                </td>
+                <td class="py-4 px-6 text-center">
+                  {row.enterprise ? (
+                    <svg class="h-5 w-5 mx-auto text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  ) : (
+                    <span class="text-gray-400">—</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white text-center">
+    <div class="container-custom">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">¿No estás seguro cuál elegir?</h2>
+      <a href="/contact" class="inline-block bg-white text-eventflow-primary px-8 py-4 rounded-full font-semibold hover:bg-eventflow-extra transition-all duration-300">
+        Habla con Nuestro Equipo
+      </a>
+    </div>
+  </section>
+</BaseLayout>

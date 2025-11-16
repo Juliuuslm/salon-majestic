@@ -1,0 +1,71 @@
+[
+  {
+    "id": "1",
+    "name": "Básico",
+    "price": 5000,
+    "currency": "EUR",
+    "period": "por evento",
+    "description": "Ideal para eventos pequeños y corporativos",
+    "features": [
+      "Planificación y coordinación básica",
+      "Selección de sede",
+      "Gestión de proveedores",
+      "Equipo de 3 coordinadores",
+      "Soporte el día del evento",
+      "Presupuesto para hasta 200 asistentes"
+    ],
+    "highlighted": false,
+    "cta": {
+      "text": "Solicitar Cotización",
+      "href": "/contact"
+    }
+  },
+  {
+    "id": "2",
+    "name": "Profesional",
+    "price": 15000,
+    "currency": "EUR",
+    "period": "por evento",
+    "description": "Para conferencias y eventos de mediano tamaño",
+    "features": [
+      "Gestión integral del evento",
+      "Diseño conceptual personalizado",
+      "Selección y negociación con sede",
+      "Gestión completa de proveedores",
+      "Equipo de 6 coordinadores",
+      "Marketing y promoción",
+      "Soporte técnico y audiovisual",
+      "Presupuesto para hasta 1000 asistentes"
+    ],
+    "highlighted": true,
+    "cta": {
+      "text": "Seleccionar Plan",
+      "href": "/contact"
+    }
+  },
+  {
+    "id": "3",
+    "name": "Empresarial",
+    "price": 35000,
+    "currency": "EUR",
+    "period": "por evento",
+    "description": "Para eventos grandes, conferencias y exposiciones",
+    "features": [
+      "Gestión 360º completa",
+      "Diseño conceptual avanzado e innovador",
+      "Negociación premium de sede y catering",
+      "Gestión estratégica de proveedores",
+      "Equipo dedicado de 10+ profesionales",
+      "Estrategia de marketing integral",
+      "Producción audiovisual profesional",
+      "Streaming en vivo y transmisión",
+      "Análisis post-evento y ROI",
+      "Presupuesto para más de 2000 asistentes"
+    ],
+    "highlighted": false,
+    "cta": {
+      "text": "Hablar con Ejecutivo",
+      "href": "/contact"
+    }
+  }
+]

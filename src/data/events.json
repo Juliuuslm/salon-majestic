@@ -1,0 +1,80 @@
+[
+  {
+    "id": "1",
+    "title": "Conferencia Tech 2025",
+    "slug": "conferencia-tech-2025",
+    "description": "La mayor conferencia de tecnología del año con speakers internacionales de renombre",
+    "date": "2025-06-15",
+    "time": "09:00 - 17:00",
+    "location": "Centro de Convenciones Internacional, Madrid",
+    "image": "/images/events/event-1.jpg",
+    "speaker": "Múltiples speakers internacionales",
+    "attendees": 2500,
+    "link": "/events/conferencia-tech-2025"
+  },
+  {
+    "id": "2",
+    "title": "Expo de Negocios Global",
+    "slug": "expo-negocios-global",
+    "description": "Encuentro de empresarios y emprendedores de 50+ países para conectar y crear alianzas",
+    "date": "2025-07-20",
+    "time": "10:00 - 18:00",
+    "location": "Feria de Muestras, Barcelona",
+    "image": "/images/events/event-2.jpg",
+    "speaker": "Líderes empresariales",
+    "attendees": 1800,
+    "link": "/events/expo-negocios-global"
+  },
+  {
+    "id": "3",
+    "title": "Summit de Innovación Digital",
+    "slug": "summit-innovacion-digital",
+    "description": "Descubre las últimas tendencias en transformación digital y emprendimiento innovador",
+    "date": "2025-08-10",
+    "time": "09:00 - 16:00",
+    "location": "Tech Hub, Valencia",
+    "image": "/images/events/event-3.jpg",
+    "speaker": "Innovadores y emprendedores",
+    "attendees": 1200,
+    "link": "/events/summit-innovacion-digital"
+  },
+  {
+    "id": "4",
+    "title": "Workshop de Marketing Digital",
+    "slug": "workshop-marketing-digital",
+    "description": "Formación intensiva sobre estrategias de marketing digital y growth hacking",
+    "date": "2025-05-25",
+    "time": "10:00 - 17:00",
+    "location": "Oficinas EMEA, Madrid",
+    "image": "/images/events/event-4.jpg",
+    "speaker": "Expertos en marketing",
+    "attendees": 450,
+    "link": "/events/workshop-marketing-digital"
+  },
+  {
+    "id": "5",
+    "title": "Congreso de Sostenibilidad",
+    "slug": "congreso-sostenibilidad",
+    "description": "Debate sobre prácticas empresariales sostenibles y responsabilidad social corporativa",
+    "date": "2025-09-15",
+    "time": "09:00 - 17:30",
+    "location": "Auditorio Sostenible, Bilbao",
+    "image": "/images/events/event-5.jpg",
+    "speaker": "Líderes en sostenibilidad",
+    "attendees": 980,
+    "link": "/events/congreso-sostenibilidad"
+  },
+  {
+    "id": "6",
+    "title": "Hackathon Global 2025",
+    "slug": "hackathon-global-2025",
+    "description": "Competencia de desarrollo de 48 horas con premios en efectivo y oportunidades de inversión",
+    "date": "2025-10-05",
+    "time": "00:00 - 48:00",
+    "location": "Campus de Tecnología, Madrid",
+    "image": "/images/events/event-6.jpg",
+    "speaker": "Desarrolladores y mentores",
+    "attendees": 600,
+    "link": "/events/hackathon-global-2025"
+  }
+]

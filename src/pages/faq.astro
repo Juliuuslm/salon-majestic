@@ -1,0 +1,153 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import SectionTitle from '@components/SectionTitle.astro';
+import Accordion from '@islands/Accordion';
+import faq from '@data/faq.json';
+
+const seo = {
+  title: 'FAQs - Preguntas Frecuentes - EventFlow',
+  description: 'Respuestas a las preguntas más comunes sobre nuestros servicios de eventos.',
+  type: 'faq',
+};
+---
+
+<BaseLayout seo={seo}>
+  <!-- Page Header -->
+  <section class="bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white py-16">
+    <div class="container-custom">
+      <h1 class="text-4xl md:text-5xl font-bold">Preguntas Frecuentes</h1>
+      <p class="mt-4 text-lg text-white/90">Respuestas a las preguntas más comunes</p>
+    </div>
+  </section>
+
+  <!-- FAQ Content -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <!-- Main Accordion -->
+        <div class="lg:col-span-2">
+          <SectionTitle
+            title="Preguntas Comunes"
+            subtitle="Encuentra respuestas a tus dudas"
+            alignment="left"
+          />
+
+          <div class="mt-8">
+            <Accordion items={faq} allowMultiple={true} client:load />
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="lg:col-span-1">
+          <!-- Contact CTA -->
+          <div class="mb-8 rounded-lg bg-gradient-to-br from-eventflow-primary to-eventflow-base p-8 text-white">
+            <h3 class="mb-4 text-xl font-bold">¿No encontraste respuesta?</h3>
+            <p class="mb-6 text-sm text-white/90">
+              Nuestro equipo está listo para ayudarte con cualquier pregunta adicional.
+            </p>
+            <a href="/contact" class="block rounded-full bg-white text-eventflow-primary px-6 py-3 text-center font-semibold hover:bg-eventflow-extra transition-all duration-300">
+              Contacta Ahora
+            </a>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="rounded-lg border border-eventflow-border bg-eventflow-extra p-6">
+            <h4 class="mb-4 font-bold text-eventflow-black">Enlaces Útiles</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="/services" class="text-sm text-eventflow-primary hover:text-eventflow-base transition-colors flex items-center gap-2">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                  Nuestros Servicios
+                </a>
+              </li>
+              <li>
+                <a href="/pricing" class="text-sm text-eventflow-primary hover:text-eventflow-base transition-colors flex items-center gap-2">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                  Planes de Precios
+                </a>
+              </li>
+              <li>
+                <a href="/events" class="text-sm text-eventflow-primary hover:text-eventflow-base transition-colors flex items-center gap-2">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                  Próximos Eventos
+                </a>
+              </li>
+              <li>
+                <a href="/blog" class="text-sm text-eventflow-primary hover:text-eventflow-base transition-colors flex items-center gap-2">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Info -->
+  <section class="py-20 md:py-28 bg-eventflow-extra">
+    <div class="container-custom">
+      <SectionTitle
+        title="Información Adicional"
+        subtitle="Todo lo que necesitas saber"
+        alignment="center"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div class="rounded-lg bg-white p-6 text-center">
+          <div class="mb-4 flex justify-center">
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-eventflow-primary/20 text-3xl">
+              📞
+            </div>
+          </div>
+          <h3 class="mb-2 font-bold text-eventflow-black">Soporte Telefónico</h3>
+          <p class="text-sm text-eventflow-gray mb-4">
+            Disponible de lunes a viernes, 9:00am - 6:00pm
+          </p>
+          <a href="tel:+34913000000" class="text-eventflow-primary font-semibold hover:text-eventflow-base transition-colors">
+            +34 91 300 0000
+          </a>
+        </div>
+
+        <div class="rounded-lg bg-white p-6 text-center">
+          <div class="mb-4 flex justify-center">
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-eventflow-primary/20 text-3xl">
+              ✉️
+            </div>
+          </div>
+          <h3 class="mb-2 font-bold text-eventflow-black">Email</h3>
+          <p class="text-sm text-eventflow-gray mb-4">
+            Respuesta en menos de 24 horas
+          </p>
+          <a href="mailto:info@eventflow.com" class="text-eventflow-primary font-semibold hover:text-eventflow-base transition-colors">
+            info@eventflow.com
+          </a>
+        </div>
+
+        <div class="rounded-lg bg-white p-6 text-center">
+          <div class="mb-4 flex justify-center">
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-eventflow-primary/20 text-3xl">
+              💬
+            </div>
+          </div>
+          <h3 class="mb-2 font-bold text-eventflow-black">Chat en Vivo</h3>
+          <p class="text-sm text-eventflow-gray mb-4">
+            Soporte inmediato en horario de oficina
+          </p>
+          <button class="text-eventflow-primary font-semibold hover:text-eventflow-base transition-colors">
+            Iniciar Chat
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

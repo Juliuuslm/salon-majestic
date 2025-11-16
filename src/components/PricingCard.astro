@@ -1,0 +1,89 @@
+---
+interface Props {
+  name: string;
+  price: number;
+  currency: string;
+  period: string;
+  description: string;
+  features: string[];
+  highlighted?: boolean;
+  ctaText: string;
+  ctaLink: string;
+}
+
+const {
+  name,
+  price,
+  currency,
+  period,
+  description,
+  features,
+  highlighted = false,
+  ctaText,
+  ctaLink,
+} = Astro.props;
+---
+
+<div
+  class={`overflow-hidden rounded-lg border transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 ${
+    highlighted
+      ? 'pricing-premium shadow-2xl scale-105 bg-gradient-to-br from-white to-eventflow-extra'
+      : 'border-eventflow-border bg-white hover:shadow-lg hover:-translate-y-1'
+  }`}
+>
+  <div class="relative p-8">
+    {highlighted && (
+      <div class="absolute top-0 left-0 right-0 bg-eventflow-primary text-white text-center py-2 text-sm font-bold">
+        MÁS POPULAR
+      </div>
+    )}
+
+    <div class={highlighted ? 'mt-8' : ''}>
+      <h3 class="mb-2 text-2xl font-bold text-eventflow-black">{name}</h3>
+      <p class="mb-6 text-sm text-eventflow-gray">{description}</p>
+
+      <div class="mb-6">
+        <span class="text-5xl font-bold text-eventflow-primary">{price}</span>
+        <span class="text-eventflow-gray">
+          {currency}
+          <span class="text-sm"> / {period}</span>
+        </span>
+      </div>
+
+      <a
+        href={ctaLink}
+        class={`mb-8 block rounded-full px-8 py-4 text-center font-semibold transition-all duration-300 ${
+          highlighted
+            ? 'bg-eventflow-primary text-white hover:bg-eventflow-base'
+            : 'border-2 border-eventflow-primary text-eventflow-primary hover:bg-eventflow-primary hover:text-white'
+        }`}
+      >
+        {ctaText}
+      </a>
+
+      <div class="border-t border-eventflow-border pt-6">
+        <p class="mb-4 text-sm font-semibold text-eventflow-black">
+          Lo que incluye:
+        </p>
+        <ul class="space-y-3">
+          {features.map((feature) => (
+            <li class="flex items-start gap-3 text-sm text-eventflow-gray">
+              <svg
+                class="mt-0.5 h-4 w-4 flex-shrink-0 text-eventflow-primary"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
