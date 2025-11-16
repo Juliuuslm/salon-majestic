@@ -302,10 +302,11 @@ html:not(.dark) .shadow-lg {
   left: -30px;
   width: 200px;
   height: 200px;
-  background: linear-gradient(135deg, rgba(74, 10, 180, 0.1), rgba(178, 13, 93, 0.1));
+  background: linear-gradient(135deg, rgba(74, 10, 180, 0.3), rgba(178, 13, 93, 0.3));
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
   animation: float-bob-y 3s ease-in-out infinite;
-  filter: blur(40px);
+  filter: blur(20px);
+  opacity: 0.6;
 }
 
 .page-header__shape-2 {
@@ -313,10 +314,11 @@ html:not(.dark) .shadow-lg {
   right: -30px;
   width: 250px;
   height: 250px;
-  background: linear-gradient(135deg, rgba(178, 13, 93, 0.08), rgba(74, 10, 180, 0.08));
+  background: linear-gradient(135deg, rgba(178, 13, 93, 0.25), rgba(74, 10, 180, 0.25));
   border-radius: 20% 80% 30% 70% / 60% 40% 60% 40%;
   animation: float-bob-x 3s ease-in-out infinite;
-  filter: blur(40px);
+  filter: blur(20px);
+  opacity: 0.5;
 }
 
 /* Slider Shapes */
@@ -331,11 +333,11 @@ html:not(.dark) .shadow-lg {
   left: -56px;
   width: 300px;
   height: 300px;
-  background: linear-gradient(135deg, rgba(74, 10, 180, 0.15), rgba(178, 13, 93, 0.15));
+  background: linear-gradient(135deg, rgba(74, 10, 180, 0.4), rgba(178, 13, 93, 0.4));
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   animation: border-round 15s linear infinite;
-  filter: blur(50px);
-  opacity: 0.3;
+  filter: blur(25px);
+  opacity: 0.7;
 }
 
 .slider__shape-2 {
@@ -343,10 +345,11 @@ html:not(.dark) .shadow-lg {
   right: 0px;
   width: 250px;
   height: 250px;
-  background: linear-gradient(135deg, rgba(74, 10, 180, 0.2), rgba(178, 13, 93, 0.1));
+  background: linear-gradient(135deg, rgba(74, 10, 180, 0.35), rgba(178, 13, 93, 0.3));
   border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
   animation: topBottom 3s ease-in-out infinite;
-  filter: blur(45px);
+  filter: blur(20px);
+  opacity: 0.6;
 }
 
 .slider__shape-3 {
@@ -354,10 +357,10 @@ html:not(.dark) .shadow-lg {
   right: -100px;
   width: 350px;
   height: 350px;
-  background: linear-gradient(135deg, rgba(74, 10, 180, 0.2), rgba(178, 13, 93, 0.15));
+  background: linear-gradient(135deg, rgba(74, 10, 180, 0.35), rgba(178, 13, 93, 0.3));
   border-radius: 40% 60% 50% 50% / 70% 30% 70% 30%;
-  filter: blur(50px);
-  opacity: 0.1;
+  filter: blur(22px);
+  opacity: 0.5;
 }
 
 /* Pricing Card Shapes */
@@ -380,8 +383,9 @@ html:not(.dark) .shadow-lg {
   right: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle at 30% 70%, rgba(74, 10, 180, 0.08), transparent 50%);
+  background: radial-gradient(circle at 30% 70%, rgba(74, 10, 180, 0.2), transparent 50%);
   animation: rotate-slow 20s linear infinite;
+  opacity: 0.6;
 }
 
 .pricing__shape::after {
@@ -391,8 +395,9 @@ html:not(.dark) .shadow-lg {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle at 70% 30%, rgba(178, 13, 93, 0.05), transparent 50%);
+  background: radial-gradient(circle at 70% 30%, rgba(178, 13, 93, 0.15), transparent 50%);
   animation: rotate-slow-reverse 25s linear infinite;
+  opacity: 0.5;
 }
 
 /* Footer Shapes */
@@ -404,10 +409,11 @@ html:not(.dark) .shadow-lg {
   height: 300px;
   z-index: -1;
   pointer-events: none;
-  background: linear-gradient(135deg, rgba(74, 10, 180, 0.05), rgba(178, 13, 93, 0.03));
+  background: linear-gradient(135deg, rgba(74, 10, 180, 0.2), rgba(178, 13, 93, 0.15));
   border-radius: 40% 60% 50% 50% / 60% 40% 60% 40%;
-  filter: blur(40px);
+  filter: blur(20px);
   animation: float-bob-y 4s ease-in-out infinite;
+  opacity: 0.5;
 }
 
 /* Section Shapes */
