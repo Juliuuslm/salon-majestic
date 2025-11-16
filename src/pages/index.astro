@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import HeroSlider from '@islands/HeroSlider';
+import TestimonialsCarousel from '@islands/TestimonialsCarousel';
 import SectionTitle from '@components/SectionTitle.astro';
 import ServiceCard from '@components/ServiceCard.astro';
 import EventCard from '@components/EventCard.astro';
-import TestimonialCard from '@components/TestimonialCard.astro';
 import CounterBox from '@islands/CounterBox';
 import services from '@data/services.json';
 import events from '@data/events.json';
@@ -170,7 +170,7 @@ const seo = {
     </div>
   </section>
 
-  <!-- Testimonials -->
+  <!-- Testimonials Carousel -->
   <section class="py-20 md:py-28 bg-eventflow-black-dark relative overflow-hidden">
     <!-- Floating shapes -->
     <div class="absolute top-40 left-20 opacity-15 pointer-events-none">
@@ -188,20 +188,12 @@ const seo = {
         alignment="center"
       />
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
-        {
-          testimonials.slice(0, 4).map((testimonial, index) => (
-            <TestimonialCard
-              name={testimonial.name}
-              role={testimonial.role}
-              company={testimonial.company}
-              avatar={testimonial.avatar}
-              quote={testimonial.quote}
-              rating={testimonial.rating}
-              delay={`${(index + 1) * 100}ms`}
-            />
-          ))
-        }
+      <div class="mt-16">
+        <TestimonialsCarousel
+          testimonials={testimonials}
+          autoplayDelay={5000}
+          client:load
+        />
       </div>
     </div>
   </section>

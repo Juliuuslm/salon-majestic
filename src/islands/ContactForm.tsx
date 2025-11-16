@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { showToast } from './Toast';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
@@ -54,14 +55,17 @@ export default function ContactForm({
       if (response.ok) {
         setSubmitStatus('success');
         reset();
+        showToast(successMessage, 'success', 5000);
         // Auto-clear success message after 5 seconds
         setTimeout(() => setSubmitStatus('idle'), 5000);
       } else {
         setSubmitStatus('error');
+        showToast(errorMessage, 'error', 5000);
       }
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
+      showToast(errorMessage, 'error', 5000);
     } finally {
       setIsSubmitting(false);
     }

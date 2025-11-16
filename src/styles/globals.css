@@ -17,7 +17,61 @@ html {
 body {
   @apply bg-eventflow-black font-sans text-base text-white antialiased;
   scroll-padding-top: 80px;
+  transition: background-color 0.4s ease, color 0.4s ease;
   color-scheme: dark;
+}
+
+/* Light mode styles - when dark class is NOT present */
+html:not(.dark) body {
+  background-color: #ffffff;
+  color: #04000A;
+  color-scheme: light;
+}
+
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3,
+html:not(.dark) h4,
+html:not(.dark) h5,
+html:not(.dark) h6 {
+  color: #04000A;
+}
+
+html:not(.dark) section {
+  background-color: #f9fafb;
+}
+
+html:not(.dark) section.bg-eventflow-black-dark {
+  background-color: #f3f4f6;
+}
+
+html:not(.dark) .card-base {
+  background-color: #ffffff;
+  border-color: #e5e7eb;
+}
+
+html:not(.dark) .service-card {
+  background-color: #ffffff;
+}
+
+html:not(.dark) input,
+html:not(.dark) textarea,
+html:not(.dark) select {
+  background-color: #ffffff;
+  color: #04000A;
+  border-color: #d1d5db;
+}
+
+html:not(.dark) .text-gray-300 {
+  color: #6b7280;
+}
+
+html:not(.dark) .text-gray-400 {
+  color: #9ca3af;
+}
+
+html:not(.dark) .btn-primary {
+  transition: all 0.4s ease-in-out;
 }
 
 /* Typography */
