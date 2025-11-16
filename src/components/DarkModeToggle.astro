@@ -1,0 +1,86 @@
+---
+// Componente Astro puro para Dark Mode Toggle
+// No requiere React, es más simple y confiable
+---
+
+<button
+  id="dark-mode-toggle"
+  class="p-2 rounded-lg hover:bg-eventflow-black-dark transition-colors duration-300 group"
+  aria-label="Toggle dark mode"
+  title="Toggle dark mode"
+  type="button"
+>
+  <!-- Moon icon (shown in dark mode) -->
+  <svg
+    id="moon-icon"
+    class="h-5 w-5 text-gray-300 group-hover:text-eventflow-primary transition-colors duration-300"
+    fill="currentColor"
+    viewBox="0 0 20 20"
+  >
+    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+  </svg>
+
+  <!-- Sun icon (shown in light mode) -->
+  <svg
+    id="sun-icon"
+    class="hidden h-5 w-5 text-yellow-400 group-hover:text-yellow-300 transition-colors duration-300"
+    fill="currentColor"
+    viewBox="0 0 20 20"
+  >
+    <path
+      fillRule="evenodd"
+      d="M10 2a1 1 0 011 1v2a1 1 0 11-2 0V3a1 1 0 011-1zm0 10a3 3 0 100-6 3 3 0 000 6zm0-2a1 1 0 100-2 1 1 0 000 2zm5.32-5.32a1 1 0 011.414 0l1.414 1.414a1 1 0 01-1.414 1.414l-1.414-1.414a1 1 0 010-1.414zM7.34 7.34a1 1 0 00-1.414 0L4.51 9.17a1 1 0 101.414 1.414l1.414-1.414a1 1 0 000-1.414zm9.9 2.66a1 1 0 01-1.414 0 1 1 0 000-1.414l1.414-1.415a1 1 0 011.414 1.415l-1.414 1.414zM7.34 12.66a1 1 0 001.414 0l1.414-1.414a1 1 0 10-1.414-1.414L7.34 11.25a1 1 0 000 1.414zm-2.66-2.66a1 1 0 00-1.414 1.414l1.414 1.415a1 1 0 101.414-1.415l-1.414-1.414zM3 10a1 1 0 011-1h2a1 1 0 110 2H4a1 1 0 01-1-1zm14 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zm-12 5a1 1 0 011-1h2a1 1 0 110 2H5a1 1 0 01-1-1zm12-4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zM5 8a1 1 0 01-1 1H2a1 1 0 110-2h2a1 1 0 011 1z"
+      clipRule="evenodd"
+    ></path>
+  </svg>
+</button>
+
+<script>
+  // Initialize dark mode on page load
+  function initDarkMode() {
+    const html = document.documentElement;
+    const toggle = document.getElementById('dark-mode-toggle');
+    const moonIcon = document.getElementById('moon-icon');
+    const sunIcon = document.getElementById('sun-icon');
+
+    // Get saved preference or default to dark
+    const savedMode = localStorage.getItem('darkMode');
+    const isDark = savedMode !== null ? JSON.parse(savedMode) : true;
+
+    // Apply initial theme
+    updateTheme(isDark);
+
+    // Toggle listener
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const newIsDark = !JSON.parse(localStorage.getItem('darkMode') || 'true');
+        updateTheme(newIsDark);
+        localStorage.setItem('darkMode', JSON.stringify(newIsDark));
+      });
+    }
+
+    function updateTheme(isDark) {
+      if (isDark) {
+        html.classList.add('dark');
+        document.body.style.colorScheme = 'dark';
+        moonIcon?.classList.remove('hidden');
+        sunIcon?.classList.add('hidden');
+      } else {
+        html.classList.remove('dark');
+        document.body.style.colorScheme = 'light';
+        moonIcon?.classList.add('hidden');
+        sunIcon?.classList.remove('hidden');
+      }
+    }
+  }
+
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDarkMode);
+  } else {
+    initDarkMode();
+  }
+
+  // Listen for navigation (Astro view transitions)
+  document.addEventListener('astro:after-swap', initDarkMode);
+</script>

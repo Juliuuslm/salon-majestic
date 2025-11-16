@@ -1,5 +1,5 @@
 ---
-import DarkModeToggle from '@islands/DarkModeToggle';
+import DarkModeToggle from '@components/DarkModeToggle.astro';
 import type { NavItem } from '@types/index';
 
 const menuItems: NavItem[] = [
@@ -42,7 +42,7 @@ const menuItems: NavItem[] = [
       <!-- Right Actions -->
       <div class="flex items-center space-x-4">
         <!-- Dark Mode Toggle - Moon/Sun Icon -->
-        <DarkModeToggle client:load />
+        <DarkModeToggle />
 
         <!-- Search Button -->
         <button
