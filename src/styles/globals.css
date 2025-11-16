@@ -830,7 +830,7 @@ input:invalid:not(:placeholder-shown) {
 }
 
 .gallery-card:hover {
-  @apply shadow-2xl;
+  @apply shadow-2xl scale-[1.02] -translate-y-1;
   border-color: rgba(74, 10, 180, 0.7);
   box-shadow: 0 20px 40px rgba(74, 10, 180, 0.25), 0 0 20px rgba(74, 10, 180, 0.2);
 }
@@ -910,6 +910,7 @@ input:invalid:not(:placeholder-shown) {
 }
 
 .testimonial-card:hover {
+  @apply shadow-lg shadow-eventflow-primary/30 scale-[1.02] -translate-y-1;
   animation: shine 3s linear infinite;
 }
 

@@ -22,13 +22,14 @@ const {
 } = Astro.props;
 ---
 
-<div class="overflow-hidden rounded-lg border border-eventflow-border-dark bg-eventflow-black transition-all duration-500 hover:shadow-2xl hover:shadow-eventflow-primary/30 wow animate__animated animate__fadeInLeft" data-wow-duration="0.8s" data-wow-delay={delay}>
+<div class="overflow-hidden rounded-lg border border-eventflow-border-dark bg-eventflow-black transition-all duration-300 hover:shadow-2xl hover:shadow-eventflow-primary/30 hover:scale-[1.02] hover:-translate-y-1 group wow animate__animated animate__fadeInLeft" data-wow-duration="0.8s" data-wow-delay={delay}>
   <div class="relative overflow-hidden bg-gray-200 h-48">
     <img
       src={image}
       alt={title}
-      class="h-full w-full object-cover transition-transform duration-700 hover:scale-110"
+      class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
     />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     <div class="absolute top-4 right-4 bg-eventflow-primary text-white px-4 py-2 rounded-full text-sm font-semibold">
       {date}
     </div>

@@ -18,10 +18,10 @@ const {
 } = Astro.props;
 ---
 
-<div class="service-card card-base border-glow wow animate__animated animate__fadeInUp" data-wow-duration="0.8s" data-wow-delay={delay}>
+<div class="service-card card-base border-glow wow animate__animated animate__fadeInUp group hover:shadow-2xl hover:shadow-eventflow-primary/40 hover:scale-[1.02] transition-all duration-300" data-wow-duration="0.8s" data-wow-delay={delay}>
   <div class="p-8">
-    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-eventflow-base/20 transition-all duration-500 hover:bg-eventflow-base/40 hover:scale-110">
-      <span class="text-3xl transition-transform duration-500">{icon}</span>
+    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-eventflow-base/20 transition-all duration-500 group-hover:bg-eventflow-base/40 group-hover:scale-110">
+      <span class="text-3xl transition-transform duration-500 group-hover:animate-bounce">{icon}</span>
     </div>
 
     <h3 class="mb-3 text-xl font-bold text-white">
@@ -55,11 +55,11 @@ const {
 
     <a
       href={link}
-      class="inline-flex items-center gap-2 text-sm font-semibold text-eventflow-primary transition-colors hover:text-eventflow-base"
+      class="inline-flex items-center gap-2 text-sm font-semibold text-eventflow-primary transition-colors hover:text-eventflow-base group/link"
     >
       Más información
       <svg
-        class="h-4 w-4"
+        class="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
