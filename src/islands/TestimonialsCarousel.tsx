@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -20,20 +20,6 @@ interface Props {
 }
 
 export default function TestimonialsCarousel({ testimonials, autoplayDelay = 5000 }: Props) {
-  const swiperRef = useRef<any>(null);
-
-  const handlePrev = () => {
-    if (swiperRef.current?.swiper) {
-      swiperRef.current.swiper.slidePrev();
-    }
-  };
-
-  const handleNext = () => {
-    if (swiperRef.current?.swiper) {
-      swiperRef.current.swiper.slideNext();
-    }
-  };
-
   const renderStars = (rating: number = 5) => {
     return Array.from({ length: 5 }).map((_, i) => (
       <svg
@@ -50,7 +36,6 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
   return (
     <div className="relative w-full">
       <Swiper
-        ref={swiperRef}
         modules={[Autoplay, Navigation, Pagination]}
         spaceBetween={30}
         slidesPerView={1}
@@ -68,6 +53,10 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
         }}
         loop={true}
         loopAdditionalSlides={2}
+        navigation={{
+          nextEl: '.testimonial-button-next',
+          prevEl: '.testimonial-button-prev',
+        }}
         pagination={{
           el: '.testimonial-swiper-pagination',
           clickable: true,
@@ -108,8 +97,7 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
 
       {/* Navigation buttons */}
       <button
-        onClick={handlePrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white dark:bg-eventflow-primary/20 hover:bg-eventflow-primary/30 dark:hover:bg-eventflow-primary/40 transition-colors duration-300 active:scale-95"
+        className="testimonial-button-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white dark:bg-eventflow-primary/20 hover:bg-eventflow-primary/30 dark:hover:bg-eventflow-primary/40 transition-colors duration-300 active:scale-95"
         aria-label="Previous testimonial"
         type="button"
       >
@@ -119,8 +107,7 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
       </button>
 
       <button
-        onClick={handleNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white dark:bg-eventflow-primary/20 hover:bg-eventflow-primary/30 dark:hover:bg-eventflow-primary/40 transition-colors duration-300 active:scale-95"
+        className="testimonial-button-next absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white dark:bg-eventflow-primary/20 hover:bg-eventflow-primary/30 dark:hover:bg-eventflow-primary/40 transition-colors duration-300 active:scale-95"
         aria-label="Next testimonial"
         type="button"
       >
