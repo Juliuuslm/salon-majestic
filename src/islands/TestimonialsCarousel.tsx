@@ -20,7 +20,19 @@ interface Props {
 }
 
 export default function TestimonialsCarousel({ testimonials, autoplayDelay = 5000 }: Props) {
-  const swiperRef = useRef(null);
+  const swiperRef = useRef<any>(null);
+
+  const handlePrev = () => {
+    if (swiperRef.current?.swiper) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
+
+  const handleNext = () => {
+    if (swiperRef.current?.swiper) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
 
   const renderStars = (rating: number = 5) => {
     return Array.from({ length: 5 }).map((_, i) => (
@@ -39,7 +51,7 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
     <div className="relative w-full">
       <Swiper
         ref={swiperRef}
-        modules={[Autoplay, Navigation, Pagination]}
+        modules={[Autoplay, Pagination]}
         spaceBetween={30}
         slidesPerView={1}
         breakpoints={{
@@ -56,10 +68,6 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
         }}
         loop={true}
         loopAdditionalSlides={2}
-        navigation={{
-          nextEl: '.testimonial-swiper-next',
-          prevEl: '.testimonial-swiper-prev',
-        }}
         pagination={{
           el: '.testimonial-swiper-pagination',
           clickable: true,
@@ -100,8 +108,10 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
 
       {/* Navigation buttons */}
       <button
-        className="testimonial-swiper-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white dark:bg-eventflow-primary/20 hover:bg-eventflow-primary/30 dark:hover:bg-eventflow-primary/40 transition-colors duration-300"
+        onClick={handlePrev}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white dark:bg-eventflow-primary/20 hover:bg-eventflow-primary/30 dark:hover:bg-eventflow-primary/40 transition-colors duration-300 active:scale-95"
         aria-label="Previous testimonial"
+        type="button"
       >
         <svg className="h-6 w-6 text-eventflow-primary dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -109,8 +119,10 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
       </button>
 
       <button
-        className="testimonial-swiper-next absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white dark:bg-eventflow-primary/20 hover:bg-eventflow-primary/30 dark:hover:bg-eventflow-primary/40 transition-colors duration-300"
+        onClick={handleNext}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white dark:bg-eventflow-primary/20 hover:bg-eventflow-primary/30 dark:hover:bg-eventflow-primary/40 transition-colors duration-300 active:scale-95"
         aria-label="Next testimonial"
+        type="button"
       >
         <svg className="h-6 w-6 text-eventflow-primary dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -122,7 +134,7 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
 
       <style>{`
         .testimonials-carousel {
-          padding: 0 60px;
+          padding: 0;
         }
 
         .testimonial-swiper-pagination {
@@ -135,6 +147,7 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
           width: 10px;
           height: 10px;
           transition: all 0.3s ease;
+          cursor: pointer;
         }
 
         .testimonial-swiper-pagination .swiper-pagination-bullet-active {
@@ -145,12 +158,7 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
 
         @media (max-width: 768px) {
           .testimonials-carousel {
-            padding: 0 40px;
-          }
-
-          .testimonial-swiper-prev,
-          .testimonial-swiper-next {
-            display: none;
+            padding: 0;
           }
         }
       `}</style>
