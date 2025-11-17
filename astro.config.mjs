@@ -3,7 +3,7 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://tu-dominio.com',
+  site: 'https://majesticpuebla.com',
   integrations: [
     react(),
     tailwind({

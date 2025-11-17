@@ -1,74 +1,74 @@
 [
   {
     "id": "1",
-    "title": "Conferencia Tech 2024",
-    "slug": "conferencia-tech-2024",
-    "category": "conferencias",
+    "title": "Boda - Ceremonia",
+    "slug": "boda-ceremonia",
+    "category": "bodas",
     "image": "/images/gallery/gallery-1.jpg",
-    "description": "Momentos destacados de la conferencia tecnológica más grande del año"
+    "description": "Momentos mágicos de ceremonia nupcial en Majestic"
   },
   {
     "id": "2",
-    "title": "Gala de Premios",
-    "slug": "gala-premios",
-    "category": "corporativo",
+    "title": "XV Años - Fiesta",
+    "slug": "xv-anos-fiesta",
+    "category": "xv-anos",
     "image": "/images/gallery/gallery-2.jpg",
-    "description": "Ceremonia de entrega de reconocimientos a líderes de la industria"
+    "description": "Celebración espectacular de XV años con decoración temática"
   },
   {
     "id": "3",
-    "title": "Workshop de Innovación",
-    "slug": "workshop-innovacion",
-    "category": "workshops",
+    "title": "Evento Corporativo - Congreso",
+    "slug": "evento-corporativo-congreso",
+    "category": "corporativo",
     "image": "/images/gallery/gallery-3.jpg",
-    "description": "Sesión interactiva de innovación y creatividad empresarial"
+    "description": "Conferencia empresarial con infraestructura profesional"
   },
   {
     "id": "4",
-    "title": "Networking Empresarial",
-    "slug": "networking-empresarial",
-    "category": "networking",
+    "title": "Banquete Gourmet",
+    "slug": "banquete-gourmet",
+    "category": "gastronomia",
     "image": "/images/gallery/gallery-4.jpg",
-    "description": "Encuentros profesionales y conexiones de negocios"
+    "description": "Experiencia culinaria excepcional del chef de autor"
   },
   {
     "id": "5",
-    "title": "Exposición de Productos",
-    "slug": "exposicion-productos",
-    "category": "exposicion",
+    "title": "Decoración y Ambientación",
+    "slug": "decoracion-ambientacion",
+    "category": "decoracion",
     "image": "/images/gallery/gallery-5.jpg",
-    "description": "Presentación de últimas innovaciones en tecnología"
+    "description": "Transformación artística de espacios con diseño exclusivo"
   },
   {
     "id": "6",
-    "title": "Team Building",
-    "slug": "team-building",
-    "category": "corporativo",
+    "title": "Instalaciones - Salón Principal",
+    "slug": "instalaciones-salon-principal",
+    "category": "instalaciones",
     "image": "/images/gallery/gallery-6.jpg",
-    "description": "Actividades de integración y fortalecimiento de equipos"
+    "description": "Arquitectura privilegiada y acabados premium de Majestic"
   },
   {
     "id": "7",
-    "title": "Panel de Discusión",
-    "slug": "panel-discusion",
-    "category": "conferencias",
+    "title": "Boda - Recepción",
+    "slug": "boda-recepcion",
+    "category": "bodas",
     "image": "/images/gallery/gallery-7.jpg",
-    "description": "Debate profesional con expertos de la industria"
+    "description": "Fiesta de bodas con iluminación y ambientación sofisticada"
   },
   {
     "id": "8",
-    "title": "Cena de Gala",
-    "slug": "cena-gala",
-    "category": "corporativo",
+    "title": "Evento Social - Aniversario",
+    "slug": "evento-social-aniversario",
+    "category": "sociales",
     "image": "/images/gallery/gallery-8.jpg",
-    "description": "Evento exclusivo de clausura con cena de celebración"
+    "description": "Celebración de momentos especiales en ambiente de lujo"
   },
   {
     "id": "9",
-    "title": "Demostración en Vivo",
-    "slug": "demostracion-vivo",
-    "category": "exposicion",
+    "title": "Tecnología y Producción",
+    "slug": "tecnologia-produccion",
+    "category": "instalaciones",
     "image": "/images/gallery/gallery-9.jpg",
-    "description": "Showcase de productos y soluciones en tiempo real"
+    "description": "Equipamiento audiovisual de última generación en Majestic"
   }
 ]

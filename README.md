@@ -1,11 +1,20 @@
-# EventFlow - Plataforma Profesional de Gestión de Eventos
+# Majestic - El Salón de Eventos de Lujo en Puebla
 
-Migración de plantilla Envato a **Astro 3.6.5 + React 18 + Tailwind CSS v3** con arquitectura moderna, mobile-first y optimizada para SEO.
+Sitio web profesional de venue de eventos de lujo en Puebla, México, construido con **Astro 5.15 + React 19 + Tailwind CSS v3** con arquitectura moderna, mobile-first y optimizada para SEO.
+
+## 🎉 Acerca de Majestic
+
+**Majestic** es un salón de eventos de lujo ubicado en una ubicación privilegiada de Puebla, especializado en:
+- **Eventos Sociales**: Bodas, XV años, aniversarios
+- **Eventos Corporativos**: Conferencias, congresos, lanzamientos
+- **Banquetes Gourmet**: Experiencia gastronómica de autor
+- **Capacidad**: 50 a 800 personas
+- **Servicios Integrales**: Decoración, ambientación, tecnología, catering, valet parking
 
 ## 🚀 Stack Tecnológico
 
-- **Framework**: Astro 3.6.5 (SSG - Static Site Generation)
-- **Interactividad**: React 18 (Islas interactivas)
+- **Framework**: Astro 5.15 (SSG - Static Site Generation)
+- **Interactividad**: React 19 (Islas interactivas)
 - **Estilos**: Tailwind CSS v3 + Google Fonts (DM Sans + Inter)
 - **Gestor de Paquetes**: pnpm
 - **Tipado**: TypeScript con `strict` mode
@@ -240,7 +249,7 @@ wrangler pages deploy dist
 - CSS code splitting
 
 ### tailwind.config.cjs
-- Tema personalizado con colores EventFlow
+- Tema personalizado con colores Majestic (Rosa y Morado)
 - Container customizado
 - Animaciones keyframes
 - Plugin de tipografía
@@ -270,5 +279,9 @@ wrangler pages deploy dist
 MIT
 
 ---
+
+**Majestic - El Salón de Eventos de Lujo en Puebla**
+
+Contacto: contacto@majesticpuebla.com | Teléfono: (222) XXX-XXXX | Puebla, México
 
 **Hecho con ❤️ usando Astro + React + Tailwind CSS**

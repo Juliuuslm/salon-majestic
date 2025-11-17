@@ -1,79 +1,79 @@
 [
   {
     "id": "1",
-    "title": "Planificación de Eventos",
-    "description": "Servicios completos de planificación desde conceptualización hasta ejecución de eventos profesionales",
-    "icon": "calendar",
+    "title": "Eventos Sociales",
+    "description": "Bodas, XV años, aniversarios y celebraciones especiales en un ambiente de lujo y distinción",
+    "icon": "ring",
     "features": [
-      "Consultoría estratégica",
-      "Presupuesto personalizado",
-      "Coordinación logística",
-      "Gestión de proveedores"
+      "Diseño de ceremonias personalizadas",
+      "Espacios flexibles y versátiles",
+      "Capacidad 50 a 800 personas",
+      "Coordinación integral del evento"
     ],
     "link": "/services"
   },
   {
     "id": "2",
-    "title": "Gestión de Conferencias",
-    "description": "Organización integral de conferencias con soporte técnico y experiencia de asistentes",
-    "icon": "microphone",
+    "title": "Eventos Corporativos",
+    "description": "Conferencias, congresos, lanzamientos y actos empresariales con presencia profesional",
+    "icon": "briefcase",
     "features": [
-      "Reserva de sede",
-      "Streaming en vivo",
-      "Gestión de speakers",
-      "Soporte audiovisual completo"
+      "Salas modulables para cualquier formato",
+      "Soporte técnico audiovisual completo",
+      "Servicios de catering ejecutivo",
+      "Infraestructura para streaming y transmisión"
     ],
     "link": "/services"
   },
   {
     "id": "3",
-    "title": "Experiencias Corporativas",
-    "description": "Eventos corporativos diseñados para fortalecer vínculos y mejorar la cultura empresarial",
-    "icon": "handshake",
+    "title": "Banquetes Gourmet",
+    "description": "Experiencias gastronómicas de autor con chef especializado y menús personalizados",
+    "icon": "utensils",
     "features": [
-      "Team building",
-      "Actos corporativos",
-      "Lanzamientos de productos",
-      "Experiencias inmersivas"
+      "Chef de autor y equipo culinario",
+      "Menús personalizados",
+      "Maridaje con vinos selectos",
+      "Presentación premium de platos"
     ],
     "link": "/services"
   },
   {
     "id": "4",
-    "title": "Marketing de Eventos",
-    "description": "Estrategias de marketing integral para maximizar visibilidad y asistencia a tus eventos",
-    "icon": "trending-up",
+    "title": "Decoración y Ambientación",
+    "description": "Transformación de espacios con diseño exclusivo y elementos decorativos de impacto",
+    "icon": "sparkles",
     "features": [
-      "Campañas digitales",
-      "Redes sociales",
-      "Email marketing",
-      "Relaciones públicas"
+      "Diseño personalizado de ambientes",
+      "Instalaciones florales y artísticas",
+      "Iluminación decorativa",
+      "Elementos temáticos exclusivos"
     ],
     "link": "/services"
   },
   {
     "id": "5",
-    "title": "Producción Audiovisual",
-    "description": "Servicios de producción profesional para capturar y transmitir tu evento en múltiples canales",
-    "icon": "video",
+    "title": "Tecnología de Vanguardia",
+    "description": "Equipamiento audiovisual, iluminación y sistemas de sonido profesional de última generación",
+    "icon": "zap",
     "features": [
-      "Grabación profesional",
-      "Edición 4K",
-      "Streaming en vivo",
-      "Contenido post-evento"
+      "Sistemas de sonido surround",
+      "Iluminación LED programable",
+      "Pantallas y proyecciones 4K",
+      "Control centralizado de tecnología"
     ],
     "link": "/services"
   },
   {
     "id": "6",
-    "title": "Diseño e Interiorismo",
-    "description": "Creación de ambientes visuales espectaculares que dejan una impresión duradera",
-    "icon": "palette",
+    "title": "Valet Parking y Seguridad",
+    "description": "Servicios de estacionamiento valet y seguridad profesional para mayor tranquilidad",
+    "icon": "shield",
     "features": [
-      "Diseño de espacios",
-      "Decoración temática",
-      "Instalaciones artísticas",
-      "Iluminación y sonido"
+      "Personal de valet parking entrenado",
+      "Equipo de seguridad profesional",
+      "Control de acceso",
+      "Vigilancia 24/7"
     ],
     "link": "/services"
   }

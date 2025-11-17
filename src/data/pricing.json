@@ -1,18 +1,18 @@
 [
   {
     "id": "1",
-    "name": "Básico",
-    "price": 5000,
-    "currency": "EUR",
+    "name": "Ceremonia Íntima",
+    "price": 8000,
+    "currency": "MXN",
     "period": "por evento",
-    "description": "Ideal para eventos pequeños y corporativos",
+    "description": "Para eventos sociales pequeños y reuniones corporativas",
     "features": [
-      "Planificación y coordinación básica",
-      "Selección de sede",
-      "Gestión de proveedores",
-      "Equipo de 3 coordinadores",
-      "Soporte el día del evento",
-      "Presupuesto para hasta 200 asistentes"
+      "Renta de salón para 50-150 personas",
+      "Coordinación de evento",
+      "Estacionamiento valet",
+      "Servicio de seguridad",
+      "Uso de instalaciones premium",
+      "Consultoría con diseñadora de ambientes"
     ],
     "highlighted": false,
     "cta": {
@@ -22,20 +22,20 @@
   },
   {
     "id": "2",
-    "name": "Profesional",
-    "price": 15000,
-    "currency": "EUR",
+    "name": "Evento Elegante",
+    "price": 25000,
+    "currency": "MXN",
     "period": "por evento",
-    "description": "Para conferencias y eventos de mediano tamaño",
+    "description": "Para bodas, XV años y eventos corporativos medianos",
     "features": [
-      "Gestión integral del evento",
-      "Diseño conceptual personalizado",
-      "Selección y negociación con sede",
-      "Gestión completa de proveedores",
-      "Equipo de 6 coordinadores",
-      "Marketing y promoción",
-      "Soporte técnico y audiovisual",
-      "Presupuesto para hasta 1000 asistentes"
+      "Renta de salón para 150-400 personas",
+      "Coordinación integral de evento",
+      "Diseño y decoración del espacio",
+      "Chef de autor con menú personalizado",
+      "Tecnología audiovisual profesional",
+      "Estacionamiento valet y seguridad",
+      "Hospitalidad premium",
+      "Equipo dedicado Majestic"
     ],
     "highlighted": true,
     "cta": {
@@ -45,26 +45,26 @@
   },
   {
     "id": "3",
-    "name": "Empresarial",
-    "price": 35000,
-    "currency": "EUR",
+    "name": "Evento Majestic Completo",
+    "price": 50000,
+    "currency": "MXN",
     "period": "por evento",
-    "description": "Para eventos grandes, conferencias y exposiciones",
+    "description": "Para eventos grandes, galas corporativas y celebraciones de lujo",
     "features": [
-      "Gestión 360º completa",
-      "Diseño conceptual avanzado e innovador",
-      "Negociación premium de sede y catering",
-      "Gestión estratégica de proveedores",
-      "Equipo dedicado de 10+ profesionales",
-      "Estrategia de marketing integral",
+      "Renta de salón para 400-800 personas",
+      "Gestión 360º completa del evento",
+      "Diseño conceptual avanzado de ambientes",
+      "Chef de autor con menú gourmet exclusivo",
       "Producción audiovisual profesional",
       "Streaming en vivo y transmisión",
-      "Análisis post-evento y ROI",
-      "Presupuesto para más de 2000 asistentes"
+      "Coordinador técnico dedicado",
+      "Servicio de valet parking y seguridad premium",
+      "Hospitalidad premium con atención personalizada",
+      "Soporte post-evento"
     ],
     "highlighted": false,
     "cta": {
-      "text": "Hablar con Ejecutivo",
+      "text": "Agendar Consulta",
       "href": "/contact"
     }
   }

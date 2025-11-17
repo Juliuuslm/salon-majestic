@@ -13,43 +13,55 @@ import testimonials from '@data/testimonials.json';
 const heroSlides = [
   {
     id: '1',
-    title: 'Construyendo Conexiones a Través de Eventos',
-    subtitle: 'Desbloquea el Poder de la Conexión',
+    title: 'Tu Boda de Ensueño Comienza Aquí',
+    subtitle: 'Elegancia, Lujo y Distinción',
     description:
-      'Experiencias de eventos profesionales que crean impacto duradero y conexiones significativas entre participantes.',
-    location: 'Centro de Convenciones, Madrid',
-    dateTime: '15 Junio 2025 - 09:00am - 05:00pm',
+      'Celebra el momento más importante en un salón de arquitectura privilegiada. Cada detalle diseñado para hacer tu boda inolvidable.',
+    location: 'Majestic, Puebla',
+    dateTime: 'Disponible todo el año - Consulta fechas',
     image: '/images/backgrounds/slider-1.jpg',
-    ctaText: 'Comprar Entrada',
+    ctaText: 'Agendar Cita',
     ctaLink: '/contact',
   },
   {
     id: '2',
-    title: 'Conferencias de Clase Mundial',
-    subtitle: 'Únete a Líderes de Industria',
+    title: 'XV Años Espectaculares',
+    subtitle: 'Crea Recuerdos Eternos',
     description:
-      'Aprende de expertos internacionales en nuestras conferencias diseñadas para inspirar y transformar.',
-    location: 'Tech Hub, Barcelona',
-    dateTime: '20 Julio 2025 - 10:00am - 06:00pm',
+      'Tu fiesta de XV años merece un escenario de lujo. Espacios versátiles, decoración mágica y ambientación de ensueño te esperan.',
+    location: 'Majestic, Puebla',
+    dateTime: 'Disponible todo el año - Consulta disponibilidad',
     image: '/images/backgrounds/slider-2.jpg',
-    ctaText: 'Registrarse Ahora',
+    ctaText: 'Cotización XV Años',
     ctaLink: '/contact',
+  },
+  {
+    id: '3',
+    title: 'Eventos Corporativos de Impacto',
+    subtitle: 'Infraestructura Premium para tu Empresa',
+    description:
+      'Conferencias, lanzamientos y actos empresariales con tecnología de vanguardia en la mejor venue de Puebla.',
+    location: 'Majestic, Puebla',
+    dateTime: 'Contacta para disponibilidad',
+    image: '/images/backgrounds/slider-3.jpg',
+    ctaText: 'Conocer Capacidades',
+    ctaLink: '/services',
   },
 ];
 
 const seo = {
-  title: 'EventFlow - Plataforma Profesional de Gestión de Eventos',
+  title: 'Majestic - El Salón de Eventos de Lujo en Puebla',
   description:
-    'Organiza eventos memorables con EventFlow. Gestión completa, experiencias inmersivas y resultados excepcionales.',
+    'Bodas, XV años, eventos corporativos y banquetes gourmet en Majestic. Venue de lujo con arquitectura privilegiada y servicios integrales en Puebla.',
   image: '/og-home.jpg',
   schema: {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'EventFlow',
-    url: 'https://eventflow.com',
+    name: 'Majestic Puebla',
+    url: 'https://majesticpuebla.com',
     logo: '/logo.png',
     description:
-      'Plataforma profesional de gestión de eventos y conferencias',
+      'El salón de eventos de lujo en Puebla. Bodas, XV años, eventos corporativos y gastronomía de autor.',
   },
 };
 ---
@@ -76,8 +88,8 @@ const seo = {
     <div class="container-custom relative z-10">
       <SectionTitle
         tagline="Nuestros Servicios"
-        title="Soluciones Completas para tus Eventos"
-        subtitle="Desde la planificación hasta la ejecución, cubrimos cada aspecto de tu evento"
+        title="Servicios Integrales de Majestic"
+        subtitle="Bodas, XV años, eventos corporativos y experiencias gourmet. Cada detalle cuidado con maestría."
         alignment="center"
       />
 
@@ -103,37 +115,37 @@ const seo = {
     <div class="container-custom">
       <SectionTitle
         tagline="Nuestro Impacto"
-        title="Números que Hablan por Sí Solos"
+        title="Momentos Memorables Creados"
         alignment="center"
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mt-16">
         <CounterBox
-          end={500}
+          end={200}
           suffix="+"
-          label="Eventos Organizados"
-          icon="🎯"
+          label="Eventos Celebrados"
+          icon="🎉"
           client:visible
         />
         <CounterBox
-          end={50000}
+          end={25000}
           suffix="+"
-          label="Asistentes Satisfechos"
-          icon="👥"
+          label="Asistentes Felices"
+          icon="💕"
           client:visible
         />
         <CounterBox
           end={100}
           suffix="%"
-          label="Tasa de Satisfacción"
+          label="Recomendaciones"
           icon="⭐"
           client:visible
         />
         <CounterBox
-          end={15}
+          end={20}
           suffix="+"
-          label="Años de Experiencia"
-          icon="🏆"
+          label="Años de Excelencia"
+          icon="👑"
           client:visible
         />
       </div>
@@ -145,8 +157,8 @@ const seo = {
     <div class="container-custom">
       <SectionTitle
         tagline="Próximos Eventos"
-        title="Eventos Destacados"
-        subtitle="Únete a nuestros próximos eventos y sé parte de una comunidad vibrante"
+        title="Celebraciones en Majestic"
+        subtitle="Bodas, XV años y eventos corporativos que harán historia"
         alignment="center"
       />
 
@@ -189,7 +201,7 @@ const seo = {
       <SectionTitle
         tagline="Testimonios"
         title="Lo que Dicen Nuestros Clientes"
-        subtitle="Voces reales de organizadores que han transformado sus eventos con EventFlow"
+        subtitle="Experiencias reales de novios, quinceañeras y empresarios que confiaron en Majestic"
         alignment="center"
       />
 
@@ -207,13 +219,13 @@ const seo = {
   <section class="py-20 md:py-28 bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white">
     <div class="container-custom text-center">
       <h2 class="text-4xl md:text-5xl font-bold mb-6">
-        ¿Listo para tu Próximo Evento?
+        Haz tu Evento Majestic
       </h2>
       <p class="text-xl mb-10 max-w-2xl mx-auto">
-        Contáctanos hoy y descubre cómo EventFlow puede transformar tu visión en realidad.
+        Contáctanos hoy y descubre cómo Majestic puede transformar tu visión en una celebración inolvidable.
       </p>
       <a href="/contact" class="ripple-btn inline-block bg-eventflow-black text-eventflow-primary px-8 py-4 rounded-full font-semibold hover:bg-eventflow-black-dark hover:shadow-lg transition-all duration-300">
-        Solicitar Consulta Gratis
+        Agendar Consulta Gratis
       </a>
     </div>
   </section>

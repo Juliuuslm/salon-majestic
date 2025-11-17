@@ -1,7 +1,7 @@
 {
-  "name": "salon-1",
+  "name": "majestic-puebla",
   "version": "1.0.0",
-  "description": "",
+  "description": "Majestic - El Salón de Eventos de Lujo en Puebla. Bodas, XV años, eventos corporativos y banquetes gourmet en una venue de arquitectura privilegiada.",
   "main": "index.js",
   "scripts": {
     "dev": "astro dev",
