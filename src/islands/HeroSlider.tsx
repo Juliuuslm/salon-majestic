@@ -14,6 +14,7 @@ interface HeroSlide {
   location: string;
   dateTime: string;
   image: string;
+  video?: string; // Optional video background URL
   ctaText: string;
   ctaLink: string;
 }
@@ -120,6 +121,45 @@ export default function HeroSlider({
         }
       }
 
+      @keyframes ken-burns-zoom-in {
+        from {
+          transform: scale(1) translateZ(0);
+        }
+        to {
+          transform: scale(1.1) translateZ(0);
+        }
+      }
+
+      @keyframes ken-burns-zoom-out {
+        from {
+          transform: scale(1.1) translateZ(0);
+        }
+        to {
+          transform: scale(1) translateZ(0);
+        }
+      }
+
+      .hero-background {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      .hero-background-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        animation: ken-burns-zoom-in 8s ease-out forwards;
+      }
+
+      .hero-background-image {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        animation: ken-burns-zoom-in 8s ease-out forwards;
+      }
+
       .hero-subtitle {
         animation: hero-slide-in-subtitle 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         opacity: 0;
@@ -189,11 +229,23 @@ export default function HeroSlider({
         {slides.map((slide) => (
           <SwiperSlide key={slide.id} className="relative h-full">
             <div className="relative h-full w-full">
-              {/* Background Image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${slide.image})` }}
-              >
+              {/* Background - Video or Image with Ken Burns Effect */}
+              <div className="hero-background">
+                {slide.video ? (
+                  <video
+                    className="hero-background-video"
+                    src={slide.video}
+                    autoPlay
+                    muted
+                    playsInline
+                    onContextMenu={(e) => e.preventDefault()}
+                  />
+                ) : (
+                  <div
+                    className="hero-background-image"
+                    style={{ backgroundImage: `url(${slide.image})` }}
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-r from-eventflow-black/80 to-eventflow-black/40" />
               </div>
 
