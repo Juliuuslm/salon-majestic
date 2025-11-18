@@ -2,6 +2,7 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import HeroSlider from '@islands/HeroSlider';
 import TestimonialsCarousel from '@islands/TestimonialsCarousel';
+import ScrollAnimationWrapper from '@islands/ScrollAnimationWrapper';
 import SectionTitle from '@components/SectionTitle.astro';
 import ServiceCard from '@components/ServiceCard.astro';
 import EventCard from '@components/EventCard.astro';
@@ -94,20 +95,29 @@ const seo = {
         alignment="center"
       />
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-        {
-          services.slice(0, 6).map((service, index) => (
-            <ServiceCard
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-              features={service.features}
-              link={service.link}
-              delay={`${(index + 1) * 100}ms`}
-            />
-          ))
-        }
-      </div>
+      <ScrollAnimationWrapper
+        animationType="stagger"
+        selector="[data-service-card]"
+        staggerDelay={0.15}
+        client:load
+      >
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+          {
+            services.slice(0, 6).map((service, index) => (
+              <div data-service-card>
+                <ServiceCard
+                  icon={service.icon}
+                  title={service.title}
+                  description={service.description}
+                  features={service.features}
+                  link={service.link}
+                  delay={`${(index + 1) * 100}ms`}
+                />
+              </div>
+            ))
+          }
+        </div>
+      </ScrollAnimationWrapper>
     </div>
   </section>
 
@@ -163,22 +173,31 @@ const seo = {
         alignment="center"
       />
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-        {
-          events.slice(0, 3).map((event, index) => (
-            <EventCard
-              title={event.title}
-              date={event.date}
-              time={event.time}
-              location={event.location}
-              image={event.image}
-              description={event.description}
-              link={event.link || '/events'}
-              delay={`${(index + 1) * 100}ms`}
-            />
-          ))
-        }
-      </div>
+      <ScrollAnimationWrapper
+        animationType="stagger"
+        selector="[data-event-card]"
+        staggerDelay={0.15}
+        client:load
+      >
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+          {
+            events.slice(0, 3).map((event, index) => (
+              <div data-event-card>
+                <EventCard
+                  title={event.title}
+                  date={event.date}
+                  time={event.time}
+                  location={event.location}
+                  image={event.image}
+                  description={event.description}
+                  link={event.link || '/events'}
+                  delay={`${(index + 1) * 100}ms`}
+                />
+              </div>
+            ))
+          }
+        </div>
+      </ScrollAnimationWrapper>
 
       <div class="mt-12 text-center">
         <a href="/events" class="btn-primary ripple-btn">
