@@ -16,6 +16,14 @@ module.exports = {
           border: '#CCCCCC',
           'border-dark': '#333333',
         },
+        luxury: {
+          gold: '#D4AF37',
+          'rose-gold': '#B76E79',
+          champagne: '#F7E7CE',
+          pearl: '#F8F6F0',
+          midnight: '#0A0A1A',
+          'accent-warm': '#FF6B9D',
+        },
       },
       fontFamily: {
         sans: ['DM Sans', 'sans-serif'],

@@ -615,6 +615,16 @@ button {
   }
 }
 
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
 @keyframes shimmer {
   0% {
     background-position: -1000px 0;
@@ -1071,7 +1081,48 @@ input:invalid:not(:placeholder-shown) {
   }
 }
 
+/* Premium Gradient Animations */
+@keyframes gradient-shift-luxury {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+@keyframes gradient-luxury-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes glow-border-luxury {
+  0% {
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3), 0 0 20px rgba(74, 10, 180, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 30px rgba(74, 10, 180, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3), 0 0 20px rgba(74, 10, 180, 0.1);
+  }
+}
+
 /* Utility classes for floating animations */
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
 .float-bob-y {
   animation: float-bob-y 2s ease-in-out infinite;
 }
@@ -1090,6 +1141,50 @@ input:invalid:not(:placeholder-shown) {
 
 .zoom-fade {
   animation: zoom-fade 0.6s ease-out;
+}
+
+/* Premium Gradient Utility Classes */
+.gradient-luxury-1 {
+  background: linear-gradient(135deg, #4A0AB4 0%, #B20D5D 50%, #D4AF37 100%);
+}
+
+.gradient-luxury-2 {
+  background: radial-gradient(circle at top right, #D4AF37, #4A0AB4 70%);
+}
+
+.gradient-luxury-3 {
+  background: linear-gradient(45deg, #B76E79 0%, #4A0AB4 50%, #D4AF37 100%);
+}
+
+.gradient-luxury-animated {
+  background: linear-gradient(135deg, #4A0AB4 0%, #D4AF37 25%, #B20D5D 50%, #D4AF37 75%, #4A0AB4 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift-luxury 6s ease-in-out infinite;
+}
+
+.glass-card {
+  @apply relative overflow-hidden rounded-2xl border border-white/10 backdrop-blur-xl bg-white/5 transition-all duration-500;
+}
+
+.glass-card:hover {
+  @apply bg-white/10 border-white/20 shadow-2xl shadow-eventflow-primary/20;
+}
+
+.glass-card-dark {
+  @apply relative overflow-hidden rounded-2xl border border-white/10 backdrop-blur-xl bg-eventflow-black-dark/50 transition-all duration-500;
+}
+
+.glass-card-dark:hover {
+  @apply border-eventflow-primary/40 shadow-2xl shadow-eventflow-primary/20;
+}
+
+.glow-border-luxury {
+  animation: glow-border-luxury 3s ease-in-out infinite;
+}
+
+.text-gradient-luxury {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, #D4AF37 0%, #4A0AB4 50%, #B76E79 100%);
 }
 
 /* Marquee animations */

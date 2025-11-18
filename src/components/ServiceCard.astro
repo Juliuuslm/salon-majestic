@@ -18,7 +18,7 @@ const {
 } = Astro.props;
 ---
 
-<div class="service-card card-base border-glow wow animate__animated animate__fadeInUp group hover:shadow-2xl hover:shadow-eventflow-primary/40 hover:scale-[1.02] transition-all duration-300" data-wow-duration="0.8s" data-wow-delay={delay}>
+<div class="service-card wow animate__animated animate__fadeInUp group relative overflow-hidden rounded-2xl border border-white/10 backdrop-blur-xl bg-white/5 hover:bg-white/10 hover:border-eventflow-primary/40 hover:shadow-2xl hover:shadow-eventflow-primary/20 hover:scale-[1.02] transition-all duration-500" data-wow-duration="0.8s" data-wow-delay={delay}>
   <div class="p-8">
     <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-eventflow-base/20 transition-all duration-500 group-hover:bg-eventflow-base/40 group-hover:scale-110">
       <span class="text-3xl transition-transform duration-500 group-hover:animate-bounce">{icon}</span>

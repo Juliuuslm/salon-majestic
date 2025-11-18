@@ -6,6 +6,7 @@ import SectionTitle from '@components/SectionTitle.astro';
 import ServiceCard from '@components/ServiceCard.astro';
 import EventCard from '@components/EventCard.astro';
 import CounterBox from '@islands/CounterBox';
+import AwardsPress from '@components/AwardsPress.astro';
 import services from '@data/services.json';
 import events from '@data/events.json';
 import testimonials from '@data/testimonials.json';
@@ -214,6 +215,20 @@ const seo = {
       </div>
     </div>
   </section>
+
+  <!-- Awards & Press -->
+  <AwardsPress
+    title="Certificaciones y Reconocimientos"
+    subtitle="Confianza de las mejores marcas y asociaciones profesionales en Puebla"
+    logos={[
+      { src: "🏆", alt: "Mejor Venue 2024" },
+      { src: "⭐", alt: "5 Estrellas" },
+      { src: "👑", alt: "Premium Certified" },
+      { src: "🎖️", alt: "Excellence Award" },
+      { src: "💎", alt: "Luxury Partner" },
+      { src: "✨", alt: "Certified Premium" },
+    ]}
+  />
 
   <!-- CTA Section -->
   <section class="py-20 md:py-28 bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white">

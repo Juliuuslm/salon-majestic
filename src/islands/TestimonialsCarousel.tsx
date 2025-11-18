@@ -12,6 +12,7 @@ interface Testimonial {
   avatar: string;
   quote: string;
   rating?: number;
+  eventImage?: string; // Foto del evento/fondo
 }
 
 interface Props {
@@ -39,20 +40,12 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
         modules={[Autoplay, Navigation, Pagination]}
         spaceBetween={30}
         slidesPerView={1}
-        breakpoints={{
-          768: {
-            slidesPerView: 2,
-          },
-          1024: {
-            slidesPerView: 3,
-          },
-        }}
         autoplay={{
           delay: autoplayDelay,
           disableOnInteraction: false,
         }}
         loop={true}
-        loopAdditionalSlides={2}
+        loopAdditionalSlides={1}
         navigation={{
           nextEl: '.testimonial-button-next',
           prevEl: '.testimonial-button-prev',
@@ -60,58 +53,91 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
         pagination={{
           el: '.testimonial-swiper-pagination',
           clickable: true,
-          dynamicBullets: true,
+          dynamicBullets: false,
         }}
         className="testimonials-carousel"
       >
         {testimonials.map((testimonial, index) => (
           <SwiperSlide key={index}>
-            <div className="testimonial-card overflow-hidden rounded-lg border border-eventflow-border-dark p-6 transition-all duration-500 hover:shadow-xl hover:shadow-eventflow-primary/30 hover:-translate-y-2 bg-white dark:bg-eventflow-black-dark text-gray-900 dark:text-white h-full flex flex-col">
-              <div className="mb-4 flex items-start justify-between">
-                <div className="flex items-center gap-4">
+            {/* EDITORIAL STYLE CARD - Luxury Magazine Look */}
+            <div className="testimonial-card-luxury relative h-96 md:h-[500px] overflow-hidden rounded-2xl group">
+              {/* Background Image with Overlay */}
+              {testimonial.eventImage ? (
+                <img
+                  src={testimonial.eventImage}
+                  alt={testimonial.company}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-br from-eventflow-primary/40 to-eventflow-base/40"></div>
+              )}
+
+              {/* Premium Glassmorphism Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-eventflow-black/95 via-eventflow-black/60 to-eventflow-black/30 backdrop-blur-sm"></div>
+
+              {/* Content - positioned at bottom */}
+              <div className="relative z-10 p-8 md:p-12 flex flex-col justify-end h-full">
+                {/* Large Decorative Quote Mark */}
+                <div className="mb-6 opacity-40">
+                  <svg className="h-20 w-20 text-eventflow-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-4.716-5-7-5C1.72 0 0 2.5 0 5c0 2 .75 6 1 8v6c0 1 .2 3 1 4h2m16 0c3 0 7-1 7-8V5c0-1.25-4.716-5-7-5C21.72 0 20 2.5 20 5c0 2 .75 6 1 8v6c0 1 .2 3 1 4h2" />
+                  </svg>
+                </div>
+
+                {/* Quote Text - Large and Elegant */}
+                <p className="text-2xl md:text-3xl font-light italic mb-8 text-white leading-relaxed max-w-2xl">
+                  {testimonial.quote}
+                </p>
+
+                {/* Stars */}
+                {testimonial.rating && (
+                  <div className="mb-6 flex gap-1">
+                    {renderStars(testimonial.rating)}
+                  </div>
+                )}
+
+                {/* Author Section - Avatar + Info */}
+                <div className="flex items-center gap-5">
+                  {/* Large Avatar */}
                   <img
                     src={testimonial.avatar}
                     alt={testimonial.name}
-                    className="h-12 w-12 rounded-full object-cover ring-2 ring-eventflow-primary/30 transition-all duration-500 hover:scale-125 hover:ring-eventflow-primary float-bob-y"
+                    className="h-20 w-20 rounded-full object-cover ring-4 ring-white/20 transition-transform duration-500 group-hover:ring-eventflow-primary/40 flex-shrink-0"
                   />
+
+                  {/* Author Info */}
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                      {testimonial.role} en <span className="font-medium">{testimonial.company}</span>
-                    </p>
+                    <h4 className="text-xl font-bold text-white">{testimonial.name}</h4>
+                    <p className="text-white/80">{testimonial.role}</p>
+                    <p className="text-sm text-eventflow-primary">{testimonial.company}</p>
                   </div>
                 </div>
               </div>
 
-              {testimonial.rating && (
-                <div className="mb-4 flex gap-1">{renderStars(testimonial.rating)}</div>
-              )}
-
-              <p className="text-gray-700 dark:text-white/90 italic leading-relaxed flex-grow">
-                "{testimonial.quote}"
-              </p>
+              {/* Subtle Shine effect on hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white to-transparent"></div>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      {/* Navigation buttons */}
+      {/* Navigation buttons - Positioned outside */}
       <button
-        className="testimonial-button-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white dark:bg-eventflow-primary/20 hover:bg-eventflow-primary/30 dark:hover:bg-eventflow-primary/40 transition-colors duration-300 active:scale-95"
+        className="testimonial-button-prev absolute -left-16 md:left-0 top-1/2 -translate-y-1/2 z-10 md:absolute md:left-4 p-3 rounded-full bg-eventflow-primary/20 hover:bg-eventflow-primary/40 transition-all duration-300 active:scale-95 hover:scale-110"
         aria-label="Previous testimonial"
         type="button"
       >
-        <svg className="h-6 w-6 text-eventflow-primary dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
 
       <button
-        className="testimonial-button-next absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white dark:bg-eventflow-primary/20 hover:bg-eventflow-primary/30 dark:hover:bg-eventflow-primary/40 transition-colors duration-300 active:scale-95"
+        className="testimonial-button-next absolute -right-16 md:right-0 top-1/2 -translate-y-1/2 z-10 md:absolute md:right-4 p-3 rounded-full bg-eventflow-primary/20 hover:bg-eventflow-primary/40 transition-all duration-300 active:scale-95 hover:scale-110"
         aria-label="Next testimonial"
         type="button"
       >
-        <svg className="h-6 w-6 text-eventflow-primary dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
@@ -122,6 +148,7 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
       <style>{`
         .testimonials-carousel {
           padding: 0;
+          width: 100%;
         }
 
         .testimonial-swiper-pagination {
@@ -131,21 +158,26 @@ export default function TestimonialsCarousel({ testimonials, autoplayDelay = 500
 
         .testimonial-swiper-pagination .swiper-pagination-bullet {
           background-color: rgba(74, 10, 180, 0.3);
-          width: 10px;
-          height: 10px;
+          width: 12px;
+          height: 12px;
           transition: all 0.3s ease;
           cursor: pointer;
+          margin: 0 6px;
         }
 
         .testimonial-swiper-pagination .swiper-pagination-bullet-active {
           background-color: #4a0ab4;
-          width: 30px;
-          border-radius: 5px;
+          width: 36px;
+          border-radius: 6px;
+          box-shadow: 0 0 20px rgba(74, 10, 180, 0.5);
         }
 
         @media (max-width: 768px) {
-          .testimonials-carousel {
-            padding: 0;
+          .testimonial-button-prev,
+          .testimonial-button-next {
+            width: 40px;
+            height: 40px;
+            position: relative;
           }
         }
       `}</style>

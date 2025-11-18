@@ -1,0 +1,145 @@
+---
+interface Logo {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  isEmoji?: boolean;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  logos?: Logo[];
+}
+
+const {
+  title = "Reconocimientos y Certificaciones",
+  subtitle = "Confianza de las mejores marcas",
+  logos = [
+    { src: "/images/logos/award-1.svg", alt: "Award 1", width: 120, height: 60 },
+    { src: "/images/logos/award-2.svg", alt: "Award 2", width: 120, height: 60 },
+    { src: "/images/logos/award-3.svg", alt: "Award 3", width: 120, height: 60 },
+    { src: "/images/logos/award-4.svg", alt: "Award 4", width: 120, height: 60 },
+    { src: "/images/logos/award-5.svg", alt: "Award 5", width: 120, height: 60 },
+    { src: "/images/logos/award-6.svg", alt: "Award 6", width: 120, height: 60 },
+  ],
+} = Astro.props;
+---
+
+<section class="py-12 md:py-16 bg-eventflow-black overflow-hidden">
+  <div class="container-custom">
+    {(title || subtitle) && (
+      <div class="text-center mb-12">
+        {title && (
+          <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">
+            {title}
+          </h3>
+        )}
+        {subtitle && (
+          <p class="text-gray-400 text-sm md:text-base">
+            {subtitle}
+          </p>
+        )}
+      </div>
+    )}
+  </div>
+
+  <!-- Marquee container -->
+  <div class="relative overflow-hidden">
+    <!-- Marquee -->
+    <div class="marquee-container">
+      <div class="marquee">
+        {logos.map((logo, index) => (
+          <div
+            class="marquee-item"
+            key={index}
+          >
+            {logo.src.match(/^[^\w\s]/) ? (
+              <span class="text-4xl md:text-5xl opacity-60 hover:opacity-100 transition-opacity duration-300">
+                {logo.src}
+              </span>
+            ) : (
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.width || 120}
+                height={logo.height || 60}
+                class="h-12 md:h-16 object-contain filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300"
+              />
+            )}
+          </div>
+        ))}
+      </div>
+
+      <!-- Duplicate for seamless loop -->
+      <div class="marquee" aria-hidden="true">
+        {logos.map((logo, index) => (
+          <div
+            class="marquee-item"
+            key={`duplicate-${index}`}
+          >
+            {logo.src.match(/^[^\w\s]/) ? (
+              <span class="text-4xl md:text-5xl opacity-60 hover:opacity-100 transition-opacity duration-300">
+                {logo.src}
+              </span>
+            ) : (
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.width || 120}
+                height={logo.height || 60}
+                class="h-12 md:h-16 object-contain filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300"
+              />
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Gradient overlays for fade effect -->
+    <div class="absolute left-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-r from-eventflow-black to-transparent pointer-events-none z-10" />
+    <div class="absolute right-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-l from-eventflow-black to-transparent pointer-events-none z-10" />
+  </div>
+</section>
+
+<style>
+  .marquee-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .marquee {
+    display: flex;
+    gap: 2rem;
+    animation: marquee 30s linear infinite;
+    min-width: 100%;
+  }
+
+  .marquee-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    min-width: 140px;
+  }
+
+  @media (max-width: 768px) {
+    .marquee {
+      animation: marquee 20s linear infinite;
+    }
+
+    .marquee-item {
+      min-width: 100px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      animation: none;
+      display: flex;
+      gap: 2rem;
+    }
+  }
+</style>
