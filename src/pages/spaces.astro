@@ -1,0 +1,175 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BeforeAfterSlider from '@islands/BeforeAfterSlider';
+import SectionTitle from '@components/SectionTitle.astro';
+import PageHeaderShapes from '@components/PageHeaderShapes.astro';
+
+const seo = {
+  title: 'Nuestros Espacios - Majestic | Transformaciones',
+  description: 'Descubre cómo se transforman nuestros espacios. Antes y después de eventos espectaculares en Majestic.',
+  type: 'website',
+};
+
+const spaces = [
+  {
+    id: 1,
+    name: 'Salón Principal',
+    description: 'Nuestro salón insignia con capacidad para 500 asistentes',
+    beforeImage: '/images/spaces/salon-main-before.jpg',
+    afterImage: '/images/spaces/salon-main-after.jpg',
+  },
+  {
+    id: 2,
+    name: 'Salón VIP Lounge',
+    description: 'Espacio íntimo para cocktails y reuniones exclusivas',
+    beforeImage: '/images/spaces/vip-lounge-before.jpg',
+    afterImage: '/images/spaces/vip-lounge-after.jpg',
+  },
+  {
+    id: 3,
+    name: 'Terraza Panorámica',
+    description: 'Vistas privilegiadas de la ciudad para eventos al aire libre',
+    beforeImage: '/images/spaces/terraza-before.jpg',
+    afterImage: '/images/spaces/terraza-after.jpg',
+  },
+  {
+    id: 4,
+    name: 'Salón de Banquetes',
+    description: 'Diseño flexible para diferentes tipos de celebraciones',
+    beforeImage: '/images/spaces/banquetes-before.jpg',
+    afterImage: '/images/spaces/banquetes-after.jpg',
+  },
+];
+---
+
+<BaseLayout seo={seo}>
+  <!-- Page Header -->
+  <PageHeaderShapes className="relative">
+    <section class="bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white py-20 md:py-28 lg:py-32">
+      <div class="container-custom">
+        <h1 class="text-4xl md:text-5xl font-bold">Transformaciones</h1>
+        <p class="mt-4 text-lg text-white/90">
+          Descubre cómo nuestros espacios se transforman en eventos espectaculares
+        </p>
+      </div>
+    </section>
+  </PageHeaderShapes>
+
+  <!-- Spaces Section -->
+  <section class="py-20 md:py-28 bg-eventflow-black">
+    <div class="container-custom">
+      <SectionTitle
+        title="Nuestros Espacios en Acción"
+        subtitle="Arrastra para ver cómo cada espacio se transforma en el escenario perfecto para tu evento"
+        alignment="center"
+      />
+
+      <div class="space-y-20 mt-16">
+        {
+          spaces.map((space, index) => (
+            <div class="space-y-6" data-animate>
+              {/* Space Info */}
+              <div class="text-center">
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">
+                  {space.name}
+                </h3>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                  {space.description}
+                </p>
+              </div>
+
+              {/* Before/After Slider */}
+              <div class="w-full rounded-xl overflow-hidden">
+                <BeforeAfterSlider
+                  beforeImage={space.beforeImage}
+                  afterImage={space.afterImage}
+                  beforeLabel="Espacio Vacío"
+                  afterLabel="Evento Decorado"
+                  height={500}
+                  client:load
+                />
+              </div>
+
+              {/* Spacing between cards */}
+              {index < spaces.length - 1 && (
+                <div class="h-12" />
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 md:py-28 bg-eventflow-black-dark">
+    <div class="container-custom">
+      <SectionTitle
+        title="Capacidades por Espacio"
+        subtitle="Nuestros salones están diseñados para adaptarse a cualquier tipo de evento"
+        alignment="center"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+        {
+          [
+            {
+              icon: '👥',
+              title: 'Salón Principal',
+              capacity: 'Hasta 500 personas',
+              features: ['Pista de baile', 'Escenario', 'Sistemas de audio/video'],
+            },
+            {
+              icon: '🥂',
+              title: 'VIP Lounge',
+              capacity: 'Hasta 100 personas',
+              features: ['Barra premium', 'Muebles selectos', 'Área privada'],
+            },
+            {
+              icon: '🌃',
+              title: 'Terraza Panorámica',
+              capacity: 'Hasta 200 personas',
+              features: ['Vistas ciudad', 'Calefactores', 'Decoración iluminada'],
+            },
+            {
+              icon: '🍽️',
+              title: 'Salón Banquetes',
+              capacity: 'Hasta 300 personas',
+              features: ['Cocina premium', 'Layout flexible', 'Servicios catering'],
+            },
+          ].map((feature) => (
+            <div class="glass-card p-6" data-animate>
+              <div class="text-4xl mb-4">{feature.icon}</div>
+              <h3 class="text-xl font-bold text-white mb-2">{feature.title}</h3>
+              <p class="text-eventflow-primary font-semibold mb-4">{feature.capacity}</p>
+              <ul class="space-y-2">
+                {feature.features.map((f) => (
+                  <li class="flex items-start gap-2 text-gray-300">
+                    <span class="text-eventflow-primary mt-1">•</span>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 md:py-28 bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white">
+    <div class="container-custom text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para usar nuestros espacios?</h2>
+      <p class="text-lg mb-10 max-w-2xl mx-auto opacity-90">
+        Agendar una visita y descubrir en persona las posibilidades infinitas de Majestic
+      </p>
+      <a
+        href="/contact"
+        class="inline-block bg-eventflow-black text-eventflow-primary px-8 py-4 rounded-full font-semibold hover:bg-eventflow-black-dark hover:shadow-lg transition-all duration-300"
+      >
+        Agendar Visita Guiada
+      </a>
+    </div>
+  </section>
+</BaseLayout>
