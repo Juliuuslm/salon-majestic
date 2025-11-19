@@ -1,0 +1,294 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import InteractiveFloorPlan from '@islands/InteractiveFloorPlan';
+import SectionTitle from '@components/SectionTitle.astro';
+import PageHeaderShapes from '@components/PageHeaderShapes.astro';
+
+const seo = {
+  title: 'Planos de Espacios - Majestic | Floor Plans Interactivos',
+  description: 'Explora los planos interactivos de Majestic. Descubre la capacidad, dimensiones y características de cada espacio.',
+  type: 'website',
+};
+
+const floorPlans = [
+  {
+    id: 'salon-principal',
+    name: 'Salón Principal',
+    description: 'Nuestro espacio insignia, versátil y moderno',
+    image: '/images/spaces/salon-main.jpg',
+    maxCapacity: 500,
+    hotspots: [
+      {
+        id: 'pista',
+        x: 50,
+        y: 30,
+        title: 'Pista de Baile',
+        capacity: 'Hasta 100 personas',
+        dimensions: '200 m²',
+        icon: '🎵',
+        features: ['Piso de parquet', 'Luces LED', 'Sistema de sonido 5.1'],
+      },
+      {
+        id: 'escenario',
+        x: 50,
+        y: 70,
+        title: 'Escenario',
+        capacity: 'Banda de 8 personas',
+        dimensions: '50 m²',
+        icon: '🎤',
+        features: ['Iluminación profesional', 'Monitores de escena', 'Acceso para equipos'],
+      },
+      {
+        id: 'mesas',
+        x: 30,
+        y: 50,
+        title: 'Área de Mesas',
+        capacity: 'Hasta 400 comensales',
+        dimensions: '350 m²',
+        icon: '🍽️',
+        features: ['Mesas redondas configurables', 'Cristalería premium', 'Clima controlado'],
+      },
+      {
+        id: 'barra',
+        x: 70,
+        y: 50,
+        title: 'Barra Premium',
+        capacity: '30 personas simultáneas',
+        dimensions: '40 m²',
+        icon: '🍾',
+        features: ['Barista profesional', 'Bebidas premium', 'Decoración de autor'],
+      },
+    ],
+  },
+  {
+    id: 'vip-lounge',
+    name: 'VIP Lounge',
+    description: 'Espacio íntimo para celebraciones exclusivas',
+    image: '/images/spaces/vip-lounge.jpg',
+    maxCapacity: 100,
+    hotspots: [
+      {
+        id: 'sofas',
+        x: 40,
+        y: 40,
+        title: 'Área de Sofás',
+        capacity: 'Hasta 50 personas',
+        dimensions: '80 m²',
+        icon: '🛋️',
+        features: ['Muebles de diseño', 'Chill out Music', 'Iluminación ambiental'],
+      },
+      {
+        id: 'privada',
+        x: 60,
+        y: 60,
+        title: 'Sala Privada',
+        capacity: 'Hasta 30 personas',
+        dimensions: '50 m²',
+        icon: '🎭',
+        features: ['Privacidad total', 'Catering personalizado', 'Decoración exclusiva'],
+      },
+      {
+        id: 'terraza-vip',
+        x: 70,
+        y: 30,
+        title: 'Terraza VIP',
+        capacity: 'Hasta 40 personas',
+        dimensions: '60 m²',
+        icon: '🌃',
+        features: ['Vistas panorámicas', 'Calefactores', 'Decoración de autor'],
+      },
+    ],
+  },
+  {
+    id: 'terraza',
+    name: 'Terraza Panorámica',
+    description: 'Vistas espectaculares al corazón de Puebla',
+    image: '/images/spaces/terraza.jpg',
+    maxCapacity: 200,
+    hotspots: [
+      {
+        id: 'principal-terraza',
+        x: 50,
+        y: 50,
+        title: 'Área Principal',
+        capacity: 'Hasta 200 personas',
+        dimensions: '400 m²',
+        icon: '🎉',
+        features: ['Piso antideslizante', 'Iluminación ambiental', 'Calefactores'],
+      },
+      {
+        id: 'lounge-terraza',
+        x: 30,
+        y: 70,
+        title: 'Lounge Bar',
+        capacity: 'Hasta 50 personas',
+        dimensions: '80 m²',
+        icon: '🍹',
+        features: ['Barra de cócteles', 'Muebles cómodos', 'Vistas 360°'],
+      },
+      {
+        id: 'escenario-terraza',
+        x: 70,
+        y: 30,
+        title: 'Escenario',
+        capacity: 'DJ o banda',
+        dimensions: '30 m²',
+        icon: '🎧',
+        features: ['Sistema de sonido', 'Iluminación escénica', 'Proyectores LED'],
+      },
+    ],
+  },
+  {
+    id: 'banquetes',
+    name: 'Salón de Banquetes',
+    description: 'Diseño flexible para cualquier tipo de evento',
+    image: '/images/spaces/banquetes.jpg',
+    maxCapacity: 300,
+    hotspots: [
+      {
+        id: 'comedor',
+        x: 50,
+        y: 50,
+        title: 'Área de Comedor',
+        capacity: 'Hasta 300 comensales',
+        dimensions: '250 m²',
+        icon: '🍽️',
+        features: ['Layout flexible', 'Cristalería premium', 'Servicio de catering'],
+      },
+      {
+        id: 'cocina',
+        x: 20,
+        y: 30,
+        title: 'Cocina de Autor',
+        capacity: 'Equipo de 20+ chefs',
+        dimensions: '100 m²',
+        icon: '👨‍🍳',
+        features: ['Equipos profesionales', 'Menús personalizados', 'Conservación premium'],
+      },
+      {
+        id: 'bodega',
+        x: 80,
+        y: 70,
+        title: 'Bodega de Vinos',
+        capacity: 'Selección premium',
+        dimensions: '40 m²',
+        icon: '🍷',
+        features: ['Vinos nacionales e importados', 'Somelier', 'Temperatura controlada'],
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout seo={seo}>
+  <!-- Page Header -->
+  <PageHeaderShapes className="relative">
+    <section class="bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white py-20 md:py-28 lg:py-32">
+      <div class="container-custom">
+        <h1 class="text-4xl md:text-5xl font-bold">Planos Interactivos</h1>
+        <p class="mt-4 text-lg text-white/90">
+          Explora cada espacio en detalle. Descubre capacidades, dimensiones y características
+        </p>
+      </div>
+    </section>
+  </PageHeaderShapes>
+
+  <!-- Floor Plans Section -->
+  <section class="py-20 md:py-28 bg-eventflow-black">
+    <div class="container-custom">
+      <SectionTitle
+        title="Planos de Espacios"
+        subtitle="Haz clic en los puntos interactivos para ver detalles de cada área"
+        alignment="center"
+      />
+
+      <div class="mt-16">
+        <InteractiveFloorPlan
+          floorPlans={floorPlans}
+          height={600}
+          client:load
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="py-20 md:py-28 bg-eventflow-black-dark">
+    <div class="container-custom">
+      <SectionTitle
+        title="¿Por Qué Nuestros Espacios?"
+        subtitle="Características que hacen de Majestic el lugar perfecto"
+        alignment="center"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+        {
+          [
+            {
+              icon: '📐',
+              title: 'Flexible',
+              description: 'Espacios modulables que se adaptan a tu visión',
+            },
+            {
+              icon: '🎨',
+              title: 'Moderno',
+              description: 'Diseño contemporáneo con detalles de lujo',
+            },
+            {
+              icon: '⚡',
+              title: 'Tecnología',
+              description: 'Sistemas audiovisuales de última generación',
+            },
+            {
+              icon: '👨‍🍳',
+              title: 'Gastronomía',
+              description: 'Chefs de autor con menús personalizados',
+            },
+            {
+              icon: '🌞',
+              title: 'Luminoso',
+              description: 'Iluminación natural y ambiental profesional',
+            },
+            {
+              icon: '🔒',
+              title: 'Privado',
+              description: 'Espacios con acceso controlado y discreto',
+            },
+          ].map((feature) => (
+            <div class="glass-card p-6" data-animate>
+              <div class="text-4xl mb-4">{feature.icon}</div>
+              <h3 class="text-lg font-bold text-white mb-2">{feature.title}</h3>
+              <p class="text-gray-300 text-sm">{feature.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 md:py-28 bg-gradient-to-r from-eventflow-primary to-eventflow-base text-white">
+    <div class="container-custom text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        Descubre el Espacio Perfecto para Tu Evento
+      </h2>
+      <p class="text-lg mb-10 max-w-2xl mx-auto opacity-90">
+        Nuestros consultores están listos para ayudarte a configurar el espacio exacto que necesitas
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact"
+          class="inline-block bg-eventflow-black text-eventflow-primary px-8 py-4 rounded-full font-semibold hover:bg-eventflow-black-dark hover:shadow-lg transition-all duration-300"
+        >
+          Agendar Consulta
+        </a>
+        <a
+          href="/spaces"
+          class="inline-block border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300"
+        >
+          Ver Transformaciones
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
