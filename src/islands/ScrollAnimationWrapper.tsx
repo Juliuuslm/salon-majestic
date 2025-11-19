@@ -1,111 +1,198 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+type AnimationType =
+  | 'stagger'
+  | 'parallax'
+  | 'scaleUp'
+  | 'slideInLeft'
+  | 'slideInRight'
+  | 'slideInUp'
+  | 'slideInDown'
+  | 'blurFade'
+  | 'rotate'
+  | 'bounceIn'
+  | 'none';
 
 interface ScrollAnimationWrapperProps {
   children: React.ReactNode;
-  animationType?:
-    | 'fadeInUp'
-    | 'stagger'
-    | 'parallax'
-    | 'revealWidth'
-    | 'scaleIn'
-    | 'rotateIn'
-    | 'hover'
-    | 'none';
-  selector?: string;
+  animation?: AnimationType;
+  duration?: number;
   delay?: number;
-  staggerDelay?: number;
-  speed?: number;
+  stagger?: number;
+  distance?: number;
   className?: string;
 }
 
 /**
- * Scroll Animation Wrapper Component
- * Applies GSAP animations to child elements on scroll
- *
- * Usage:
- * <ScrollAnimationWrapper animationType="stagger" selector=".card">
- *   <div className="card">...</div>
- *   <div className="card">...</div>
- * </ScrollAnimationWrapper>
+ * Wrapper component to apply GSAP scroll animations to children
  */
-export default function ScrollAnimationWrapper({
+const ScrollAnimationWrapper: React.FC<ScrollAnimationWrapperProps> = ({
   children,
-  animationType = 'fadeInUp',
-  selector = '[data-animate]',
+  animation = 'stagger',
+  duration = 0.8,
   delay = 0,
-  staggerDelay = 0.1,
-  speed = 0.5,
+  stagger = 0.1,
+  distance = 30,
   className = '',
-}: ScrollAnimationWrapperProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
+}) => {
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current || animationType === 'none') return;
+    if (!ref.current || animation === 'none') return;
 
-    // Dynamic import to ensure it only loads on client
-    const setupAnimations = async () => {
-      try {
-        const {
-          fadeInUp,
-          staggerFadeInUp,
-          parallax,
-          revealWidth,
-          scaleIn,
-          rotateIn,
-          setupHoverAnimation,
-          refreshScrollTriggers,
-        } = await import('@utils/gsap-animations');
+    // Register ScrollTrigger plugin on client
+    if (!gsap.plugins.scrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+    }
 
-        const elements = containerRef.current?.querySelectorAll(selector);
+    const el = ref.current;
+    const animateChildren = el.querySelectorAll('[data-animate]');
 
-        if (!elements || elements.length === 0) {
-          console.warn(`ScrollAnimationWrapper: No elements found for selector "${selector}"`);
-          return;
+    switch (animation) {
+      case 'stagger':
+        gsap.to(animateChildren, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+          opacity: 1,
+          y: 0,
+          duration,
+          stagger,
+          ease: 'power3.out',
+        });
+        gsap.set(animateChildren, { opacity: 0, y: distance });
+        break;
+
+      case 'parallax':
+        gsap.to(el, {
+          scrollTrigger: {
+            trigger: el,
+            scrub: 1,
+          },
+          y: distance,
+          ease: 'none',
+        });
+        break;
+
+      case 'scaleUp':
+        gsap.to(animateChildren, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+          scale: 1,
+          opacity: 1,
+          duration,
+          stagger,
+          ease: 'back.out',
+        });
+        gsap.set(animateChildren, { opacity: 0, scale: 0.9 });
+        break;
+
+      case 'slideInLeft':
+        gsap.to(animateChildren, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+          x: 0,
+          opacity: 1,
+          duration,
+          stagger,
+          ease: 'power3.out',
+        });
+        gsap.set(animateChildren, { opacity: 0, x: -distance });
+        break;
+
+      case 'slideInRight':
+        gsap.to(animateChildren, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+          x: 0,
+          opacity: 1,
+          duration,
+          stagger,
+          ease: 'power3.out',
+        });
+        gsap.set(animateChildren, { opacity: 0, x: distance });
+        break;
+
+      case 'slideInUp':
+        gsap.to(animateChildren, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+          y: 0,
+          opacity: 1,
+          duration,
+          stagger,
+          ease: 'power3.out',
+        });
+        gsap.set(animateChildren, { opacity: 0, y: distance });
+        break;
+
+      case 'slideInDown':
+        gsap.to(animateChildren, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+          y: 0,
+          opacity: 1,
+          duration,
+          stagger,
+          ease: 'power3.out',
+        });
+        gsap.set(animateChildren, { opacity: 0, y: -distance });
+        break;
+
+      case 'bounceIn':
+        gsap.to(animateChildren, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+          scale: 1,
+          opacity: 1,
+          duration,
+          stagger,
+          ease: 'back.out(1.2)',
+        });
+        gsap.set(animateChildren, { opacity: 0, scale: 0 });
+        break;
+
+      default:
+        break;
+    }
+
+    return () => {
+      gsap.killTweensOf(animateChildren);
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.trigger === el) {
+          trigger.kill();
         }
-
-        switch (animationType) {
-          case 'stagger':
-            staggerFadeInUp(selector, staggerDelay);
-            break;
-          case 'parallax':
-            parallax(selector, speed);
-            break;
-          case 'revealWidth':
-            revealWidth(selector);
-            break;
-          case 'scaleIn':
-            scaleIn(selector, delay);
-            break;
-          case 'rotateIn':
-            rotateIn(selector, delay);
-            break;
-          case 'hover':
-            setupHoverAnimation(selector);
-            break;
-          case 'fadeInUp':
-          default:
-            fadeInUp(selector, delay);
-            break;
-        }
-
-        // Refresh ScrollTriggers after animations are set up
-        refreshScrollTriggers();
-      } catch (error) {
-        console.error('Error loading GSAP animations:', error);
-      }
+      });
     };
-
-    // Wait for DOM to be fully ready
-    const timer = setTimeout(() => {
-      setupAnimations();
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, [animationType, selector, delay, staggerDelay, speed]);
+  }, [animation, duration, stagger, distance]);
 
   return (
-    <div ref={containerRef} className={className}>
+    <div ref={ref} className={className}>
       {children}
     </div>
   );
-}
+};
+
+export default ScrollAnimationWrapper;

@@ -96,27 +96,27 @@ const seo = {
       />
 
       <ScrollAnimationWrapper
-        animationType="stagger"
-        selector="[data-service-card]"
-        staggerDelay={0.15}
+        animation="stagger"
+        duration={0.8}
+        stagger={0.1}
+        distance={30}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16"
         client:load
       >
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-          {
-            services.slice(0, 6).map((service, index) => (
-              <div data-service-card>
-                <ServiceCard
-                  icon={service.icon}
-                  title={service.title}
-                  description={service.description}
-                  features={service.features}
-                  link={service.link}
-                  delay={`${(index + 1) * 100}ms`}
-                />
-              </div>
-            ))
-          }
-        </div>
+        {
+          services.slice(0, 6).map((service, index) => (
+            <div data-animate>
+              <ServiceCard
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                features={service.features}
+                link={service.link}
+                delay={`${(index + 1) * 100}ms`}
+              />
+            </div>
+          ))
+        }
       </ScrollAnimationWrapper>
     </div>
   </section>
@@ -174,29 +174,29 @@ const seo = {
       />
 
       <ScrollAnimationWrapper
-        animationType="stagger"
-        selector="[data-event-card]"
-        staggerDelay={0.15}
+        animation="slideInUp"
+        duration={0.8}
+        stagger={0.15}
+        distance={40}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16"
         client:load
       >
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-          {
-            events.slice(0, 3).map((event, index) => (
-              <div data-event-card>
-                <EventCard
-                  title={event.title}
-                  date={event.date}
-                  time={event.time}
-                  location={event.location}
-                  image={event.image}
-                  description={event.description}
-                  link={event.link || '/events'}
-                  delay={`${(index + 1) * 100}ms`}
-                />
-              </div>
-            ))
-          }
-        </div>
+        {
+          events.slice(0, 3).map((event, index) => (
+            <div data-animate>
+              <EventCard
+                title={event.title}
+                date={event.date}
+                time={event.time}
+                location={event.location}
+                image={event.image}
+                description={event.description}
+                link={event.link || '/events'}
+                delay={`${(index + 1) * 100}ms`}
+              />
+            </div>
+          ))
+        }
       </ScrollAnimationWrapper>
 
       <div class="mt-12 text-center">
