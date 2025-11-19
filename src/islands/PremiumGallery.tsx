@@ -40,14 +40,19 @@ const PremiumGallery: React.FC<PremiumGalleryProps> = ({
   // Get unique categories
   const categories = ['all', ...Array.from(new Set(images.map((img) => img.category)))];
 
+  // Update filtered images when active category changes
+  useEffect(() => {
+    if (activeCategory === 'all') {
+      setFilteredImages(images);
+    } else {
+      const filtered = images.filter((img) => img.category === activeCategory);
+      setFilteredImages(filtered);
+    }
+  }, [activeCategory, images]);
+
   // Filter images by category
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
-    if (category === 'all') {
-      setFilteredImages(images);
-    } else {
-      setFilteredImages(images.filter((img) => img.category === category));
-    }
   };
 
   // Open Photoswipe lightbox
@@ -71,10 +76,10 @@ const PremiumGallery: React.FC<PremiumGalleryProps> = ({
 
   const gridColsClass = {
     1: 'grid-cols-1',
-    2: 'md:grid-cols-2',
-    3: 'lg:grid-cols-3',
-    4: 'lg:grid-cols-4',
-  }[columns] || 'lg:grid-cols-3';
+    2: 'grid-cols-1 md:grid-cols-2',
+    3: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+    4: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4',
+  }[columns] || 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
 
   const gapClass = {
     12: 'gap-3',
@@ -105,7 +110,7 @@ const PremiumGallery: React.FC<PremiumGalleryProps> = ({
       {/* Gallery Grid */}
       <div
         ref={galleryRef}
-        className={`grid grid-cols-1 md:grid-cols-2 ${gridColsClass} ${gapClass}`}
+        className={`grid ${gridColsClass} ${gapClass}`}
       >
         {filteredImages.map((image, index) => (
           <div
